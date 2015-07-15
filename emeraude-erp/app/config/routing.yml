@@ -1,0 +1,4 @@
+e_plan_planning:
+    resource: "@EPlanPlanningBundle/Resources/config/routing.yml"
+    prefix:   /
+
