@@ -458,12 +458,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Dashboard
-            <small>Control panel</small>
+              {% block titrePage %}Dashboard{% endblock %}
+            <small>{% block explicationTitrePage %}Control panel{% endblock %}</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            {% block filArianeTitreDebut %}<li><a href="{% block filArianeTitreLien %}#{% endblock %}"><i class="fa fa-dashboard"></i>{% block filArianeTitreValeurDuLien %} Home{% endblock %}</a></li>{% endblock %}
+            <li class="active">{% block filArianeTitreFin %}Dashboard{% endblock %}</li>
           </ol>
         </section>
 
@@ -473,11 +473,11 @@
           <div class="row">
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
-
+                {% block contenuDeGauche %}{% endblock %}
             </section><!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
             <section class="col-lg-5 connectedSortable">
-
+                {% block contenuDeDroite %}{% endblock %}
             </section><!-- right col -->
           </div><!-- /.row (main row) -->
 
