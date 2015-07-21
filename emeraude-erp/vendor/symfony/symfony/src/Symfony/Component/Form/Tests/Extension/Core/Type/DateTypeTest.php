@@ -13,9 +13,10 @@ namespace Symfony\Component\Form\Tests\Extension\Core\Type;
 
 use Symfony\Component\Form\Extension\Core\View\ChoiceView;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\Test\TypeTestCase as TestCase;
 use Symfony\Component\Intl\Util\IntlTestHelper;
 
-class DateTypeTest extends TypeTestCase
+class DateTypeTest extends TestCase
 {
     protected function setUp()
     {
@@ -340,6 +341,36 @@ class DateTypeTest extends TypeTestCase
         ));
     }
 
+    /**
+     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     */
+    public function testThrowExceptionIfYearsIsInvalid()
+    {
+        $this->factory->create('date', null, array(
+            'years' => 'bad value',
+        ));
+    }
+
+    /**
+     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     */
+    public function testThrowExceptionIfMonthsIsInvalid()
+    {
+        $this->factory->create('date', null, array(
+            'months' => 'bad value',
+        ));
+    }
+
+    /**
+     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     */
+    public function testThrowExceptionIfDaysIsInvalid()
+    {
+        $this->factory->create('date', null, array(
+            'days' => 'bad value',
+        ));
+    }
+
     public function testSetDataWithDifferentTimezones()
     {
         $form = $this->factory->create('date', null, array(
@@ -412,7 +443,7 @@ class DateTypeTest extends TypeTestCase
 
         $this->assertEquals(array(
             new ChoiceView('1', '1', 'Jän'),
-            new ChoiceView('4', '4', 'Apr.')
+            new ChoiceView('4', '4', 'Apr.'),
         ), $view['month']->vars['choices']);
     }
 
@@ -554,7 +585,7 @@ class DateTypeTest extends TypeTestCase
     public function testPassDatePatternToViewDifferentPattern()
     {
         $form = $this->factory->create('date', null, array(
-            'format' => 'MMyyyydd'
+            'format' => 'MMyyyydd',
         ));
 
         $view = $form->createView();
@@ -565,7 +596,7 @@ class DateTypeTest extends TypeTestCase
     public function testPassDatePatternToViewDifferentPatternWithSeparators()
     {
         $form = $this->factory->create('date', null, array(
-            'format' => 'MM*yyyy*dd'
+            'format' => 'MM*yyyy*dd',
         ));
 
         $view = $form->createView();

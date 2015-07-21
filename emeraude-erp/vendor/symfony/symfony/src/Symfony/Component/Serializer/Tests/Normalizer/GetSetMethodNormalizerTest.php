@@ -216,7 +216,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
                 ),
                 'baz',
                 array('foo' => '', 'bar' => null, 'baz' => true),
-                'Null an item'
+                'Null an item',
             ),
             array(
                 array(
@@ -265,7 +265,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
         $serializer = $this->getMock('Symfony\Component\Serializer\SerializerInterface');
         $this->normalizer->setSerializer($serializer);
 
-        $obj    = new GetSetDummy();
+        $obj = new GetSetDummy();
         $object = new \stdClass();
         $obj->setObject($object);
 

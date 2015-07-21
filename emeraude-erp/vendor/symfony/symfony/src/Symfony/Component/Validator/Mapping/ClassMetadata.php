@@ -17,8 +17,6 @@ use Symfony\Component\Validator\Constraints\Traverse;
 use Symfony\Component\Validator\Constraints\Valid;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 use Symfony\Component\Validator\Exception\GroupDefinitionException;
-use Symfony\Component\Validator\MetadataInterface as LegacyMetadataInterface;
-use Symfony\Component\Validator\PropertyMetadataContainerInterface;
 use Symfony\Component\Validator\ValidationVisitorInterface;
 
 /**
@@ -29,7 +27,7 @@ use Symfony\Component\Validator\ValidationVisitorInterface;
  * @author Bernhard Schussek <bschussek@gmail.com>
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, PropertyMetadataContainerInterface, ClassMetadataInterface
+class ClassMetadata extends ElementMetadata implements ClassMetadataInterface
 {
     /**
      * @var string
@@ -113,7 +111,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
     private $reflClass;
 
     /**
-     * Constructs a metadata for the given class
+     * Constructs a metadata for the given class.
      *
      * @param string $class
      */
@@ -184,7 +182,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
             'members',
             'name',
             'properties',
-            'defaultGroup'
+            'defaultGroup',
         ));
     }
 
@@ -197,7 +195,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
     }
 
     /**
-     * Returns the name of the default group for this class
+     * Returns the name of the default group for this class.
      *
      * For each class, the group "Default" is an alias for the group
      * "<ClassName>", where <ClassName> is the non-namespaced name of the
@@ -209,7 +207,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
      * will validate the group sequence. The constraints assigned to "Default"
      * can still be validated by validating the class in "<ClassName>".
      *
-     * @return string  The name of the default group
+     * @return string The name of the default group
      */
     public function getDefaultGroup()
     {
@@ -371,6 +369,10 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
      */
     public function getMemberMetadatas($property)
     {
+        if (!isset($this->members[$property])) {
+            return array();
+        }
+
         return $this->members[$property];
     }
 
@@ -387,6 +389,10 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
      */
     public function getPropertyMetadata($property)
     {
+        if (!isset($this->members[$property])) {
+            return array();
+        }
+
         return $this->members[$property];
     }
 
@@ -463,7 +469,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
     /**
      * Sets whether a group sequence provider should be used.
      *
-     * @param bool    $active
+     * @param bool $active
      *
      * @throws GroupDefinitionException
      */
@@ -491,7 +497,7 @@ class ClassMetadata extends ElementMetadata implements LegacyMetadataInterface, 
     /**
      * Class nodes are never cascaded.
      *
-     * @return bool    Always returns false.
+     * {@inheritdoc}
      */
     public function getCascadingStrategy()
     {

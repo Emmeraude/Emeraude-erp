@@ -176,9 +176,9 @@ class Configurator
 
     /**
      * Writes parameters to parameters.yml or temporary in the cache directory.
-     * 
+     *
      * @param int $expanded
-     * 
+     *
      * @return int
      */
     public function write($expanded = 0)
@@ -200,7 +200,11 @@ class Configurator
             $filename = $this->getCacheFilename();
         }
 
-        $ret = Yaml::parse($filename);
+        if (!file_exists($filename)) {
+            return array();
+        }
+
+        $ret = Yaml::parse(file_get_contents($filename));
         if (false === $ret || array() === $ret) {
             throw new \InvalidArgumentException(sprintf('The %s file is not valid.', $filename));
         }

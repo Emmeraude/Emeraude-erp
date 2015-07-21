@@ -1,3 +1,21 @@
+<<<<<<< HEAD
 e_plan_planning_manage_division:
     path:     /manageDivision
     defaults: { _controller: EPlanPlanningBundle:Division:managePresentation }
+=======
+e_plan_planning_registrer_parcourt_type:
+    path:     /formCreateParcourtType
+    defaults: { _controller: EPlanPlanningBundle:ParcourtType:formView }
+e_plan_planning_registrer_enseignant:
+    path:     /Creer-un-Enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:createEnseignant }
+e_plan_planning_consult_enseignant:
+    path:     /Consulter-un-Enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:consultEnseignant }
+e_plan_planning_index_enseignant:
+    path:     /
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:indexEnseignant }
+e_plan_planning_attrib_ec_enseignant:
+    path:     /attrib-ec-enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:attribEcEnseignant }
+>>>>>>> 265b75d54b406cb36143de3df688257e9b8cf4c4
