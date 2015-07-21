@@ -1,0 +1,70 @@
+<?php
+
+namespace EPlan\PlanningBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Departement
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="EPlan\PlanningBundle\Entity\DepartementRepository")
+ */
+class Departement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=120)
+     */
+    private $nom;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Mention", mappedBy="departement")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mentions;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Departement
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+}

@@ -34,6 +34,21 @@ class ParcourtType
      * @ORM\Column(name="code", type="string", length=12)
      */
     private $code;
+    
+    /**
+     * @var 
+     *
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Mention", inversedBy="parcourtTypes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mention;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Etape", mappedBy="parcourtType")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $etapes;
+
 
 
     /**
@@ -90,5 +105,78 @@ class ParcourtType
     public function getCode()
     {
         return $this->code;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etapes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set mention
+     *
+     * @param \EPlan\PlanningBundle\Entity\Mention $mention
+     * @return ParcourtType
+     */
+    public function setMention(\EPlan\PlanningBundle\Entity\Mention $mention)
+    {
+        $this->mention = $mention;
+    
+        return $this;
+    }
+
+    /**
+     * Get mention
+     *
+     * @return \EPlan\PlanningBundle\Entity\Mention 
+     */
+    public function getMention()
+    {
+        return $this->mention;
+    }
+
+    /**
+     * Add etapes
+     *
+     * @param \EPlan\PlanningBundle\Entity\Etape $etapes
+     * @return ParcourtType
+     */
+    public function addEtape(\EPlan\PlanningBundle\Entity\Etape $etapes)
+    {
+        $this->etapes[] = $etapes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove etapes
+     *
+     * @param \EPlan\PlanningBundle\Entity\Etape $etapes
+     */
+    public function removeEtape(\EPlan\PlanningBundle\Entity\Etape $etapes)
+    {
+        $this->etapes->removeElement($etapes);
+    }
+
+    /**
+     * Get etapes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEtapes()
+    {
+        return $this->etapes;
+    }
+    
+    /**
+     * Get le nombre d'étudiants du parcourt type
+     *
+     * @return integer 
+     */
+    public function getNombreEtudiants()
+    {
+        return 160;
     }
 }

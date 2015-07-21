@@ -1,0 +1,76 @@
+<?php
+
+namespace EPlan\PlanningBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Mention
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="EPlan\PlanningBundle\Entity\MentionRepository")
+ */
+class Mention
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=120)
+     */
+    private $nom;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement", inversedBy="mentions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\ParcourtType", mappedBy="mention")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $parcourtTypes;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Mention
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+}
