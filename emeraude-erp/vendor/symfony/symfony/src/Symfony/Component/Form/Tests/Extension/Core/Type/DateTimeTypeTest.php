@@ -12,9 +12,10 @@
 namespace Symfony\Component\Form\Tests\Extension\Core\Type;
 
 use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\Test\TypeTestCase as TestCase;
 use Symfony\Component\Intl\Util\IntlTestHelper;
 
-class DateTimeTypeTest extends TypeTestCase
+class DateTimeTypeTest extends TestCase
 {
     protected function setUp()
     {
@@ -441,7 +442,7 @@ class DateTimeTypeTest extends TypeTestCase
     {
         $error = new FormError('Invalid!');
         $form = $this->factory->create('datetime', null, array(
-            'date_widget' => 'single_text'
+            'date_widget' => 'single_text',
         ));
 
         $form['date']->addError($error);
@@ -465,7 +466,7 @@ class DateTimeTypeTest extends TypeTestCase
     {
         $error = new FormError('Invalid!');
         $form = $this->factory->create('datetime', null, array(
-            'time_widget' => 'single_text'
+            'time_widget' => 'single_text',
         ));
 
         $form['time']->addError($error);
@@ -473,5 +474,4 @@ class DateTimeTypeTest extends TypeTestCase
         $this->assertSame(array(), iterator_to_array($form['time']->getErrors()));
         $this->assertSame(array($error), iterator_to_array($form->getErrors()));
     }
-
 }

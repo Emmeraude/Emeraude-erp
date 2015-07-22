@@ -8,7 +8,7 @@
   <services>
     <service id="foo" class="Bar\FooClass" factory-method="getInstance" factory-class="Bar\FooClass">
       <tag name="foo" foo="foo"/>
-      <tag name="foo" bar="bar"/>
+      <tag name="foo" bar="bar" baz="baz"/>
       <argument>foo</argument>
       <argument type="service" id="foo.baz"/>
       <argument type="collection">
@@ -54,7 +54,7 @@
         <argument type="service" id="foobaz" on-invalid="ignore"/>
       </call>
       <call method="setBar">
-        <argument type="expression">service("foo").foo() ~ parameter("foo")</argument>
+        <argument type="expression">service("foo").foo() ~ (container.hasparameter("foo") ? parameter("foo") : "default")</argument>
       </call>
     </service>
     <service id="factory_service" class="Bar" factory-method="getInstance" factory-service="foo.baz"/>

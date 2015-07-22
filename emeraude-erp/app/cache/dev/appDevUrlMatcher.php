@@ -61,6 +61,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'web_profiler.controller.profiler:purgeAction',  '_route' => '_profiler_purge',);
                 }
 
+<<<<<<< HEAD
                 if (0 === strpos($pathinfo, '/_profiler/i')) {
                     // _profiler_info
                     if (0 === strpos($pathinfo, '/_profiler/info') && preg_match('#^/_profiler/info/(?P<about>[^/]++)$#s', $pathinfo, $matches)) {
@@ -77,6 +78,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _profiler_export
                 if (0 === strpos($pathinfo, '/_profiler/export') && preg_match('#^/_profiler/export/(?P<token>[^/\\.]++)\\.txt$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_export')), array (  '_controller' => 'web_profiler.controller.profiler:exportAction',));
+=======
+                // _profiler_info
+                if (0 === strpos($pathinfo, '/_profiler/info') && preg_match('#^/_profiler/info/(?P<about>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_info')), array (  '_controller' => 'web_profiler.controller.profiler:infoAction',));
+>>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
                 }
 
                 // _profiler_phpinfo
@@ -136,6 +142,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/planning')) {
+<<<<<<< HEAD
+=======
+            // e_plan_planning_manage_division
+            if ($pathinfo === '/planning/manageDivision') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
+            }
+
+            // e_plan_planning_load_division
+            if ($pathinfo === '/planning/charger-les-departements') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::loadDepartementAction',  '_route' => 'e_plan_planning_load_division',);
+            }
+
+>>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
             // e_plan_planning_registrer_parcourt_type
             if ($pathinfo === '/planning/formCreateParcourtType') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\ParcourtTypeController::formViewAction',  '_route' => 'e_plan_planning_registrer_parcourt_type',);
@@ -168,6 +187,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::attribEcEnseignantAction',  '_route' => 'e_plan_planning_attrib_ec_enseignant',);
             }
 
+<<<<<<< HEAD
             if (0 === strpos($pathinfo, '/planning/param-plan-manuel')) {
                 // e_plan_planning_indexPlanManuel
                 if ($pathinfo === '/planning/param-plan-manuel') {
@@ -179,6 +199,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PlanManuelController::gpePlanManuelAction',  '_route' => 'e_plan_planning_test',);
                 }
 
+=======
+            // e_plan_planning_welcome
+            if ($pathinfo === '/planning/welcome') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PresentationController::welcomeAction',  '_route' => 'e_plan_planning_welcome',);
+>>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
             }
 
         }

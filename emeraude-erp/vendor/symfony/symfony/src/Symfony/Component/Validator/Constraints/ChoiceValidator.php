@@ -49,13 +49,12 @@ class ChoiceValidator extends ConstraintValidator
         }
 
         if ($constraint->callback) {
-            if (is_callable(array($this->context->getClassName(), $constraint->callback))) {
-                $choices = call_user_func(array($this->context->getClassName(), $constraint->callback));
-            } elseif (is_callable($constraint->callback)) {
-                $choices = call_user_func($constraint->callback);
-            } else {
+            if (!is_callable($choices = array($this->context->getClassName(), $constraint->callback))
+                && !is_callable($choices = $constraint->callback)
+            ) {
                 throw new ConstraintDefinitionException('The Choice constraint expects a valid callback');
             }
+            $choices = call_user_func($choices);
         } else {
             $choices = $constraint->choices;
         }
@@ -63,16 +62,19 @@ class ChoiceValidator extends ConstraintValidator
         if ($constraint->multiple) {
             foreach ($value as $_value) {
                 if (!in_array($_value, $choices, $constraint->strict)) {
-                    $this->context->buildViolation($constraint->multipleMessage)
+                    $this->buildViolation($constraint->multipleMessage)
                         ->setParameter('{{ value }}', $this->formatValue($_value))
+                        ->setInvalidValue($_value)
                         ->addViolation();
+
+                    return;
                 }
             }
 
             $count = count($value);
 
             if ($constraint->min !== null && $count < $constraint->min) {
-                $this->context->buildViolation($constraint->minMessage)
+                $this->buildViolation($constraint->minMessage)
                     ->setParameter('{{ limit }}', $constraint->min)
                     ->setPlural((int) $constraint->min)
                     ->addViolation();
@@ -81,7 +83,7 @@ class ChoiceValidator extends ConstraintValidator
             }
 
             if ($constraint->max !== null && $count > $constraint->max) {
-                $this->context->buildViolation($constraint->maxMessage)
+                $this->buildViolation($constraint->maxMessage)
                     ->setParameter('{{ limit }}', $constraint->max)
                     ->setPlural((int) $constraint->max)
                     ->addViolation();
@@ -89,7 +91,7 @@ class ChoiceValidator extends ConstraintValidator
                 return;
             }
         } elseif (!in_array($value, $choices, $constraint->strict)) {
-            $this->context->buildViolation($constraint->message)
+            $this->buildViolation($constraint->message)
                 ->setParameter('{{ value }}', $this->formatValue($value))
                 ->addViolation();
         }

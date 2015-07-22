@@ -349,8 +349,8 @@
               </ul>
             </li>
             <li>
-              <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+              <a href="{{ path('e_plan_planning_manage_division') }}">
+                <i class="fa fa-th"></i> <span>Gestion Des Divisions</span> <small class="label pull-right bg-green">new</small>
               </a>
             </li>
             <li class="treeview">
@@ -481,6 +481,7 @@
             {% block contenu %}
           <!-- Main row -->
           <div class="row">
+            {% block pageCentrale %}
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
                 {% block contenuDeGauche %}{% endblock %}
@@ -489,6 +490,7 @@
             <section class="col-lg-5 connectedSortable">
                 {% block contenuDeDroite %}{% endblock %}
             </section><!-- right col -->
+            {% endblock %}
           </div><!-- /.row (main row) -->
          {% endblock %}
         </section><!-- /.content -->

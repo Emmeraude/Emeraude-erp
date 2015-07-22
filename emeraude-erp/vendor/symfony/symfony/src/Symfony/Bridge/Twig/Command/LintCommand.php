@@ -87,6 +87,13 @@ EOF
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $twig = $this->getTwigEnvironment();
+
+        if (null === $twig) {
+            $output->writeln('<error>The Twig environment needs to be set.</error>');
+
+            return 1;
+        }
+
         $filename = $input->getArgument('filename');
 
         if (!$filename) {
@@ -132,6 +139,7 @@ EOF
             $twig->setLoader($realLoader);
         } catch (\Twig_Error $e) {
             $twig->setLoader($realLoader);
+
             return array('template' => $template, 'file' => $file, 'valid' => false, 'exception' => $e);
         }
 

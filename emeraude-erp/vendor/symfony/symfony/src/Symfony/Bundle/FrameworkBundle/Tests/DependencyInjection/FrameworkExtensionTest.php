@@ -198,6 +198,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertEquals(array('php', 'twig'), $container->getParameter('templating.engines'), '->registerTemplatingConfiguration() sets a templating.engines parameter');
 
         $this->assertEquals(array('FrameworkBundle:Form', 'theme1', 'theme2'), $container->getParameter('templating.helper.form.resources'), '->registerTemplatingConfiguration() registers the theme and adds the base theme');
+        $this->assertEquals('global_hinclude_template', $container->getParameter('fragment.renderer.hinclude.global_template'), '->registerTemplatingConfiguration() registers the global hinclude.js template');
     }
 
     public function testTemplatingAssetsHelperScopeDependsOnPackageArgumentScopes()
@@ -245,6 +246,14 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertEquals(array('fr'), $calls[0][1][0]);
     }
 
+    public function testTranslatorMultipleFullback()
+    {
+        $container = $this->createContainerFromFile('translator_fallbacks');
+
+        $calls = $container->getDefinition('translator.default')->getMethodCalls();
+        $this->assertEquals(array('en', 'fr'), $calls[0][1][0]);
+    }
+
     /**
      * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      */
@@ -264,7 +273,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
 
-        $this->assertCount(6, $calls);
+        $this->assertCount(7, $calls);
         $this->assertSame('setConstraintValidatorFactory', $calls[0][0]);
         $this->assertEquals(array(new Reference('validator.validator_factory')), $calls[0][1]);
         $this->assertSame('setTranslator', $calls[1][0]);
@@ -277,6 +286,13 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
         $this->assertSame('setMetadataCache', $calls[5][0]);
         $this->assertEquals(array(new Reference('validator.mapping.cache.apc')), $calls[5][1]);
+        $this->assertSame('setApiVersion', $calls[6][0]);
+
+        if (PHP_VERSION_ID < 50309) {
+            $this->assertEquals(array(Validation::API_VERSION_2_4), $calls[6][1]);
+        } else {
+            $this->assertEquals(array(Validation::API_VERSION_2_5_BC), $calls[6][1]);
+        }
     }
 
     public function testFullyConfiguredValidationService()
@@ -318,7 +334,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
 
-        $this->assertCount(6, $calls);
+        $this->assertCount(7, $calls);
         $this->assertSame('enableAnnotationMapping', $calls[4][0]);
         $this->assertEquals(array(new Reference('annotation_reader')), $calls[4][1]);
         $this->assertSame('addMethodMapping', $calls[5][0]);
@@ -336,7 +352,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
 
-        $this->assertCount(7, $calls);
+        $this->assertCount(8, $calls);
         $this->assertSame('addXmlMappings', $calls[3][0]);
         $this->assertSame('addYamlMappings', $calls[4][0]);
         $this->assertSame('enableAnnotationMapping', $calls[5][0]);
@@ -359,12 +375,12 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
 
-        $this->assertCount(4, $calls);
+        $this->assertCount(5, $calls);
         $this->assertSame('addXmlMappings', $calls[3][0]);
         // no cache, no annotations, no static methods
     }
 
-    public function testValidationApiVersion()
+    public function testValidation2Dot4Api()
     {
         $container = $this->createContainerFromFile('validation_2_4_api');
 
@@ -376,7 +392,84 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
         $this->assertSame('setApiVersion', $calls[5][0]);
         $this->assertSame(array(Validation::API_VERSION_2_4), $calls[5][1]);
+        $this->assertSame('Symfony\Component\Validator\ValidatorInterface', $container->getParameter('validator.class'));
         // no cache, no annotations
+    }
+
+    public function testValidation2Dot5Api()
+    {
+        $container = $this->createContainerFromFile('validation_2_5_api');
+
+        $calls = $container->getDefinition('validator.builder')->getMethodCalls();
+
+        $this->assertCount(6, $calls);
+        $this->assertSame('addXmlMappings', $calls[3][0]);
+        $this->assertSame('addMethodMapping', $calls[4][0]);
+        $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
+        $this->assertSame('setApiVersion', $calls[5][0]);
+        $this->assertSame(array(Validation::API_VERSION_2_5), $calls[5][1]);
+        $this->assertSame('Symfony\Component\Validator\Validator\ValidatorInterface', $container->getParameter('validator.class'));
+        // no cache, no annotations
+    }
+
+    public function testValidation2Dot5BcApi()
+    {
+        $container = $this->createContainerFromFile('validation_2_5_bc_api');
+
+        $calls = $container->getDefinition('validator.builder')->getMethodCalls();
+
+        $this->assertCount(6, $calls);
+        $this->assertSame('addXmlMappings', $calls[3][0]);
+        $this->assertSame('addMethodMapping', $calls[4][0]);
+        $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
+        $this->assertSame('setApiVersion', $calls[5][0]);
+        $this->assertSame(array(Validation::API_VERSION_2_5_BC), $calls[5][1]);
+        $this->assertSame('Symfony\Component\Validator\ValidatorInterface', $container->getParameter('validator.class'));
+        // no cache, no annotations
+    }
+
+    public function testValidationImplicitApi()
+    {
+        $container = $this->createContainerFromFile('validation_implicit_api');
+
+        $calls = $container->getDefinition('validator.builder')->getMethodCalls();
+
+        $this->assertCount(6, $calls);
+        $this->assertSame('addXmlMappings', $calls[3][0]);
+        $this->assertSame('addMethodMapping', $calls[4][0]);
+        $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
+        $this->assertSame('setApiVersion', $calls[5][0]);
+        // no cache, no annotations
+
+        if (PHP_VERSION_ID < 50309) {
+            $this->assertSame(array(Validation::API_VERSION_2_4), $calls[5][1]);
+        } else {
+            $this->assertSame(array(Validation::API_VERSION_2_5_BC), $calls[5][1]);
+        }
+    }
+
+    /**
+     * This feature is equivalent to the implicit api, only that the "api"
+     * key is explicitly set to "auto".
+     */
+    public function testValidationAutoApi()
+    {
+        $container = $this->createContainerFromFile('validation_auto_api');
+
+        $calls = $container->getDefinition('validator.builder')->getMethodCalls();
+
+        $this->assertCount(6, $calls);
+        $this->assertSame('addXmlMappings', $calls[3][0]);
+        $this->assertSame('addMethodMapping', $calls[4][0]);
+        $this->assertSame(array('loadValidatorMetadata'), $calls[4][1]);
+        $this->assertSame('setApiVersion', $calls[5][0]);
+        // no cache, no annotations
+
+        if (PHP_VERSION_ID < 50309) {
+            $this->assertSame(array(Validation::API_VERSION_2_4), $calls[5][1]);
+        } else {
+            $this->assertSame(array(Validation::API_VERSION_2_5_BC), $calls[5][1]);
+        }
     }
 
     public function testFormsCanBeEnabledWithoutCsrfProtection()
@@ -405,12 +498,12 @@ abstract class FrameworkExtensionTest extends TestCase
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles'     => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
-            'kernel.cache_dir'   => __DIR__,
-            'kernel.debug'       => false,
+            'kernel.bundles' => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
+            'kernel.cache_dir' => __DIR__,
+            'kernel.debug' => false,
             'kernel.environment' => 'test',
-            'kernel.name'        => 'kernel',
-            'kernel.root_dir'    => __DIR__,
+            'kernel.name' => 'kernel',
+            'kernel.root_dir' => __DIR__,
         ), $data)));
     }
 

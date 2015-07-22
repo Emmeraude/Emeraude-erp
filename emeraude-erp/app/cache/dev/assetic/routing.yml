@@ -2,4 +2,8 @@ _assetic:
     resource: .
     type: assetic
 _app:
+<<<<<<< HEAD
     resource: 'C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/routing_dev.yml'
+=======
+    resource: 'C:\wamp\www\Emeraude-erp\emeraude-erp\app/config/routing_dev.yml'
+>>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91

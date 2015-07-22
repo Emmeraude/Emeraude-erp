@@ -16,7 +16,6 @@ require_once __DIR__.'/Fixtures/includes/ProjectExtension.php';
 
 use Symfony\Component\Config\Resource\ResourceInterface;
 use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
@@ -486,7 +485,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
             'foo' => array(
                 array('foo' => 'foo'),
                 array('foofoo' => 'foofoo'),
-            )
+            ),
         ), '->findTaggedServiceIds() returns an array of service ids and its tag attributes');
         $this->assertEquals(array(), $builder->findTaggedServiceIds('foobar'), '->findTaggedServiceIds() returns an empty array if there is annotated services');
     }
@@ -569,7 +568,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
         $container->compile();
 
-        $classesPath       = realpath(__DIR__.'/Fixtures/includes/classes.php');
+        $classesPath = realpath(__DIR__.'/Fixtures/includes/classes.php');
         $matchingResources = array_filter(
             $container->getResources(),
             function (ResourceInterface $resource) use ($classesPath) {
@@ -643,16 +642,16 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testPrivateServiceUser()
     {
-        $fooDefinition     = new Definition('BarClass');
+        $fooDefinition = new Definition('BarClass');
         $fooUserDefinition = new Definition('BarUserClass', array(new Reference('bar')));
-        $container         = new ContainerBuilder();
+        $container = new ContainerBuilder();
         $container->setResourceTracking(false);
 
         $fooDefinition->setPublic(false);
 
         $container->addDefinitions(array(
-            'bar'       => $fooDefinition,
-            'bar_user'  => $fooUserDefinition
+            'bar' => $fooDefinition,
+            'bar_user' => $fooUserDefinition,
         ));
 
         $container->compile();
@@ -805,7 +804,9 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-class FooClass {}
+class FooClass
+{
+}
 
 class ProjectContainer extends ContainerBuilder
 {

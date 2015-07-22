@@ -1,3 +1,9 @@
+e_plan_planning_manage_division:
+    path:     /manageDivision
+    defaults: { _controller: EPlanPlanningBundle:Division:managePresentation }
+e_plan_planning_load_division:
+    path:     /charger-les-departements
+    defaults: { _controller: EPlanPlanningBundle:Division:loadDepartement }
 e_plan_planning_registrer_parcourt_type:
     path:     /formCreateParcourtType
     defaults: { _controller: EPlanPlanningBundle:ParcourtType:formView }
@@ -13,6 +19,7 @@ e_plan_planning_index_enseignant:
 e_plan_planning_attrib_ec_enseignant:
     path:     /attrib-ec-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:attribEcEnseignant }
+<<<<<<< HEAD
 e_plan_planning_indexPlanManuel:
     path:     /param-plan-manuel
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:indexPlanManuel }
@@ -20,3 +27,9 @@ e_plan_planning_test:
     path:     /param-plan-manuel-gpe
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:gpePlanManuel }
     
+=======
+e_plan_planning_welcome:
+    path:     /welcome
+    defaults: { _controller: EPlanPlanningBundle:Presentation:welcome }
+
+>>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
