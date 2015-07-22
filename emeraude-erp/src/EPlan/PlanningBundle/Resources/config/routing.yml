@@ -22,4 +22,9 @@ e_plan_planning_attrib_ec_enseignant:
 e_plan_planning_welcome:
     path:     /welcome
     defaults: { _controller: EPlanPlanningBundle:Presentation:welcome }
+e_plan_planning_view_parcourt_Type:
+    path:     /viewParcourtType/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:viewParcourtType }
+    requirements:
+        id:    \d+
 

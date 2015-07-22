@@ -26,6 +26,25 @@ class DivisionController extends Controller
         return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
     }
     
+    public function viewParcourtTypeAction($id) {
+        if($id<1){
+            $message = new ObjectError();
+            $message->setTitle('accès au serveur refusé');
+            $message->setMessageUser('pour des raisons de sécurité, nous ne pouvons pas continuer le traitement de cette requette car un accès frauduleux ä été intercepté<br /> merci');
+            return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
+        }
+        $em = $this->getDoctrine()->getManager();
+        $parcourtTypeRepository = $em ->getRepository('EPlanPlanningBundle:ParcourtType');
+        $parcourtType = $parcourtTypeRepository->find($id);
+        if($parcourtType){
+            return $this->render('EPlanPlanningBundle:ParcourtType:showParcourtType.html.twig', array('parcourtType'=>$parcourtType, 'departements'=>$parcourtType->getMention()->getDepartement()));
+        }
+        $message = new ObjectError();
+            $message->setTitle('accès au serveur refusé');
+            $message->setMessageUser('pour des raisons de sécurité, nous ne pouvons pas continuer le traitement de cette requette car un accès frauduleux ä été intercepté<br /> merci');
+            return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
+    }
+    
     public function loadDepartementAction(){
         $departement = new Departement();
         $departement -> setNom('Maths-Info');

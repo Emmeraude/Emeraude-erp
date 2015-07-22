@@ -1,9 +1,6 @@
 {% extends "EPlanPlanningBundle::template.html.twig" %}
-{% block titrePage %}Gestion{% endblock%}
-{% block explicationTitrePage %}{% endblock %}
 {% block pageCentrale %}
-    
-            <div class="col-md-3">
+    <div class="col-md-3">
               <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Editer</a>
               <div class="box box-solid">
                 <div class="box-header with-border">
@@ -42,8 +39,8 @@
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li><a href="#"><i class="fa fa-circle-o text-red"></i> Charger les Departements</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Reconduire la Grille</a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Reconduire les Grilles</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Reconduire toutes les Grilles</a></li>
                   </ul>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -80,12 +77,12 @@
                   <div class="table-responsive mailbox-messages">
                     <table class="table table-hover table-striped">
                       <tbody>
-                          {% for parcourtType in parcourtTypes %}
+                          {% for etape in parcourtType.etapes %}
                               <tr>
                                 <td><input type="checkbox" /></td>
                                 <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                <td class="mailbox-name"><a href="{{path('e_plan_planning_view_parcourt_Type', {'id': parcourtType.id})}}">{{parcourtType.code}}</a></td>
-                                <td class="mailbox-subject"><b>{{parcourtType.mention.nom}}</b> - {{parcourtType.nom}}</td>
+                                <td class="mailbox-name"><a href="{{path('e_plan_planning_view_parcourt_Type', {'id': parcourtType.id})}}">{{parcourtType.code}}{{etape.numero}}</a></td>
+                                <td class="mailbox-subject"><b>{{parcourtType.nom}}</b> - Niveau{{etape.numero}}</td>
                                 <td class="mailbox-attachment"></td>
                                 <td class="mailbox-date">{{parcourtType.nombreEtudiants}} &eacute;tudiants</td>
                               </tr>

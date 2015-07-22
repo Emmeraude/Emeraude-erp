@@ -170,6 +170,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PresentationController::welcomeAction',  '_route' => 'e_plan_planning_welcome',);
             }
 
+            // e_plan_planning_view_parcourt_Type
+            if (0 === strpos($pathinfo, '/planning/viewParcourtType') && preg_match('#^/planning/viewParcourtType/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_view_parcourt_Type')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewParcourtTypeAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

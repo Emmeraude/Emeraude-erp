@@ -153,12 +153,8 @@ $context["loop"], "index0", array()) % 5) == 4)) {
                 </div>
                 <div class=\"box-body no-padding\">
                   <ul class=\"nav nav-pills nav-stacked\">
-                    <li><a href=\"";
-        // line 44
-        echo $this->env->getExtension('routing')->getPath("e_plan_planning_load_division");
-        echo "\"><i class=\"fa fa-circle-o text-red\"></i> Charger les Departements</a></li>
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-yellow\"></i> Editer la Grille De programme</a></li>
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire la Grille</a></li>
+                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-red\"></i> Charger les Departements</a></li>
+                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire les Grilles</a></li>
                     <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire toutes les Grilles</a></li>
                   </ul>
                 </div><!-- /.box-body -->
@@ -197,27 +193,29 @@ $context["loop"], "index0", array()) % 5) == 4)) {
                     <table class=\"table table-hover table-striped\">
                       <tbody>
                           ";
-        // line 84
+        // line 83
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["parcourtTypes"]) ? $context["parcourtTypes"] : $this->getContext($context, "parcourtTypes")));
         foreach ($context['_seq'] as $context["_key"] => $context["parcourtType"]) {
-            // line 85
+            // line 84
             echo "                              <tr>
                                 <td><input type=\"checkbox\" /></td>
                                 <td class=\"mailbox-star\"><a href=\"#\"><i class=\"fa fa-star text-yellow\"></i></a></td>
-                                <td class=\"mailbox-name\"><a href=\"read-mail.html\">";
-            // line 88
+                                <td class=\"mailbox-name\"><a href=\"";
+            // line 87
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_view_parcourt_Type", array("id" => $this->getAttribute($context["parcourtType"], "id", array()))), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "code", array()), "html", null, true);
             echo "</a></td>
                                 <td class=\"mailbox-subject\"><b>";
-            // line 89
+            // line 88
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["parcourtType"], "mention", array()), "nom", array()), "html", null, true);
             echo "</b> - ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nom", array()), "html", null, true);
             echo "</td>
                                 <td class=\"mailbox-attachment\"></td>
                                 <td class=\"mailbox-date\">";
-            // line 91
+            // line 90
             echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nombreEtudiants", array()), "html", null, true);
             echo " &eacute;tudiants</td>
                               </tr>
@@ -226,7 +224,7 @@ $context["loop"], "index0", array()) % 5) == 4)) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['parcourtType'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 94
+        // line 93
         echo "                      </tbody>
                     </table><!-- /.table -->
                   </div><!-- /.mail-box-messages -->
@@ -267,6 +265,6 @@ $context["loop"], "index0", array()) % 5) == 4)) {
 
     public function getDebugInfo()
     {
-        return array (  230 => 94,  221 => 91,  214 => 89,  210 => 88,  205 => 85,  201 => 84,  158 => 44,  144 => 32,  130 => 31,  122 => 29,  114 => 27,  112 => 26,  105 => 25,  103 => 24,  96 => 23,  94 => 22,  87 => 21,  85 => 20,  78 => 19,  75 => 18,  58 => 17,  44 => 5,  41 => 4,  36 => 3,  30 => 2,  11 => 1,);
+        return array (  228 => 93,  219 => 90,  212 => 88,  206 => 87,  201 => 84,  197 => 83,  144 => 32,  130 => 31,  122 => 29,  114 => 27,  112 => 26,  105 => 25,  103 => 24,  96 => 23,  94 => 22,  87 => 21,  85 => 20,  78 => 19,  75 => 18,  58 => 17,  44 => 5,  41 => 4,  36 => 3,  30 => 2,  11 => 1,);
     }
 }
