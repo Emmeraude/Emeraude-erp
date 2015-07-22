@@ -44,7 +44,7 @@ class ParcourtType
     private $mention;
     
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Etape", mappedBy="parcourtType")
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Etape", mappedBy="parcourtType", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $etapes;
@@ -146,6 +146,7 @@ class ParcourtType
     public function addEtape(\EPlan\PlanningBundle\Entity\Etape $etapes)
     {
         $this->etapes[] = $etapes;
+        $etapes ->setParcourtType($this);
     
         return $this;
     }

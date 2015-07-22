@@ -35,7 +35,7 @@ class Mention
     private $departement;
     
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\ParcourtType", mappedBy="mention")
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\ParcourtType", mappedBy="mention", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $parcourtTypes;
@@ -113,6 +113,7 @@ class Mention
     public function addParcourtType(\EPlan\PlanningBundle\Entity\ParcourtType $parcourtTypes)
     {
         $this->parcourtTypes[] = $parcourtTypes;
+        $parcourtTypes ->setMention($this);
     
         return $this;
     }

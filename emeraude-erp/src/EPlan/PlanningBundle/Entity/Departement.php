@@ -29,7 +29,7 @@ class Departement
     private $nom;
     
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Mention", mappedBy="departement")
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Mention", mappedBy="departement", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $mentions;
@@ -84,6 +84,7 @@ class Departement
     public function addMention(\EPlan\PlanningBundle\Entity\Mention $mentions)
     {
         $this->mentions[] = $mentions;
+        $mentions ->setDepartement($this);
     
         return $this;
     }
@@ -116,7 +117,7 @@ class Departement
     public function getParcourtTypes()
     {
         $listOfParcourtType = new \Doctrine\Common\Collections\ArrayCollection();
-        foreach ($mentions as $mention) {
+        foreach ($this -> mentions as $mention) {
             foreach ($mention->getParcourtTypes() as $parcourtType) {
                 $listOfParcourtType[] = $parcourtType;
             }

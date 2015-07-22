@@ -61,22 +61,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'web_profiler.controller.profiler:purgeAction',  '_route' => '_profiler_purge',);
                 }
 
-                if (0 === strpos($pathinfo, '/_profiler/i')) {
-                    // _profiler_info
-                    if (0 === strpos($pathinfo, '/_profiler/info') && preg_match('#^/_profiler/info/(?P<about>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_info')), array (  '_controller' => 'web_profiler.controller.profiler:infoAction',));
-                    }
-
-                    // _profiler_import
-                    if ($pathinfo === '/_profiler/import') {
-                        return array (  '_controller' => 'web_profiler.controller.profiler:importAction',  '_route' => '_profiler_import',);
-                    }
-
-                }
-
-                // _profiler_export
-                if (0 === strpos($pathinfo, '/_profiler/export') && preg_match('#^/_profiler/export/(?P<token>[^/\\.]++)\\.txt$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_export')), array (  '_controller' => 'web_profiler.controller.profiler:exportAction',));
+                // _profiler_info
+                if (0 === strpos($pathinfo, '/_profiler/info') && preg_match('#^/_profiler/info/(?P<about>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_profiler_info')), array (  '_controller' => 'web_profiler.controller.profiler:infoAction',));
                 }
 
                 // _profiler_phpinfo
@@ -135,9 +122,44 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // e_plan_planning_manage_division
-        if ($pathinfo === '/planning/manageDivision') {
-            return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
+        if (0 === strpos($pathinfo, '/planning')) {
+            // e_plan_planning_manage_division
+            if ($pathinfo === '/planning/manageDivision') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
+            }
+
+            // e_plan_planning_registrer_parcourt_type
+            if ($pathinfo === '/planning/formCreateParcourtType') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\ParcourtTypeController::formViewAction',  '_route' => 'e_plan_planning_registrer_parcourt_type',);
+            }
+
+            if (0 === strpos($pathinfo, '/planning/C')) {
+                // e_plan_planning_registrer_enseignant
+                if ($pathinfo === '/planning/Creer-un-Enseignant') {
+                    return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::createEnseignantAction',  '_route' => 'e_plan_planning_registrer_enseignant',);
+                }
+
+                // e_plan_planning_consult_enseignant
+                if ($pathinfo === '/planning/Consulter-un-Enseignant') {
+                    return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::consultEnseignantAction',  '_route' => 'e_plan_planning_consult_enseignant',);
+                }
+
+            }
+
+            // e_plan_planning_index_enseignant
+            if (rtrim($pathinfo, '/') === '/planning') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'e_plan_planning_index_enseignant');
+                }
+
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::indexEnseignantAction',  '_route' => 'e_plan_planning_index_enseignant',);
+            }
+
+            // e_plan_planning_attrib_ec_enseignant
+            if ($pathinfo === '/planning/attrib-ec-enseignant') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::attribEcEnseignantAction',  '_route' => 'e_plan_planning_attrib_ec_enseignant',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
