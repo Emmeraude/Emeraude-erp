@@ -125,4 +125,8 @@ class Departement
         }
         return $listOfParcourtType;
     }
+    
+    public function getNombreDeMention() {
+        return $this->mentions->count();
+    }
 }

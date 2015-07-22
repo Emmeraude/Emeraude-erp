@@ -3,20 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Enseignant.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/DivisionController.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/ParcourtType.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/DataFixtures/ORM/Departements.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/phpunit.xml.dist</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/AppKernel.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/vendor/composer/autoload_namespaces.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/composer.json</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Division/ManageDivision.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/parameters.yml</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/phpunit.xml.dist</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/routing.yml</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Departement.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Mention.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/config.yml</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/AppKernel.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/PresentationController.php</file>
         </group>
     </open-files>
 </project-private>

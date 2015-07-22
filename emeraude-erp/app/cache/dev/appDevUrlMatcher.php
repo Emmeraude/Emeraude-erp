@@ -128,6 +128,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
             }
 
+            // e_plan_planning_load_division
+            if ($pathinfo === '/planning/charger-les-departements') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::loadDepartementAction',  '_route' => 'e_plan_planning_load_division',);
+            }
+
             // e_plan_planning_registrer_parcourt_type
             if ($pathinfo === '/planning/formCreateParcourtType') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\ParcourtTypeController::formViewAction',  '_route' => 'e_plan_planning_registrer_parcourt_type',);
@@ -158,6 +163,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // e_plan_planning_attrib_ec_enseignant
             if ($pathinfo === '/planning/attrib-ec-enseignant') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::attribEcEnseignantAction',  '_route' => 'e_plan_planning_attrib_ec_enseignant',);
+            }
+
+            // e_plan_planning_welcome
+            if ($pathinfo === '/planning/welcome') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PresentationController::welcomeAction',  '_route' => 'e_plan_planning_welcome',);
             }
 
         }
