@@ -1,0 +1,45 @@
+{# empty Twig template #}
+{% extends "EPlanPlanningBundle::template1.html.twig" %}
+{%block  titre%}
+ Parametres de plannification
+{%endblock %}
+{% block enseignant %}
+   <div style="margin: 50px 50px 50px 50px;">
+  <form method="POST" action="{{path('e_plan_planning_test')}}">
+    <div style="margin-bottom:20px;">   
+    <label>TYPE :</label><select name='type'>
+              <option value="CM">Cours Magistraux</option>
+              <option value="TD">Travaux Dirriges</option>
+              <option value="TP">Travaux Pratiques</option>
+              <option value="EX">Examens</option>
+          </select>
+   </div>
+     
+     <div style="margin-bottom:20px;">
+    <label>Niveau:</label><select name='niveau'>
+              <option value="1">L1</option>
+              <option value="2">L2</option>
+              <option value="3">L3</option>
+              <option value="4">M1</option>
+              <option value="5">M2</option>
+          </select>
+    </div >
+    <div style="margin-bottom:20px;">
+    <label>Semestre :</label><select name='semestre'>
+              <option value="1">1</option>
+              <option value="2">2</option>
+          </select>
+    </div>
+ 
+    <a href="{{path('e_plan_planning_index_enseignant')}}" class="btn btn-primary" style="margin-right:10px;">Precedent</a>
+    <input class="btn btn-primary" type="reset" value="annuler" style="margin-right:10px;"/>
+    <input class="btn btn-primary" type="submit" value="suivant" style="margin-right:10px;"/>
+    
+  </form> 
+       <!--div class="well">
+  <form method="post" 
+    <input type="submit" class="btn btn-primary" />
+  </form-->
+</div>
+</div> 
+{%endblock %}

@@ -13,3 +13,10 @@ e_plan_planning_index_enseignant:
 e_plan_planning_attrib_ec_enseignant:
     path:     /attrib-ec-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:attribEcEnseignant }
+e_plan_planning_indexPlanManuel:
+    path:     /param-plan-manuel
+    defaults: { _controller: EPlanPlanningBundle:PlanManuel:indexPlanManuel }
+e_plan_planning_test:
+    path:     /param-plan-manuel-gpe
+    defaults: { _controller: EPlanPlanningBundle:PlanManuel:gpePlanManuel }
+    

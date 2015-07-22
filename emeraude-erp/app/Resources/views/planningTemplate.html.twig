@@ -323,7 +323,7 @@
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Automatique</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Manuelle</a></li>
+                <li><a href="{{path('e_plan_planning_indexPlanManuel')}}"><i class="fa fa-circle-o"></i> Manuelle</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -337,6 +337,15 @@
                 <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Consulter</a></li>
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-th"></i> <span>Enseignants</span> <!--small class="label pull-right bg-green">new</small-->
+              </a>
+               <ul class="treeview-menu">
+                <li><a href="{{path('e_plan_planning_registrer_enseignant')}}"><i class="fa fa-circle-o"></i>Enregistrer</a></li>
+                <li><a href="{{path('e_plan_planning_consult_enseignant')}}"><i class="fa fa-circle-o"></i> Consulter</a></li>
               </ul>
             </li>
             <li>
@@ -469,6 +478,7 @@
 
         <!-- Main content -->
         <section class="content">
+            {% block contenu %}
           <!-- Main row -->
           <div class="row">
             <!-- Left col -->
@@ -480,7 +490,7 @@
                 {% block contenuDeDroite %}{% endblock %}
             </section><!-- right col -->
           </div><!-- /.row (main row) -->
-
+         {% endblock %}
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">

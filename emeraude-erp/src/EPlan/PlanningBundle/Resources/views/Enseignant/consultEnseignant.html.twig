@@ -1,8 +1,8 @@
 {# empty Twig template #}
-{% extends "EPlanPlanningBundle::template1.html.twig" %}
-{%block  titre%}
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{%block  titrePage%}
 {%endblock %}
-{% block enseignant %}
+{% block contenu %}
     <section class="content-header">
           <h1>
             Liste des enseignants
@@ -19,12 +19,9 @@
               <option value="Departement">Departement</option>
               
           </select>
-        </section>
 
         <!-- Main content -->
         <section class="content">
-          <div class="row">
-            <div class="col-md-6">
               <div class="box">
                 <div class="box-header with-border">
                   <h3 class="box-title">Professeurs</h3>
@@ -35,153 +32,47 @@
                       <th style="width: 20px">#</th>
                       <th>Noms et Prenoms</th>
                       <th>Telephone</th>
-                      <th style="width: 50px">E-mail</th>
+                      <th >E-mail</th>
+                      <th >Allouer EC</th>
+                      <th >Retirer EC </th>
+                      <th >Modifier</th>
+                      <th>Supprimer</th>
                     </tr>
                     <tr>
-                    <td>1.</td>
-                      <td>Bowong Samuel</td>
-                      <td>464656464
+                    {% for ens in listEns %}
+                    <td>{{ens.id}}</td>
+                      <td>{{ens.nom}}  {{ens.prenom}}</td>
+                      <td>{{ens.tel}}
                         <!--div class="progress progress-xs">
                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
                         </div-->
                       </td> 
-                      <td>bowongsamuel@yahoo.fr<!--span class="badge bg-red">55%</span--></td>
+                      <td>{{ens.email}}<!--span class="badge bg-red">55%</span--></td>
                       <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">+ d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
+                        </td>
+                      <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
+                          </td>
+                           <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
+                          </td>
+                           <td>    <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
                       </td>
                     </tr>
+                    
+                    {% endfor %}
                     <tr>
-                      <td>2.</td>
-                      <td>Fono Louis Aime</td>
-                      <td>849149814
-                        <!--div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                        </div-->
-                      </td>
-                      <td>fonoloius@gmail.com<!--span class="badge bg-yellow">70%</span--></td>
-                    <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">+ d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
-                      </td
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Ndje Yves Jonnathan</td>
-                      <td>54641564
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                        </div-->
-                      </td>
-                      <td>njolio@yahoo.fr<!--span class="badge bg-light-blue">30%</span--></td>
-                   <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">+ d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
-                      </td
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Ndjeumen Rodrigue</td>
-                      <td>56654544
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                        </div-->
-                      </td>
-                      <td>rodriguendjeumen@yahoo.fr<!--span class="badge bg-green">90%</span--></td>
-                   <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">+ d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
-                          <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
-                      </td
+                      
                     </tr>
                   </table>
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
+                  
                 </div>
               </div><!-- /.box -->
               
               
                </section>
 
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Docteurs</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table class="table table-bordered">
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Noms et Prenoms</th>
-                      <th>Telephone</th>
-                      <th style="width: 40px">E-mail</th>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>Noumsi Auguste</td>
-                      <td>464656464
-                        <!--div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div-->
-                      </td>
-                      <td>nomsiauguste@yahoo.fr<!--span class="badge bg-red">55%</span--></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Tsimi</td>
-                      <td>849149814
-                        <!--div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                        </div-->
-                      </td>
-                      <td>tsimi@gmail.com<!--span class="badge bg-yellow">70%</span--></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Doncfack</td>
-                      <td>54641564
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                        </div-->
-                      </td>
-                      <td>donfack@yahoo.fr<!--span class="badge bg-light-blue">30%</span--></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Temgoua Anatole</td>
-                      <td>56654544
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                        </div-->
-                      </td>
-                      <td>tmgouaanatole@yahoo.fr<!--span class="badge bg-green">90%</span--></td>
-                    </tr>
-                  </table>
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div><!-- /.box -->
-             </div>
-              </div>
+       
+       
         </section>
  {% endblock %}

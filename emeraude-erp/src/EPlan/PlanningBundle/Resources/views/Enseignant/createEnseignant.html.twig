@@ -1,15 +1,15 @@
-{% extends "EPlanPlanningBundle::template1.html.twig" %}
+{% extends "EPlanPlanningBundle::template.html.twig" %}
 {%block titre %}
     <h1>
             Enregistrement d'un enseignant
     </h1></br></br>
 {%endblock %}
-{% block enseignant %}
- <form method="post" action="{{path('e_plan_planning_attrib_ec_enseignant')}}" class="box-body">
+{% block contenu %}
+ <form method="post" action="{{path('e_plan_planning_registrer_enseignant')}}" class="box-body">
    <fieldset> <legend>Coordonnées</legend>    
        <label>Nom(s):</label>    <input type="text" name="nom"></br></br>
      <label>Prenom(s):</label>    <input type="text" name="prenom"></br></br>
-     <label>Titre :</label> <select>  
+     <label>Grade :</label> <select>  
                              <option value="Pr">Pr</option>
                              <option value="Dr">Dr</option>
                              <option value="Mr">Mr</option>
@@ -17,7 +17,7 @@
      <label>Tel :</label>    <input type="number" name="tel"></br></br>
      <label>Email :</label>    <input type="email" name="email"></br></br>
      <input class="btn btn-primary" type="submit" name="save" value="Enreg">   <input class="btn btn-primary"  type="reset" value="Annuler">
-     <input class="btn btn-primary" type="submit" name="saveandalloc" value="Enreg et allouer EC">
+     <a href="#" class="btn btn-primary" >Enreg et allouer EC</a>
      
    </fieldset>    
 <!--
@@ -92,4 +92,7 @@ return false;
 
 -->
  </form>
+ {%if ok == 0 %}
+   <script>alert('enseignant enregistrer!'); </script>
+  {% endif %}
  {% endblock %}
