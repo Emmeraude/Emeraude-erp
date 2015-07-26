@@ -1,0 +1,78 @@
+<?php
+
+namespace EPlan\PlanningBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EcUe
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="EPlan\PlanningBundle\Entity\EcUeRepository")
+ */
+class EcUe
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="etat", type="boolean")
+     */
+    private $etat;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\UE", inversedBy="ecs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ue;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Ec", inversedBy="ecUes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ec;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     *
+     * @return EcUe
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return boolean
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+}
+
