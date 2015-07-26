@@ -19,6 +19,7 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
             'pageCentrale' => array($this, 'block_pageCentrale'),
             'contenuDeGauche' => array($this, 'block_contenuDeGauche'),
             'contenuDeDroite' => array($this, 'block_contenuDeDroite'),
+            'script' => array($this, 'block_script'),
         );
     }
 
@@ -422,7 +423,7 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
         // line 343
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_manage_division");
         echo "\">
-                <i class=\"fa fa-th\"></i> <span>Gestion Des Divisions</span> <small class=\"label pull-right bg-green\">new</small>
+                <i class=\"fa fa-th\"></i> <span>Grilles De Programme</span> <small class=\"label pull-right bg-green\">new</small>
               </a>
             </li>
             <li class=\"treeview\">
@@ -829,7 +830,11 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
         // line 701
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/demo.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
-  </body>
+    ";
+        // line 702
+        $this->displayBlock('script', $context, $blocks);
+        // line 704
+        echo "  </body>
 </html>
 ";
     }
@@ -903,6 +908,13 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
     {
     }
 
+    // line 702
+    public function block_script($context, array $blocks = array())
+    {
+        // line 703
+        echo "    ";
+    }
+
     public function getTemplateName()
     {
         return "::planningTemplate.html.twig";
@@ -915,6 +927,6 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 
     public function getDebugInfo()
     {
-        return array (  902 => 481,  897 => 477,  892 => 482,  890 => 481,  885 => 478,  883 => 477,  879 => 475,  876 => 474,  870 => 466,  850 => 465,  844 => 462,  838 => 461,  830 => 701,  824 => 698,  818 => 695,  813 => 693,  808 => 691,  803 => 689,  798 => 687,  793 => 685,  787 => 682,  782 => 680,  778 => 679,  773 => 677,  768 => 675,  762 => 672,  751 => 664,  569 => 484,  567 => 474,  555 => 466,  553 => 465,  546 => 462,  544 => 461,  423 => 343,  376 => 299,  329 => 255,  320 => 249,  188 => 120,  173 => 108,  158 => 96,  143 => 84,  128 => 72,  83 => 30,  78 => 28,  73 => 26,  68 => 24,  63 => 22,  58 => 20,  53 => 18,  47 => 15,  38 => 9,  28 => 1,);
+        return array (  915 => 703,  912 => 702,  907 => 481,  902 => 477,  897 => 482,  895 => 481,  890 => 478,  888 => 477,  884 => 475,  881 => 474,  875 => 466,  855 => 465,  849 => 462,  843 => 461,  837 => 704,  835 => 702,  831 => 701,  825 => 698,  819 => 695,  814 => 693,  809 => 691,  804 => 689,  799 => 687,  794 => 685,  788 => 682,  783 => 680,  779 => 679,  774 => 677,  769 => 675,  763 => 672,  752 => 664,  570 => 484,  568 => 474,  556 => 466,  554 => 465,  547 => 462,  545 => 461,  424 => 343,  377 => 299,  330 => 255,  321 => 249,  189 => 120,  174 => 108,  159 => 96,  144 => 84,  129 => 72,  84 => 30,  79 => 28,  74 => 26,  69 => 24,  64 => 22,  59 => 20,  54 => 18,  48 => 15,  39 => 9,  29 => 1,);
     }
 }

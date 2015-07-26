@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ParcourtTypeRepository extends EntityRepository
 {
+    public function findWithMention() {
+        $qb = $this->createQueryBuilder('p')->join('p.mention', 'm')->addSelect('m');
+        return $qb->getQuery()->getSingleResult();
+    }
+    
+    public function findWithEtapes() {
+        $qb = $this->createQueryBuilder('p')->join('p.etapes', 'e')->addSelect('e');
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -35,6 +35,11 @@ class Etape
      * @ORM\JoinColumn(nullable=false)
      */
     private $parcourtType;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="EPlan\PlanningBundle\Entity\Grille", inversedBy="etape", cascade={"persist"})
+     */
+    private $grille;
 
 
     /**
@@ -91,5 +96,29 @@ class Etape
     public function getParcourtType()
     {
         return $this->parcourtType;
+    }
+
+    /**
+     * Set grille
+     *
+     * @param \EPlan\PlanningBundle\Entity\Grille $grille
+     *
+     * @return Etape
+     */
+    public function setGrille(\EPlan\PlanningBundle\Entity\Grille $grille = null)
+    {
+        $this->grille = $grille;
+
+        return $this;
+    }
+
+    /**
+     * Get grille
+     *
+     * @return \EPlan\PlanningBundle\Entity\Grille
+     */
+    public function getGrille()
+    {
+        return $this->grille;
     }
 }

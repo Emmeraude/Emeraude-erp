@@ -1,6 +1,11 @@
 e_plan_planning_manage_division:
     path:     /manageDivision
     defaults: { _controller: EPlanPlanningBundle:Division:managePresentation }
+e_plan_planning_show_one_grille:
+    path:     /showGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:viewGrille }
+    requirements:
+        id:    \d+
 e_plan_planning_load_division:
     path:     /charger-les-departements
     defaults: { _controller: EPlanPlanningBundle:Division:loadDepartement }

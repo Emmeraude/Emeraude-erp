@@ -50,7 +50,6 @@ class ParcourtType
     private $etapes;
 
 
-
     /**
      * Get id
      *
@@ -180,4 +179,5 @@ class ParcourtType
     {
         return 160;
     }
+
 }

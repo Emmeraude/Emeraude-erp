@@ -153,7 +153,6 @@ $context["loop"], "index0", array()) % 5) == 4)) {
                 </div>
                 <div class=\"box-body no-padding\">
                   <ul class=\"nav nav-pills nav-stacked\">
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-red\"></i> Charger les Departements</a></li>
                     <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire les Grilles</a></li>
                     <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire toutes les Grilles</a></li>
                   </ul>
@@ -193,38 +192,50 @@ $context["loop"], "index0", array()) % 5) == 4)) {
                     <table class=\"table table-hover table-striped\">
                       <tbody>
                           ";
-        // line 83
+        // line 82
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["parcourtTypes"]) ? $context["parcourtTypes"] : $this->getContext($context, "parcourtTypes")));
-        foreach ($context['_seq'] as $context["_key"] => $context["parcourtType"]) {
-            // line 84
-            echo "                              <tr>
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["departements"]) ? $context["departements"] : $this->getContext($context, "departements")), 0, array(), "array"), "mentions", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["mention"]) {
+            // line 83
+            echo "                          ";
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["mention"], "parcourtTypes", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["parcourtType"]) {
+                // line 84
+                echo "                              <tr>
                                 <td><input type=\"checkbox\" /></td>
                                 <td class=\"mailbox-star\"><a href=\"#\"><i class=\"fa fa-star text-yellow\"></i></a></td>
                                 <td class=\"mailbox-name\"><a href=\"";
-            // line 87
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_view_parcourt_Type", array("id" => $this->getAttribute($context["parcourtType"], "id", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "code", array()), "html", null, true);
-            echo "</a></td>
+                // line 87
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_view_parcourt_Type", array("id" => $this->getAttribute($context["parcourtType"], "id", array()))), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "code", array()), "html", null, true);
+                echo "</a></td>
                                 <td class=\"mailbox-subject\"><b>";
-            // line 88
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["parcourtType"], "mention", array()), "nom", array()), "html", null, true);
-            echo "</b> - ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nom", array()), "html", null, true);
-            echo "</td>
+                // line 88
+                echo twig_escape_filter($this->env, $this->getAttribute($context["mention"], "nom", array()), "html", null, true);
+                echo "</b> - ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nom", array()), "html", null, true);
+                echo "</td>
                                 <td class=\"mailbox-attachment\"></td>
                                 <td class=\"mailbox-date\">";
-            // line 90
-            echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nombreEtudiants", array()), "html", null, true);
-            echo " &eacute;tudiants</td>
+                // line 90
+                echo twig_escape_filter($this->env, $this->getAttribute($context["parcourtType"], "nombreEtudiants", array()), "html", null, true);
+                echo " &eacute;tudiants</td>
                               </tr>
+                          ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['parcourtType'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 92
+            echo "    
                           ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['parcourtType'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['mention'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 93
+        // line 94
         echo "                      </tbody>
                     </table><!-- /.table -->
                   </div><!-- /.mail-box-messages -->
@@ -265,6 +276,6 @@ $context["loop"], "index0", array()) % 5) == 4)) {
 
     public function getDebugInfo()
     {
-        return array (  228 => 93,  219 => 90,  212 => 88,  206 => 87,  201 => 84,  197 => 83,  144 => 32,  130 => 31,  122 => 29,  114 => 27,  112 => 26,  105 => 25,  103 => 24,  96 => 23,  94 => 22,  87 => 21,  85 => 20,  78 => 19,  75 => 18,  58 => 17,  44 => 5,  41 => 4,  36 => 3,  30 => 2,  11 => 1,);
+        return array (  239 => 94,  232 => 92,  223 => 90,  216 => 88,  210 => 87,  205 => 84,  200 => 83,  196 => 82,  144 => 32,  130 => 31,  122 => 29,  114 => 27,  112 => 26,  105 => 25,  103 => 24,  96 => 23,  94 => 22,  87 => 21,  85 => 20,  78 => 19,  75 => 18,  58 => 17,  44 => 5,  41 => 4,  36 => 3,  30 => 2,  11 => 1,);
     }
 }
