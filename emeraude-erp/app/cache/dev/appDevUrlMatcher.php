@@ -128,6 +128,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
             }
 
+            // e_plan_planning_show_one_grille
+            if (0 === strpos($pathinfo, '/planning/showGrille') && preg_match('#^/planning/showGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_show_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewGrilleAction',));
+            }
+
             // e_plan_planning_load_division
             if ($pathinfo === '/planning/charger-les-departements') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::loadDepartementAction',  '_route' => 'e_plan_planning_load_division',);

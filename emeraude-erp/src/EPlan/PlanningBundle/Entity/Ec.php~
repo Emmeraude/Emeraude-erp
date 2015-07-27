@@ -57,10 +57,22 @@ class Ec
     private $volHeuresTP;
     
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="niveau", type="smallint")
+     */
+    private $niveau;
+    
+    /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EcUe", mappedBy="ec")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $ecUes;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
 
 
     /**
@@ -215,5 +227,70 @@ class Ec
     public function getNumSemestre()
     {
         return $this->numSemestre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ecUes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ecUe
+     *
+     * @param \EPlan\PlanningBundle\Entity\EcUe $ecUe
+     *
+     * @return Ec
+     */
+    public function addEcUe(\EPlan\PlanningBundle\Entity\EcUe $ecUe)
+    {
+        $this->ecUes[] = $ecUe;
+
+        return $this;
+    }
+
+    /**
+     * Remove ecUe
+     *
+     * @param \EPlan\PlanningBundle\Entity\EcUe $ecUe
+     */
+    public function removeEcUe(\EPlan\PlanningBundle\Entity\EcUe $ecUe)
+    {
+        $this->ecUes->removeElement($ecUe);
+    }
+
+    /**
+     * Get ecUes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcUes()
+    {
+        return $this->ecUes;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param integer $niveau
+     *
+     * @return Ec
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return integer
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
     }
 }

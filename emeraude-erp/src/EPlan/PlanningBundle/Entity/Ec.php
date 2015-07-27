@@ -57,10 +57,22 @@ class Ec
     private $volHeuresTP;
     
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="niveau", type="smallint")
+     */
+    private $niveau;
+    
+    /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EcUe", mappedBy="ec")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $ecUes;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
 
 
     /**
@@ -256,5 +268,53 @@ class Ec
     public function getEcUes()
     {
         return $this->ecUes;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param integer $niveau
+     *
+     * @return Ec
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return integer
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Set departement
+     *
+     * @param \EPlan\PlanningBundle\Entity\Departement $departement
+     *
+     * @return Ec
+     */
+    public function setDepartement(\EPlan\PlanningBundle\Entity\Departement $departement)
+    {
+        $this->departement = $departement;
+
+        return $this;
+    }
+
+    /**
+     * Get departement
+     *
+     * @return \EPlan\PlanningBundle\Entity\Departement
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
     }
 }

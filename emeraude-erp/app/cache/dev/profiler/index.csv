@@ -117,3 +117,9 @@ f3e633,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/
 4ae686,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/viewParcourtType/1,1437908695,
 6f1d96,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DEPlanPlanningBundle%253ADivision%253AmenuDepartement,1437908725,ffe50d
 ffe50d,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/viewParcourtType/1,1437908725,
+bfefc1,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/welcome,1437919457,
+d2a157,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/manageDivision,1437919465,
+4f304f,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DEPlanPlanningBundle%253ADivision%253AmenuDepartement,1437919494,179396
+179396,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/viewParcourtType/1,1437919494,
+369579,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DEPlanPlanningBundle%253ADivision%253AmenuDepartement,1437919569,304955
+304955,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/viewParcourtType/1,1437919569,
