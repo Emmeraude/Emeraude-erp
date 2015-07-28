@@ -16,6 +16,7 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
             'filArianeTitreLien' => array($this, 'block_filArianeTitreLien'),
             'filArianeTitreValeurDuLien' => array($this, 'block_filArianeTitreValeurDuLien'),
             'filArianeTitreFin' => array($this, 'block_filArianeTitreFin'),
+            'contenu' => array($this, 'block_contenu'),
             'pageCentrale' => array($this, 'block_pageCentrale'),
             'contenuDeGauche' => array($this, 'block_contenuDeGauche'),
             'contenuDeDroite' => array($this, 'block_contenuDeDroite'),
@@ -401,7 +402,10 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
               </a>
               <ul class=\"treeview-menu\">
                 <li class=\"active\"><a href=\"index.html\"><i class=\"fa fa-circle-o\"></i> Automatique</a></li>
-                <li><a href=\"index2.html\"><i class=\"fa fa-circle-o\"></i> Manuelle</a></li>
+                <li><a href=\"";
+        // line 326
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_indexPlanManuel");
+        echo "\"><i class=\"fa fa-circle-o\"></i> Manuelle</a></li>
               </ul>
             </li>
             <li class=\"treeview\">
@@ -417,9 +421,24 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
                 <li><a href=\"pages/layout/collapsed-sidebar.html\"><i class=\"fa fa-circle-o\"></i> Collapsed Sidebar</a></li>
               </ul>
             </li>
+            <li class=\"treeview\">
+              <a href=\"#\">
+                <i class=\"fa fa-th\"></i> <span>Enseignants</span> <!--small class=\"label pull-right bg-green\">new</small-->
+              </a>
+               <ul class=\"treeview-menu\">
+                <li><a href=\"";
+        // line 347
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_registrer_enseignant");
+        echo "\"><i class=\"fa fa-circle-o\"></i>Enregistrer</a></li>
+                <li><a href=\"";
+        // line 348
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_consult_enseignant");
+        echo "\"><i class=\"fa fa-circle-o\"></i> Consulter</a></li>
+              </ul>
+            </li>
             <li>
               <a href=\"";
-        // line 343
+        // line 352
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_manage_division");
         echo "\">
                 <i class=\"fa fa-th\"></i> <span>Gestion Des Divisions</span> <small class=\"label pull-right bg-green\">new</small>
@@ -540,18 +559,18 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
         <section class=\"content-header\">
           <h1>
               ";
-        // line 461
+        // line 470
         $this->displayBlock('titrePage', $context, $blocks);
-        // line 462
+        // line 471
         echo "            <small>";
         $this->displayBlock('explicationTitrePage', $context, $blocks);
         echo "</small>
           </h1>
           <ol class=\"breadcrumb\">
             ";
-        // line 465
+        // line 474
         $this->displayBlock('filArianeTitreDebut', $context, $blocks);
-        // line 466
+        // line 475
         echo "            <li class=\"active\">";
         $this->displayBlock('filArianeTitreFin', $context, $blocks);
         echo "</li>
@@ -560,15 +579,11 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 
         <!-- Main content -->
         <section class=\"content\">
-          <!-- Main row -->
-          <div class=\"row\">
             ";
-        // line 474
-        $this->displayBlock('pageCentrale', $context, $blocks);
-        // line 484
-        echo "          </div><!-- /.row (main row) -->
-
-        </section><!-- /.content -->
+        // line 481
+        $this->displayBlock('contenu', $context, $blocks);
+        // line 496
+        echo "        </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class=\"main-footer\">
         <div class=\"pull-right hidden-xs\">
@@ -747,7 +762,7 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 
     <!-- jQuery 2.1.4 -->
     <script src=";
-        // line 664
+        // line 674
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/jQuery/jQuery-2.1.4.min.js"), "html", null, true);
         echo "></script>
     <!-- jQuery UI 1.11.4 -->
@@ -758,75 +773,75 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
     </script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src=";
-        // line 672
+        // line 682
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- Morris.js charts -->
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js\"></script>
     <script src=";
-        // line 675
+        // line 685
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/morris/morris.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- Sparkline -->
     <script src=";
-        // line 677
+        // line 687
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/sparkline/jquery.sparkline.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- jvectormap -->
     <script src=";
-        // line 679
+        // line 689
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <script src=";
-        // line 680
+        // line 690
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/jvectormap/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- jQuery Knob Chart -->
     <script src=";
-        // line 682
+        // line 692
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/knob/jquery.knob.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- daterangepicker -->
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js\" type=\"text/javascript\"></script>
     <script src=";
-        // line 685
+        // line 695
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/daterangepicker/daterangepicker.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- datepicker -->
     <script src=";
-        // line 687
+        // line 697
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/datepicker/bootstrap-datepicker.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- Bootstrap WYSIHTML5 -->
     <script src=";
-        // line 689
+        // line 699
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- Slimscroll -->
     <script src=";
-        // line 691
+        // line 701
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/slimScroll/jquery.slimscroll.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- FastClick -->
     <script src=";
-        // line 693
+        // line 703
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("plugins/fastclick/fastclick.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     <!-- AdminLTE App -->
     <script src=";
-        // line 695
+        // line 705
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/app.min.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src=";
-        // line 698
+        // line 708
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/pages/dashboard.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     
     <!-- AdminLTE for demo purposes -->
     <script src=";
-        // line 701
+        // line 711
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/demo.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
   </body>
@@ -834,19 +849,19 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 ";
     }
 
-    // line 461
+    // line 470
     public function block_titrePage($context, array $blocks = array())
     {
         echo "Dashboard";
     }
 
-    // line 462
+    // line 471
     public function block_explicationTitrePage($context, array $blocks = array())
     {
         echo "Control panel";
     }
 
-    // line 465
+    // line 474
     public function block_filArianeTitreDebut($context, array $blocks = array())
     {
         echo "<li><a href=\"";
@@ -866,39 +881,53 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
         echo " Home";
     }
 
-    // line 466
+    // line 475
     public function block_filArianeTitreFin($context, array $blocks = array())
     {
         echo "Dashboard";
     }
 
-    // line 474
+    // line 481
+    public function block_contenu($context, array $blocks = array())
+    {
+        // line 482
+        echo "          <!-- Main row -->
+          <div class=\"row\">
+            ";
+        // line 484
+        $this->displayBlock('pageCentrale', $context, $blocks);
+        // line 494
+        echo "          </div><!-- /.row (main row) -->
+         ";
+    }
+
+    // line 484
     public function block_pageCentrale($context, array $blocks = array())
     {
-        // line 475
+        // line 485
         echo "            <!-- Left col -->
             <section class=\"col-lg-7 connectedSortable\">
                 ";
-        // line 477
+        // line 487
         $this->displayBlock('contenuDeGauche', $context, $blocks);
-        // line 478
+        // line 488
         echo "            </section><!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
             <section class=\"col-lg-5 connectedSortable\">
                 ";
-        // line 481
+        // line 491
         $this->displayBlock('contenuDeDroite', $context, $blocks);
-        // line 482
+        // line 492
         echo "            </section><!-- right col -->
             ";
     }
 
-    // line 477
+    // line 487
     public function block_contenuDeGauche($context, array $blocks = array())
     {
     }
 
-    // line 481
+    // line 491
     public function block_contenuDeDroite($context, array $blocks = array())
     {
     }
@@ -915,6 +944,6 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 
     public function getDebugInfo()
     {
-        return array (  902 => 481,  897 => 477,  892 => 482,  890 => 481,  885 => 478,  883 => 477,  879 => 475,  876 => 474,  870 => 466,  850 => 465,  844 => 462,  838 => 461,  830 => 701,  824 => 698,  818 => 695,  813 => 693,  808 => 691,  803 => 689,  798 => 687,  793 => 685,  787 => 682,  782 => 680,  778 => 679,  773 => 677,  768 => 675,  762 => 672,  751 => 664,  569 => 484,  567 => 474,  555 => 466,  553 => 465,  546 => 462,  544 => 461,  423 => 343,  376 => 299,  329 => 255,  320 => 249,  188 => 120,  173 => 108,  158 => 96,  143 => 84,  128 => 72,  83 => 30,  78 => 28,  73 => 26,  68 => 24,  63 => 22,  58 => 20,  53 => 18,  47 => 15,  38 => 9,  28 => 1,);
+        return array (  931 => 491,  926 => 487,  921 => 492,  919 => 491,  914 => 488,  912 => 487,  908 => 485,  905 => 484,  900 => 494,  898 => 484,  894 => 482,  891 => 481,  885 => 475,  865 => 474,  859 => 471,  853 => 470,  845 => 711,  839 => 708,  833 => 705,  828 => 703,  823 => 701,  818 => 699,  813 => 697,  808 => 695,  802 => 692,  797 => 690,  793 => 689,  788 => 687,  783 => 685,  777 => 682,  766 => 674,  586 => 496,  584 => 481,  574 => 475,  572 => 474,  565 => 471,  563 => 470,  442 => 352,  435 => 348,  431 => 347,  407 => 326,  377 => 299,  330 => 255,  321 => 249,  189 => 120,  174 => 108,  159 => 96,  144 => 84,  129 => 72,  84 => 30,  79 => 28,  74 => 26,  69 => 24,  64 => 22,  59 => 20,  54 => 18,  48 => 15,  39 => 9,  29 => 1,);
     }
 }

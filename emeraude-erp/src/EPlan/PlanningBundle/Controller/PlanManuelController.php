@@ -33,10 +33,16 @@ class PlanManuelController extends Controller
       // On fait le lien Requête <-> Formulaire
       // À partir de maintenant, la variable $article contient les valeurs entrées dans le formulaire par le visiteur
        //$nbJours=$request->get('type');
-         return $this->render('EPlanPlanningBundle:Plannification:groupe.html.twig',array('type'=>$request->get('type'),'niveau'=>$request->get('niveau'),'semestre'=>$request->get('semestre')));
+         return $this->render('EPlanPlanningBundle:Plannification:mention.html.twig',array('type'=>$request->get('type'),'niveau'=>$request->get('niveau'),'semestre'=>$request->get('semestre')));
        
         //return $this->render('EPlanPlanningBundle:Plannification:indexPlanManuel.html.twig');
     }
     return $this->render('EPlanPlanningBundle:Plannification:indexPlanManuel.html.twig');
 }
+
+    public function ecMentionAction()
+    {
+        
+        return $this->render('EPlanPlanningBundle:Plannification:listEcMention.html.twig');
+    }
 }

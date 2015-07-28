@@ -12,4 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class EnseignantRepository extends EntityRepository
 {
+    
+    
+    public function findByNomOrPrenom($critere)
+{
+
+  $qb = $this->createQueryBuilder('ens');
+  $qb->where('ens.nom LIKE :nom OR ens.prenom LIKE :nom')
+   ->orderBy('ens.nom', 'ASC')
+   ->setParameter('nom', '%'.$critere.'%');
+   return $qb->getQuery()
+            ->getResult();
+}
+    
+    
 }

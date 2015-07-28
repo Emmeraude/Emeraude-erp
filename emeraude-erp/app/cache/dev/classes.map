@@ -64,18 +64,6 @@
   63 => 'Monolog\\Handler\\FingersCrossed\\ErrorLevelActivationStrategy',
   64 => 'Symfony\\Bundle\\AsseticBundle\\DefaultValueSupplier',
   65 => 'Symfony\\Bundle\\AsseticBundle\\Factory\\AssetFactory',
-<<<<<<< HEAD
-  66 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
-  67 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ParamConverterListener',
-  68 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
-  69 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
-  70 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\ParamConverterInterface',
-  71 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\ParamConverterManager',
-  72 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
-  73 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\HttpCacheListener',
-  74 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\SecurityListener',
-  75 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ConfigurationAnnotation',
-=======
   66 => 'Doctrine\\Common\\Annotations\\DocLexer',
   67 => 'Doctrine\\Common\\Annotations\\FileCacheReader',
   68 => 'Doctrine\\Common\\Annotations\\PhpParser',
@@ -95,5 +83,4 @@
   82 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\HttpCacheListener',
   83 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\SecurityListener',
   84 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ConfigurationAnnotation',
->>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
 );

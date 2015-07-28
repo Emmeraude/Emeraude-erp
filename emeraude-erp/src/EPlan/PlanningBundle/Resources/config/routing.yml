@@ -19,17 +19,21 @@ e_plan_planning_index_enseignant:
 e_plan_planning_attrib_ec_enseignant:
     path:     /attrib-ec-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:attribEcEnseignant }
-<<<<<<< HEAD
+e_plan_planning_fiche_enseignant:
+    path:     /fiche-enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:ficheEnseignant }
 e_plan_planning_indexPlanManuel:
     path:     /param-plan-manuel
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:indexPlanManuel }
 e_plan_planning_test:
     path:     /param-plan-manuel-gpe
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:gpePlanManuel }
-    
-=======
 e_plan_planning_welcome:
     path:     /welcome
     defaults: { _controller: EPlanPlanningBundle:Presentation:welcome }
-
->>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
+e_plan_planning_mention_ec:
+    path:     /param-plan-manuel-listEc
+    defaults: { _controller: EPlanPlanningBundle:PlanManuel:ecMention }
+e_plan_planning_modif_enseignant:
+    path:     /modif-enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }

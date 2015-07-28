@@ -1,25 +1,56 @@
 {% extends "EPlanPlanningBundle::template.html.twig" %}
-{%block titre %}
-    <h1>
+{%block titrePage %}
             Enregistrement d'un enseignant
-    </h1></br></br>
+   
 {%endblock %}
 {% block contenu %}
- <form method="post" action="{{path('e_plan_planning_registrer_enseignant')}}" class="box-body">
-   <fieldset> <legend>Coordonnées</legend>    
-       <label>Nom(s):</label>    <input type="text" name="nom"></br></br>
-     <label>Prenom(s):</label>    <input type="text" name="prenom"></br></br>
-     <label>Grade :</label> <select>  
-                             <option value="Pr">Pr</option>
-                             <option value="Dr">Dr</option>
-                             <option value="Mr">Mr</option>
-                            </select></br></br>
-     <label>Tel :</label>    <input type="number" name="tel"></br></br>
-     <label>Email :</label>    <input type="email" name="email"></br></br>
-     <input class="btn btn-primary" type="submit" name="save" value="Enreg">   <input class="btn btn-primary"  type="reset" value="Annuler">
-     <a href="#" class="btn btn-primary" >Enreg et allouer EC</a>
-     
-   </fieldset>    
+ <form class="box-body" method="post" action="{{path('e_plan_planning_registrer_enseignant')}}"  style="margin-bottom: 100px;" {{form_enctype(form) }}>
+{# Les erreurs générales du formulaire. #}
+{{ form_errors(form) }}
+<div style="margin-bottom: 20px;">
+{# Génération du label. #}
+{{ form_label(form.nom, "Nom de l'enseignant") }}
+{# Affichage des erreurs pour ce champ précis. #}
+{{ form_errors(form.nom) }}
+{# Génération de l'input. #}
+{{ form_widget(form.nom) }}
+</div>
+{# Idem pour un autre champ. #}
+<div style="margin-bottom: 20px;">
+{{ form_label(form.prenom, "Prenom de l'enseignant") }}
+{{ form_errors(form.prenom) }}
+{{ form_widget(form.prenom) }}
+</div>
+
+<div style="margin-bottom: 20px;">
+{{ form_label(form.titre, "Grade de l'enseignant") }}
+{{ form_errors(form.titre) }}
+{{ form_widget(form.titre) }}
+</div>
+<div style="margin-bottom: 20px;">
+{{ form_label(form.tel, "Telephone de l'enseignant")}}
+{{ form_errors(form.tel)}}
+{{ form_widget(form.tel) }}
+</div>
+<div style="margin-bottom: 20px;">
+{{ form_label(form.email, "Email de l'enseignant") }}
+{{ form_errors(form.email) }}
+{{ form_widget(form.email) }}
+</div>
+<div style="margin-bottom: 20px;">
+{{ form_label(form.departement, "Departement de l'enseignant") }}
+{{ form_errors(form.departement) }}
+{{ form_widget(form.departement) }}
+</div>
+{{ form_rest(form) }}
+{# Génération des champs pas encore écrits.
+Dans cet exemple, ce serait « date », « auteur » et « publication »
+,m
+ais aussi le champ CSRF (géré automatiquement par Symfony !)
+et tous les champs cachés (type « hidden »). #}
+
+<input class="btn btn-primary" type="submit" style="margin-right: 100px;"/>
+ <input class="btn btn-primary" type="reset" />  
 <!--
      {# On charge la bibliothèque jQuery. Ici, je la prends depuis le
 site jquery.com,
@@ -92,7 +123,5 @@ return false;
 
 -->
  </form>
- {%if ok == 0 %}
-   <script>alert('enseignant enregistrer!'); </script>
-  {% endif %}
+
  {% endblock %}

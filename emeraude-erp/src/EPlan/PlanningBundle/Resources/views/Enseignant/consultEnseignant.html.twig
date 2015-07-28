@@ -13,8 +13,11 @@
             <li><a href="#">Tables</a></li>
             <li class="active">Simple</li>
           </ol-->
+          <form style="float: right;" action="{{path('e_plan_planning_consult_enseignant')}}" method="post"><input type="text" name="critere" placeholder="Entrez un nom"/>
+                 <input type="submit" name="search" value="rechercher"/>
+          </form>
           <label>Classer par :</label><select>
-              <option value="Titre">Titre</option>
+              <option value="Titre">Grade</option>
               <option value="Domaine">Domaine</option>
               <option value="Departement">Departement</option>
               
@@ -24,7 +27,7 @@
         <section class="content">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Professeurs</h3>
+                  <h3 class="box-title"><!--Professeurs--></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table class="table table-bordered">
@@ -33,13 +36,14 @@
                       <th>Noms et Prenoms</th>
                       <th>Telephone</th>
                       <th >E-mail</th>
-                      <th >Allouer EC</th>
-                      <th >Retirer EC </th>
-                      <th >Modifier</th>
-                      <th>Supprimer</th>
+                      <th ></th>
+                      <th ></th>
+                      <th></th>
                     </tr>
                     <tr>
+                    
                     {% for ens in listEns %}
+                    
                     <td>{{ens.id}}</td>
                       <td>{{ens.nom}}  {{ens.prenom}}</td>
                       <td>{{ens.tel}}
@@ -48,14 +52,23 @@
                         </div-->
                       </td> 
                       <td>{{ens.email}}<!--span class="badge bg-red">55%</span--></td>
-                      <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">+ d'EC</a>
-                        </td>
-                      <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">- d'EC</a>
-                          </td>
-                           <td> <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Edit</a>
-                          </td>
-                           <td>    <a class="btn btn-primary" href="{{path('e_plan_planning_attrib_ec_enseignant')}}">Delete</a>
+                      <td> <form action="{{path('e_plan_planning_fiche_enseignant')}}" method="post">
+                             <input type="hidden" name="id" value="{{ens.id}}"/>
+                             <input type="hidden" name="nom" value="{{ens.nom}}"/>
+                             <input type="hidden" name="prenom" value="{{ens.prenom}}"/>
+                             <input class="btn btn-primary" type="submit" value="Fiche"/>
+                          </form>
                       </td>
+                           <td> <form action="{{path('e_plan_planning_modif_enseignant')}}" method="post">
+                             <input type="hidden" name="id" value="{{ens.id}}"/>
+                             <input type="hidden" name="nom" value="{{ens.nom}}"/>
+                             <input type="hidden" name="prenom" value="{{ens.prenom}}"/>
+                             <input class="btn btn-primary" type="submit" value="Modifier"/>
+                          </form>
+                           </td>
+                           <td>    <a class="btn btn-primary" href="">Supprimer</a>
+                      </td>
+                    
                     </tr>
                     
                     {% endfor %}

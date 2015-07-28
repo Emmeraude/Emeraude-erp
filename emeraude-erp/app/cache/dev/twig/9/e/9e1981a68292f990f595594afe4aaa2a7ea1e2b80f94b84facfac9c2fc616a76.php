@@ -8,16 +8,16 @@ class __TwigTemplate_9e1981a68292f990f595594afe4aaa2a7ea1e2b80f94b84facfac9c2fc6
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("EPlanPlanningBundle::template1.html.twig", "EPlanPlanningBundle:Enseignant:createEnseignant.html.twig", 1);
+        $this->parent = $this->loadTemplate("EPlanPlanningBundle::template.html.twig", "EPlanPlanningBundle:Enseignant:createEnseignant.html.twig", 1);
         $this->blocks = array(
-            'titre' => array($this, 'block_titre'),
-            'enseignant' => array($this, 'block_enseignant'),
+            'titrePage' => array($this, 'block_titrePage'),
+            'contenu' => array($this, 'block_contenu'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "EPlanPlanningBundle::template1.html.twig";
+        return "EPlanPlanningBundle::template.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -26,42 +26,129 @@ class __TwigTemplate_9e1981a68292f990f595594afe4aaa2a7ea1e2b80f94b84facfac9c2fc6
     }
 
     // line 2
-    public function block_titre($context, array $blocks = array())
+    public function block_titrePage($context, array $blocks = array())
     {
         // line 3
-        echo "    <h1>
-            Enregistrement d'un enseignant
-    </h1></br></br>
+        echo "            Enregistrement d'un enseignant
+   
 ";
     }
 
-    // line 7
-    public function block_enseignant($context, array $blocks = array())
+    // line 6
+    public function block_contenu($context, array $blocks = array())
     {
-        // line 8
-        echo " <form method=\"post\" action=\"";
-        echo $this->env->getExtension('routing')->getPath("e_plan_planning_attrib_ec_enseignant");
-        echo "\" class=\"box-body\">
-   <fieldset> <legend>Coordonnées</legend>    
-       <label>Nom(s):</label>    <input type=\"text\" name=\"nom\"></br></br>
-     <label>Prenom(s):</label>    <input type=\"text\" name=\"prenom\"></br></br>
-     <label>Titre :</label> <select>  
-                             <option value=\"Pr\">Pr</option>
-                             <option value=\"Dr\">Dr</option>
-                             <option value=\"Mr\">Mr</option>
-                            </select></br></br>
-     <label>Tel :</label>    <input type=\"number\" name=\"tel\"></br></br>
-     <label>Email :</label>    <input type=\"email\" name=\"email\"></br></br>
-     <input class=\"btn btn-primary\" type=\"submit\" name=\"save\" value=\"Enreg\">   <input class=\"btn btn-primary\"  type=\"reset\" value=\"Annuler\">
-     <input class=\"btn btn-primary\" type=\"submit\" name=\"saveandalloc\" value=\"Enreg et allouer EC\">
-     
-   </fieldset>    
+        // line 7
+        echo " <form class=\"box-body\" method=\"post\" action=\"";
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_registrer_enseignant");
+        echo "\"  style=\"margin-bottom: 100px;\" ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
+        echo ">
+";
+        // line 9
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
+        echo "
+<div style=\"margin-bottom: 20px;\">
+";
+        // line 12
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'label', array("label" => "Nom de l'enseignant"));
+        echo "
+";
+        // line 14
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'errors');
+        echo "
+";
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'widget');
+        echo "
+</div>
+";
+        // line 19
+        echo "<div style=\"margin-bottom: 20px;\">
+";
+        // line 20
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'label', array("label" => "Prenom de l'enseignant"));
+        echo "
+";
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'errors');
+        echo "
+";
+        // line 22
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'widget');
+        echo "
+</div>
+
+<div style=\"margin-bottom: 20px;\">
+";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'label', array("label" => "Grade de l'enseignant"));
+        echo "
+";
+        // line 27
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'errors');
+        echo "
+";
+        // line 28
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'widget');
+        echo "
+</div>
+<div style=\"margin-bottom: 20px;\">
+";
+        // line 31
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'label', array("label" => "Telephone de l'enseignant"));
+        echo "
+";
+        // line 32
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'errors');
+        echo "
+";
+        // line 33
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'widget');
+        echo "
+</div>
+<div style=\"margin-bottom: 20px;\">
+";
+        // line 36
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'label', array("label" => "Email de l'enseignant"));
+        echo "
+";
+        // line 37
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'errors');
+        echo "
+";
+        // line 38
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'widget');
+        echo "
+</div>
+<div style=\"margin-bottom: 20px;\">
+";
+        // line 41
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'label', array("label" => "Departement de l'enseignant"));
+        echo "
+";
+        // line 42
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'errors');
+        echo "
+";
+        // line 43
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'widget');
+        echo "
+</div>
+";
+        // line 45
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
+        echo "
+";
+        // line 51
+        echo "
+<input class=\"btn btn-primary\" type=\"submit\" style=\"margin-right: 100px;\"/>
+ <input class=\"btn btn-primary\" type=\"reset\" />  
 <!--
      ";
-        // line 27
+        // line 58
         echo "<script src=\"http://code.jquery.com/jquery-1.8.2.min.js\"></script>
 ";
-        // line 29
+        // line 60
         echo "<script type=\"text/javascript\">
 \$(document).ready(function() {
 // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
@@ -128,6 +215,7 @@ return false;
 
 -->
  </form>
+
  ";
     }
 
@@ -143,6 +231,6 @@ return false;
 
     public function getDebugInfo()
     {
-        return array (  65 => 29,  62 => 27,  42 => 8,  39 => 7,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  152 => 60,  149 => 58,  143 => 51,  139 => 45,  134 => 43,  130 => 42,  126 => 41,  120 => 38,  116 => 37,  112 => 36,  106 => 33,  102 => 32,  98 => 31,  92 => 28,  88 => 27,  84 => 26,  77 => 22,  73 => 21,  69 => 20,  66 => 19,  61 => 16,  57 => 14,  53 => 12,  48 => 9,  41 => 7,  38 => 6,  32 => 3,  29 => 2,  11 => 1,);
     }
 }

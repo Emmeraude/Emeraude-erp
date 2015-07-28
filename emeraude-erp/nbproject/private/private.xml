@@ -3,26 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/PlanManuelController.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Plannification/indexPlanManuel.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Enseignant/consultEnseignant.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/base.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/EnseignantController.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Enseignant/createEnseignant.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Enseignant/attribEcEnseignant.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/planningTemplate.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
-=======
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/DivisionController.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Division/ManageDivision.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/parameters.yml</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/phpunit.xml.dist</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/routing.yml</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Departement.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/config.yml</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/AppKernel.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/PresentationController.php</file>
->>>>>>> aa0b05b072db46d2f39ba1fea9d611a49b364e91
         </group>
     </open-files>
 </project-private>

@@ -6,7 +6,7 @@
 {% block contenu %}
     <section class="content-header">
           <h1>
-            Attribution d'Ec à Samuel Bowong
+            Attribution d'Ec à {{ens.prenom}} {{ens.nom}}
             <!--small>preview of simple tables</small-->
           </h1></br> </br>
           <!--ol class="breadcrumb">
@@ -22,13 +22,11 @@
           
                <!-- <section class="content">Main content -->
         
-              
-              <label>Rechercher EC de type : </label>
-              <select style="margin-bottom: 20px;">
-              <option value="CM">BI</option>
-              <option value="TD">MA</option>
-              <option value="TP">PH</option>
-          </select>
+               <div style="margin-bottom: 20px; float: right;">
+                   <form method="" action=""><input type="text" placeholder="Tapez un code">
+                                             <input type="submit" value="Rechercher">
+                   </form>
+               </div>
             <form>
                 <label style="font-size: 15px;">Genre : </label><select style="margin-bottom: 20px;">
               <option value="CM">Cours Magistral</option>
@@ -103,8 +101,13 @@
                 </div>
               </div><!-- /.box -->
               
-               <input class="btn btn-primary" type="submit" value="allouer">
+               <input class="btn btn-primary" style="margin-right: 50px;" type="submit" value="allouer">
+               <input class="btn btn-primary" style="margin-right: 50px;" type="reset" value="Annuler">
                 </form>
+               <form style="display :inline-block;" method="post" action="{{path('e_plan_planning_modif_enseignant')}}">
+               <input type="hidden" name="id" value="{{ens.id}}">
+               <input  class="btn btn-primary" type="submit" value="Back">
+               </form>
                <!--/section-->
          
         </section>
