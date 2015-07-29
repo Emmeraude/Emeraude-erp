@@ -69,7 +69,7 @@ class Ec
     private $ecUes;
     
     /**
-     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement")
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement", inversedBy="ecs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $departement;

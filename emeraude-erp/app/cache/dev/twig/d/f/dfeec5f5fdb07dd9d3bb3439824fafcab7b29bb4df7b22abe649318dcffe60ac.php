@@ -44,7 +44,10 @@ class __TwigTemplate_dfeec5f5fdb07dd9d3bb3439824fafcab7b29bb4df7b22abe649318dcff
                 </div>
                 <div class=\"box-body no-padding\">
                   <ul class=\"nav nav-pills nav-stacked\">
-                    <li><a href=\"#\" id=\"editOne\"><i class=\"fa fa-circle-o text-red\"></i> Editer la grille</a></li>
+                    <li><a href=\"";
+        // line 15
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_edit_one_grille");
+        echo "\" id=\"editOne\"><i class=\"fa fa-circle-o text-red\"></i> Editer la grille</a></li>
                     <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire les Grilles</a></li>
                     <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire toutes les Grilles</a></li>
                   </ul>
@@ -172,6 +175,6 @@ class __TwigTemplate_dfeec5f5fdb07dd9d3bb3439824fafcab7b29bb4df7b22abe649318dcff
 
     public function getDebugInfo()
     {
-        return array (  157 => 92,  154 => 91,  125 => 65,  116 => 62,  109 => 60,  104 => 59,  99 => 57,  96 => 56,  92 => 55,  60 => 26,  36 => 5,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  160 => 92,  157 => 91,  128 => 65,  119 => 62,  112 => 60,  107 => 59,  102 => 57,  99 => 56,  95 => 55,  63 => 26,  49 => 15,  36 => 5,  32 => 3,  29 => 2,  11 => 1,);
     }
 }

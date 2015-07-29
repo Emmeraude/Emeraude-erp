@@ -33,6 +33,11 @@ class Departement
      * @ORM\JoinColumn(nullable=false)
      */
     private $mentions;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec", mappedBy="departement")
+     */
+    private $ecs;
 
 
     /**
@@ -128,5 +133,39 @@ class Departement
     
     public function getNombreDeMention() {
         return $this->mentions->count();
+    }
+
+    /**
+     * Add ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\Ec $ec
+     *
+     * @return Departement
+     */
+    public function addEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+        $this->ecs[] = $ec;
+
+        return $this;
+    }
+
+    /**
+     * Remove ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\Ec $ec
+     */
+    public function removeEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+        $this->ecs->removeElement($ec);
+    }
+
+    /**
+     * Get ecs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcs()
+    {
+        return $this->ecs;
     }
 }

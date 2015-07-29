@@ -64,10 +64,10 @@ class Departement extends \EPlan\PlanningBundle\Entity\Departement implements \D
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions');
+            return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions');
+        return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs');
     }
 
     /**
@@ -263,6 +263,39 @@ class Departement extends \EPlan\PlanningBundle\Entity\Departement implements \D
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNombreDeMention', array());
 
         return parent::getNombreDeMention();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addEc', array($ec));
+
+        return parent::addEc($ec);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeEc', array($ec));
+
+        return parent::removeEc($ec);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEcs()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEcs', array());
+
+        return parent::getEcs();
     }
 
 }

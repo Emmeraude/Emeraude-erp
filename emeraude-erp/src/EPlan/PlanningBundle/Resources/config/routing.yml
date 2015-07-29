@@ -6,6 +6,16 @@ e_plan_planning_show_one_grille:
     defaults: { _controller: EPlanPlanningBundle:Division:viewGrille }
     requirements:
         id:    \d+
+e_plan_planning_edit_one_grille:
+    path:     /editOneGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:editOneGrille, id: 0 }
+    requirements:
+        id:    \d+
+e_plan_planning_register_one_grille:
+    path:     /registertOneGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:registerOneGrille }
+    requirements:
+        id:    \d+
 e_plan_planning_load_division:
     path:     /charger-les-departements
     defaults: { _controller: EPlanPlanningBundle:Division:loadDepartement }

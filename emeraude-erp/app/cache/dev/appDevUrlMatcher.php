@@ -133,6 +133,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_show_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewGrilleAction',));
             }
 
+            // e_plan_planning_edit_one_grille
+            if (0 === strpos($pathinfo, '/planning/editOneGrille') && preg_match('#^/planning/editOneGrille(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_edit_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::editOneGrilleAction',  'id' => 0,));
+            }
+
+            // e_plan_planning_register_one_grille
+            if (0 === strpos($pathinfo, '/planning/registertOneGrille') && preg_match('#^/planning/registertOneGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_register_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::registerOneGrilleAction',));
+            }
+
             // e_plan_planning_load_division
             if ($pathinfo === '/planning/charger-les-departements') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::loadDepartementAction',  '_route' => 'e_plan_planning_load_division',);

@@ -32,8 +32,26 @@ class DivisionController extends Controller
         return $this->render('EPlanPlanningBundle:Division:menuDepartement.html.twig', array('departements'=>$listOfDepartement));
     }
     
-    public function viewGrille($id) {
-        
+    public function viewGrilleAction($id) {
+        return $this->redirect($this->generateUrl('e_plan_planning_manage_division'));
+    }
+    
+    public function editOneGrilleAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository ->find($id);
+        //$departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
+        //$listOfEcs = $departement -> getEcs();
+        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape));
+    }
+    
+    public function registerOneGrilleAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository ->find($id);
+        $departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
+        $listOfEcs = $departement -> getEcs();
+        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('listeEc'=>$listOfEcs));
     }
     
     public function viewParcourtTypeAction($id) {

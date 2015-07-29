@@ -29,10 +29,15 @@ class Departement
     private $nom;
     
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Mention", mappedBy="departement")
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Mention", mappedBy="departement", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $mentions;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec", mappedBy="departement")
+     */
+    private $ecs;
 
 
     /**
@@ -66,5 +71,79 @@ class Departement
     public function getNom()
     {
         return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mentions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add mentions
+     *
+     * @param \EPlan\PlanningBundle\Entity\Mention $mentions
+     * @return Departement
+     */
+    public function addMention(\EPlan\PlanningBundle\Entity\Mention $mentions)
+    {
+        $this->mentions[] = $mentions;
+        $mentions ->setDepartement($this);
+    
+        return $this;
+    }
+
+    /**
+     * Remove mentions
+     *
+     * @param \EPlan\PlanningBundle\Entity\Mention $mentions
+     */
+    public function removeMention(\EPlan\PlanningBundle\Entity\Mention $mentions)
+    {
+        $this->mentions->removeElement($mentions);
+    }
+
+    /**
+     * Get mentions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMentions()
+    {
+        return $this->mentions;
+    }
+    
+    /**
+     * Get list of all parcourtType for this department
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParcourtTypes()
+    {
+        $listOfParcourtType = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($this -> mentions as $mention) {
+            foreach ($mention->getParcourtTypes() as $parcourtType) {
+                $listOfParcourtType[] = $parcourtType;
+            }
+            
+        }
+        return $listOfParcourtType;
+    }
+    
+    public function getNombreDeMention() {
+        return $this->mentions->count();
+    }
+    
+    public function findAllEcs() {
+        $listOfEcs = null;
+        $unEc = new Ec();
+        foreach ($unEc -> findAll() as $ec) {
+            $idDepartement = $ec -> getDepartement() -> getId();
+            if($this->id==$idDepartement){
+                $listOfEcs[] = $ec;
+            }
+        }
+        return $listOfEcs;
     }
 }

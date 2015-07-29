@@ -8,7 +8,9 @@
         var list = $('.parcourt:checked'),
             n = list.length;
         if(n==1){
-            this.href = this.href.replace('0',list[0].value);
+            //this.href = this.href.replace('\d+','/'+list[0].value);
+            //alert(this.href);
+            this.href += '/'+list[0].value;
         }else if(n>1){
             alert("vous ne pouvez editer qu'une grille à la fois");
             e.preventDefault();
@@ -19,9 +21,6 @@
             alert('salaud');
             e.preventDefault();
         }
-        //$(this).href='a';
-        //e.href='a';
-        //this.href = 'a';
     }
             );
 })(jQuery);
