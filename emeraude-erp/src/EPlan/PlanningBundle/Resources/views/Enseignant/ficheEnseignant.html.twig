@@ -1,0 +1,65 @@
+{# empty Twig template #}
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{%block  titrePage%}
+    Fiche Technique de {{ens.nom}} {{ens.prenom}} pour l'année academique 2014/2015
+{%endblock %}
+
+{% block contenu %}
+    
+    <div class="box">
+       <div class="box-header with-border">
+         <h3 class="box-title">Identité</h3>
+       </div>
+     <div class="box-body">   
+   <h5 style="margin-bottom: 10px;">    
+     Nom(s) : {{ens.nom}}
+   </h5><h5  style="margin-bottom: 10px;"> 
+     Prenom(s) : {{ens.prenom}}
+    </h5><h5 style="margin-bottom: 10px;"> 
+     Grade : {{ens.titre}}
+     </h5><h5 style="margin-bottom: 10px;"> 
+     Departement : {{ens.departement.nom}}
+     </h5>
+     </div>
+    </div>
+    
+    <div class="box">
+       <div class="box-header with-border">
+         <h3 class="box-title">Contacts</h3>
+       </div>
+     <div class="box-body">   
+     <h5 style="margin-bottom: 10px;">   
+     Tel : {{ens.tel}}
+    </h5><h5 style="margin-bottom: 10px;">
+     E-mail : {{ens.email}}
+     </h5>
+     </div>
+    </div>
+     
+     <div class="box">
+       <div class="box-header with-border">
+         <h3 class="box-title">Cours Magistraux</h3>
+       </div>
+     <div class="box-body">   
+     
+     </div>
+    </div>
+     <div class="box">
+       <div class="box-header with-border">
+         <h3 class="box-title">Travaux Dirrigée</h3>
+       </div>
+     <div class="box-body">   
+    
+     </div>
+    </div>
+     <div class="box">
+       <div class="box-header with-border">
+         <h3 class="box-title">Travaux Pratiques</h3>
+       </div>
+     <div class="box-body">   
+    
+     </div>
+    </div>
+     <a class="btn btn-primary" style="margin-top: 10px;" href="{{path('e_plan_planning_consult_enseignant')}}"><<</a>
+     
+{%endblock %}

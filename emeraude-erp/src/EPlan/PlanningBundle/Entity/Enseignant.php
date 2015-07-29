@@ -56,6 +56,19 @@ class Enseignant
      */
     private $titre;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Departement", inversedBy="enseignants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departement = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -180,5 +193,28 @@ class Enseignant
     public function getTitre()
     {
         return $this->titre;
+    }
+    
+    /**
+     * Get departement
+     *
+     * @return Departement 
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
+    }
+    
+    /**
+     * Set departement
+     *
+     * @param Departement $departement
+     * @return Enseignant 
+     */
+    public function setDepartement($departement)
+    {
+        $this->departement=$departement;
+        
+        return $this;
     }
 }

@@ -1,0 +1,34 @@
+{# empty Twig template #}
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{%block  titrePage%}
+  Modification de  l'Enseignant  {{ens.nom}} {{ens.prenom}}
+{%endblock %}
+{%block  contenu%}
+    
+   <div class="box">
+              
+                <div class="box-body">  
+     <form action="#" method="post">
+        <input type="hidden" name="id" value="{{ens.id}}"/>
+        <input type="hidden" name="nom" value="{{ens.nom}}"/>
+         <input type="hidden" name="prenom" value="{{ens.prenom}}"/>
+        <input class="btn btn-primary" type="submit" value="Information Personnelle"/>
+       </form>
+         
+         <form action="{{path('e_plan_planning_attrib_ec_enseignant')}}" method="post">
+        <input type="hidden" name="id" value="{{ens.id}}"/>
+        <input type="hidden" name="nom" value="{{ens.nom}}"/>
+         <input type="hidden" name="prenom" value="{{ens.prenom}}"/>
+        <input class="btn btn-primary" type="submit" value="Ajouter des ECs"/>
+       </form>
+         
+        <form action="#" method="post">
+        <input type="hidden" name="id" value="{{ens.id}}"/>
+        <input type="hidden" name="nom" value="{{ens.nom}}"/>
+         <input type="hidden" name="prenom" value="{{ens.prenom}}"/>
+        <input class="btn btn-primary" type="submit" value="Supprimer des ECs"/>
+       </form>
+         </div>
+   </div>
+    <a href="{{path('e_plan_planning_consult_enseignant')}}" class="btn btn-primary"> Retour</a>
+{%endblock %}

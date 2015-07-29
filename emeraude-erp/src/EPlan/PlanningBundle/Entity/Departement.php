@@ -39,6 +39,11 @@ class Departement
      */
     private $ecs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Enseignant", mappedBy="departement", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $enseignants;
 
     /**
      * Get id
@@ -94,6 +99,19 @@ class Departement
         return $this;
     }
 
+    /**
+     * Add enseignants
+     *
+     * @param \EPlan\PlanningBundle\Entity\Mention $enseignants
+     * @return Departement
+     */
+    public function addEnseignant(\EPlan\PlanningBundle\Entity\Mention $enseignants)
+    {
+        $enseignants ->setDepartement($this);
+        $this->enseignants[] = $enseignants;
+        return $this;
+    }
+    
     /**
      * Remove mentions
      *

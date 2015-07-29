@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 117b79,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/welcome,1437572915,
 c5eaac,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/manageDivision,1437572951,
 151b5b,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/viewParcourtType/1,1437572972,5a5eb3
@@ -377,3 +378,29 @@ c75370,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/
 846a0a,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/editOneGrille/29,1438172183,
 9d927f,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/editOneGrille/29,1438172222,
 975f7a,127.0.0.1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/editOneGrille/29,1438172236,
+=======
+6e000a,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069214,
+ba5f3d,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069480,3e0480
+3e0480,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069480,
+823f2d,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069543,4ddd88
+4ddd88,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069543,
+822e52,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069592,
+8ce038,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069652,
+78682b,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/Consulter-un-Enseignant,1438069671,
+722ac2,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/fiche-enseignant,1438069676,
+8b2f16,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/Consulter-un-Enseignant,1438069680,
+242edc,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069683,
+09c6db,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/attrib-ec-enseignant,1438069699,
+01d61c,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/attrib-ec-enseignant?a=1&a=3,1438069790,8e8048
+8e8048,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/attrib-ec-enseignant?a=1&a=3,1438069790,
+3b3884,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/modif-enseignant,1438069807,
+ae30e8,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/Consulter-un-Enseignant,1438069830,
+a00372,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/Consulter-un-Enseignant,1438069850,
+26622f,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/Consulter-un-Enseignant,1438069858,
+357ba9,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel,1438069871,
+560f60,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel-gpe,1438069875,
+9e1909,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel-listEc,1438069884,
+a69557,::1,POST,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel-listEc,1438069893,
+842f70,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel-gpe,1438070053,
+98d903,::1,GET,http://localhost/Emeraude-erp/emeraude-erp/web/app_dev.php/planning/param-plan-manuel-gpe,1438070053,
+>>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
