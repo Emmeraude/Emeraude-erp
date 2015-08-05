@@ -64,10 +64,10 @@ class Departement extends \EPlan\PlanningBundle\Entity\Departement implements \D
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs');
+            return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'enseignants');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs');
+        return array('__isInitialized__', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'id', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'nom', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'mentions', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'ecs', '' . "\0" . 'EPlan\\PlanningBundle\\Entity\\Departement' . "\0" . 'enseignants');
     }
 
     /**
@@ -219,6 +219,17 @@ class Departement extends \EPlan\PlanningBundle\Entity\Departement implements \D
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMention', array($mentions));
 
         return parent::addMention($mentions);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addEnseignant(\EPlan\PlanningBundle\Entity\Mention $enseignants)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addEnseignant', array($enseignants));
+
+        return parent::addEnseignant($enseignants);
     }
 
     /**

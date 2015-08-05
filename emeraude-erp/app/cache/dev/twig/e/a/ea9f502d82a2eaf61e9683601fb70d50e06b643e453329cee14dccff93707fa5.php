@@ -8,16 +8,16 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
         parent::__construct($env);
 
         // line 3
-        $this->parent = $this->loadTemplate("EPlanPlanningBundle::template1.html.twig", "EPlanPlanningBundle:Enseignant:attribEcEnseignant.html.twig", 3);
+        $this->parent = $this->loadTemplate("EPlanPlanningBundle::template.html.twig", "EPlanPlanningBundle:Enseignant:attribEcEnseignant.html.twig", 3);
         $this->blocks = array(
-            'titre' => array($this, 'block_titre'),
-            'enseignant' => array($this, 'block_enseignant'),
+            'titrePage' => array($this, 'block_titrePage'),
+            'contenu' => array($this, 'block_contenu'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "EPlanPlanningBundle::template1.html.twig";
+        return "EPlanPlanningBundle::template.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -26,17 +26,22 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
     }
 
     // line 4
-    public function block_titre($context, array $blocks = array())
+    public function block_titrePage($context, array $blocks = array())
     {
     }
 
     // line 6
-    public function block_enseignant($context, array $blocks = array())
+    public function block_contenu($context, array $blocks = array())
     {
         // line 7
         echo "    <section class=\"content-header\">
           <h1>
-            Attribution d'Ec à Samuel Bowong
+            Attribution d'Ec à ";
+        // line 9
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ens"]) ? $context["ens"] : $this->getContext($context, "ens")), "prenom", array()), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ens"]) ? $context["ens"] : $this->getContext($context, "ens")), "nom", array()), "html", null, true);
+        echo "
             <!--small>preview of simple tables</small-->
           </h1></br> </br>
           <!--ol class=\"breadcrumb\">
@@ -50,15 +55,13 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
           
           
           
-               <!-- Main content -->
-        <section class=\"content\">
-              
-              <label>Rechercher EC de type : </label>
-              <select style=\"margin-bottom: 20px;\">
-              <option value=\"CM\">BI</option>
-              <option value=\"TD\">MA</option>
-              <option value=\"TP\">PH</option>
-          </select>
+               <!-- <section class=\"content\">Main content -->
+        
+               <div style=\"margin-bottom: 20px; float: right;\">
+                   <form method=\"\" action=\"\"><input type=\"text\" placeholder=\"Tapez un code\">
+                                             <input type=\"submit\" value=\"Rechercher\">
+                   </form>
+               </div>
             <form>
                 <label style=\"font-size: 15px;\">Genre : </label><select style=\"margin-bottom: 20px;\">
               <option value=\"CM\">Cours Magistral</option>
@@ -79,7 +82,7 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
                     </tr>
                     <tr>
                      <!--a href=\"";
-        // line 51
+        // line 49
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_index_enseignant");
         echo "\">Plus</a--><td>1.</td>
                       <td>BI 656</td>
@@ -90,7 +93,7 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
                       </td> 
                       <td><input type=\"checkbox\" name=\"a\" value=\"1\" /><!--span class=\"badge bg-red\">55%</span--></td>
                       <!--td> <a href=\"";
-        // line 59
+        // line 57
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_index_enseignant");
         echo "\">Plus</a></td-->
                     </tr>
@@ -139,9 +142,20 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
                 </div>
               </div><!-- /.box -->
               
-               <input class=\"btn btn-primary\" type=\"submit\" value=\"allouer\">
+               <input class=\"btn btn-primary\" style=\"margin-right: 50px;\" type=\"submit\" value=\"allouer\">
+               <input class=\"btn btn-primary\" style=\"margin-right: 50px;\" type=\"reset\" value=\"Annuler\">
                 </form>
-               </section>
+               <form style=\"display :inline-block;\" method=\"post\" action=\"";
+        // line 107
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_modif_enseignant");
+        echo "\">
+               <input type=\"hidden\" name=\"id\" value=\"";
+        // line 108
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ens"]) ? $context["ens"] : $this->getContext($context, "ens")), "id", array()), "html", null, true);
+        echo "\">
+               <input  class=\"btn btn-primary\" type=\"submit\" value=\"Back\">
+               </form>
+               <!--/section-->
          
         </section>
 
@@ -162,6 +176,6 @@ class __TwigTemplate_ea9f502d82a2eaf61e9683601fb70d50e06b643e453329cee14dccff937
 
     public function getDebugInfo()
     {
-        return array (  94 => 59,  83 => 51,  37 => 7,  34 => 6,  29 => 4,  11 => 3,);
+        return array (  154 => 108,  150 => 107,  97 => 57,  86 => 49,  41 => 9,  37 => 7,  34 => 6,  29 => 4,  11 => 3,);
     }
 }

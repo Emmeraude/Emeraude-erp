@@ -1,0 +1,40 @@
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{%block titrePage %}
+            Enregistrement d'un UE
+   
+{%endblock %}
+{% block contenu %}
+ <form class="box-body" method="post" action="{{path('e_plan_planning_enregitrer_UE')}}"  style="margin-bottom: 100px;" {{form_enctype(form) }}>
+{# Les erreurs générales du formulaire. #}
+{{ form_errors(form) }}
+<div style="margin-bottom: 20px;">
+{# Génération du label. #}
+{{ form_label(form.nom, "Nom de l'UE") }}
+{# Affichage des erreurs pour ce champ précis. #}
+{{ form_errors(form.nom) }}
+{# Génération de l'input. #}
+{{ form_widget(form.nom) }}
+</div>
+{# Idem pour un autre champ. #}
+<div style="margin-bottom: 20px;">
+{{ form_label(form.code, "Code de l'UE") }}
+{{ form_errors(form.code) }}
+{{ form_widget(form.code) }}
+</div>
+
+<div style="margin-bottom: 20px;">
+{{ form_label(form.numSemestre, " Numéro du Semestre") }}
+{{ form_errors(form.numSemestre) }}
+{{ form_widget(form.numSemestre) }}
+</div>
+<div style="margin-bottom: 20px;">
+{{ form_label(form.ecs, "Ecs de l'UE") }}
+{{ form_errors(form.ecs) }}
+{{ form_widget(form.ecs) }}
+</div>
+{#{ form_rest(form) }#}
+
+<input class="btn btn-primary" value="Enregistrer" type="submit" style="margin-right: 100px;"/>
+ <input class="btn btn-primary" value="Annuler" type="reset" /> 
+ </form> 
+{%endblock %}

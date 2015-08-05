@@ -46,18 +46,22 @@ e_plan_planning_test:
 e_plan_planning_welcome:
     path:     /welcome
     defaults: { _controller: EPlanPlanningBundle:Presentation:welcome }
-<<<<<<< HEAD
 e_plan_planning_view_parcourt_Type:
     path:     /viewParcourtType/{id}
     defaults: { _controller: EPlanPlanningBundle:Division:viewParcourtType }
     requirements:
         id:    \d+
-
-=======
 e_plan_planning_mention_ec:
     path:     /param-plan-manuel-listEc
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:ecMention }
 e_plan_planning_modif_enseignant:
     path:     /modif-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+
+e_plan_planning_enregitrer_UE:
+    path:     /enregUE
+    defaults: { _controller: EPlanPlanningBundle:Division:enregistrerUE }
+    
+e_plan_planning_enregitrer_Ec:
+    path:     /enregEc
+    defaults: { _controller: EPlanPlanningBundle:Division:enregistrerEc }

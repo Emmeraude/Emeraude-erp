@@ -77,30 +77,24 @@
   'SwiftmailerBundle:Collector:swiftmailer.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\symfony\\swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig',
   'DoctrineBundle:Collector:db.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
-  'EPlanPlanningBundle:Division:ManageDivision.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Division/ManageDivision.html.twig',
+  'EPlanPlanningBundle:Division:manageDivision.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Division/manageDivision.html.twig',
+  'EPlanPlanningBundle:Division:menuDepartement.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Division/menuDepartement.html.twig',
   'EPlanPlanningBundle:Enseignant:attribEcEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/attribEcEnseignant.html.twig',
   'EPlanPlanningBundle:Enseignant:consultEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/consultEnseignant.html.twig',
   'EPlanPlanningBundle:Enseignant:createEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/createEnseignant.html.twig',
-<<<<<<< HEAD
-  'EPlanPlanningBundle:Enseignant:indexEns.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/indexEns.html.twig',
-  'EPlanPlanningBundle:ParcourtType:index.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/index.html.twig',
-  'EPlanPlanningBundle:ParcourtType:showParcourtType.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/showParcourtType.html.twig',
-  'EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Presentation/RessourceIndisponible.html.twig',
-  'EPlanPlanningBundle:Presentation:welcome.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Presentation/welcome.html.twig',
-  'EPlanPlanningBundle::template.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/template.html.twig',
-=======
   'EPlanPlanningBundle:Enseignant:ficheEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/ficheEnseignant.html.twig',
   'EPlanPlanningBundle:Enseignant:indexEns.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/indexEns.html.twig',
   'EPlanPlanningBundle:Enseignant:modifEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/modifEnseignant.html.twig',
+  'EPlanPlanningBundle:Grille:editOneGrille.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Grille/editOneGrille.html.twig',
+  'EPlanPlanningBundle:Grille:EnregistrerUE.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Grille/EnregistrerUE.html.twig',
   'EPlanPlanningBundle:ParcourtType:index.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/index.html.twig',
+  'EPlanPlanningBundle:ParcourtType:showParcourtType.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/showParcourtType.html.twig',
   'EPlanPlanningBundle:Plannification:indexPlanManuel.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Plannification/indexPlanManuel.html.twig',
   'EPlanPlanningBundle:Plannification:listEcMention.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Plannification/listEcMention.html.twig',
   'EPlanPlanningBundle:Plannification:mention.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Plannification/mention.html.twig',
   'EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Presentation/RessourceIndisponible.html.twig',
   'EPlanPlanningBundle:Presentation:welcome.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Presentation/welcome.html.twig',
   'EPlanPlanningBundle::template.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/template.html.twig',
-  'EPlanPlanningBundle::template1.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/template1.html.twig',
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
   'WebProfilerBundle:Collector:config.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/config.html.twig',
   'WebProfilerBundle:Collector:events.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/events.html.twig',
   'WebProfilerBundle:Collector:exception.css.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/exception.css.twig',
@@ -139,8 +133,4 @@
   'SensioDistributionBundle:Configurator:steps.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/steps.html.twig',
   '::base.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\app/Resources\\views/base.html.twig',
   '::planningTemplate.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\app/Resources\\views/planningTemplate.html.twig',
-<<<<<<< HEAD
-=======
-  '::planningTemplate1.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\app/Resources\\views/planningTemplate1.html.twig',
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
 );

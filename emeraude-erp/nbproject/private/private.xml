@@ -3,27 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/editOneGrille.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/DivisionController.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/UEType.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/EcType.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/web/NosScripts/js/editGrille.js</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/DataFixtures/ORM/Ecs.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Departement.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Ec.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Etape.php</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/ParcourtType/showParcourtType.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/planningTemplate.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/web/NosScripts/js/manageShowParcourtType.js</file>
-=======
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/EnseignantController.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Enseignant/createEnseignant.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Enseignant/attribEcEnseignant.html.twig</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/planningTemplate.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/DepartementType.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/EnregistrerEc.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/AppCache.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/editOneGrille.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Division/manageDivision.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/EnseignantType.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/UE.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Ec.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Departement.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/DepartementRepository.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/EnregistrerUE.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/AppKernel.php</file>
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/Resources/views/planningTemplate.html.twig</file>
         </group>
     </open-files>
 </project-private>

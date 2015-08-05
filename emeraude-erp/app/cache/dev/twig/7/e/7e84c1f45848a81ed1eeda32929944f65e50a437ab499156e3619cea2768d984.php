@@ -8,14 +8,14 @@ class __TwigTemplate_7e84c1f45848a81ed1eeda32929944f65e50a437ab499156e3619cea276
         parent::__construct($env);
 
         // line 2
-        $this->parent = $this->loadTemplate("::planningTemplate1.html.twig", "EPlanPlanningBundle:Enseignant:indexEns.html.twig", 2);
+        $this->parent = $this->loadTemplate("::planningTemplate.html.twig", "EPlanPlanningBundle:Enseignant:indexEns.html.twig", 2);
         $this->blocks = array(
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::planningTemplate1.html.twig";
+        return "::planningTemplate.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())

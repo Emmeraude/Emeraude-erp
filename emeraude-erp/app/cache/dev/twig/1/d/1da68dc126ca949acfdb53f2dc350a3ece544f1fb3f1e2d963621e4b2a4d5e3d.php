@@ -448,12 +448,18 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
             <li class=\"treeview\">
               <a href=\"#\">
                 <i class=\"fa fa-pie-chart\"></i>
-                <span>Charts</span>
+                <span>Gestion des UE</span>
                 <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
-                <li><a href=\"pages/charts/chartjs.html\"><i class=\"fa fa-circle-o\"></i> ChartJS</a></li>
-                <li><a href=\"pages/charts/morris.html\"><i class=\"fa fa-circle-o\"></i> Morris</a></li>
+                <li><a href=\"";
+        // line 363
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_enregitrer_UE");
+        echo "\"><i class=\"fa fa-circle-o\"></i> Enregistrer UE</a></li>
+                <li><a href=\"";
+        // line 364
+        echo $this->env->getExtension('routing')->getPath("e_plan_planning_enregitrer_Ec");
+        echo "\"><i class=\"fa fa-circle-o\"></i> Enregistrer ECs</a></li>
                 <li><a href=\"pages/charts/flot.html\"><i class=\"fa fa-circle-o\"></i> Flot</a></li>
                 <li><a href=\"pages/charts/inline.html\"><i class=\"fa fa-circle-o\"></i> Inline charts</a></li>
               </ul>
@@ -846,9 +852,9 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/demo.js"), "html", null, true);
         echo " type=\"text/javascript\"></script>
     ";
-        // line 702
+        // line 712
         $this->displayBlock('script', $context, $blocks);
-        // line 704
+        // line 714
         echo "  </body>
 </html>
 ";
@@ -937,10 +943,10 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
     {
     }
 
-    // line 702
+    // line 712
     public function block_script($context, array $blocks = array())
     {
-        // line 703
+        // line 713
         echo "    ";
     }
 
@@ -956,10 +962,6 @@ class __TwigTemplate_1da68dc126ca949acfdb53f2dc350a3ece544f1fb3f1e2d963621e4b2a4
 
     public function getDebugInfo()
     {
-<<<<<<< HEAD
-        return array (  915 => 703,  912 => 702,  907 => 481,  902 => 477,  897 => 482,  895 => 481,  890 => 478,  888 => 477,  884 => 475,  881 => 474,  875 => 466,  855 => 465,  849 => 462,  843 => 461,  837 => 704,  835 => 702,  831 => 701,  825 => 698,  819 => 695,  814 => 693,  809 => 691,  804 => 689,  799 => 687,  794 => 685,  788 => 682,  783 => 680,  779 => 679,  774 => 677,  769 => 675,  763 => 672,  752 => 664,  570 => 484,  568 => 474,  556 => 466,  554 => 465,  547 => 462,  545 => 461,  424 => 343,  377 => 299,  330 => 255,  321 => 249,  189 => 120,  174 => 108,  159 => 96,  144 => 84,  129 => 72,  84 => 30,  79 => 28,  74 => 26,  69 => 24,  64 => 22,  59 => 20,  54 => 18,  48 => 15,  39 => 9,  29 => 1,);
-=======
-        return array (  931 => 491,  926 => 487,  921 => 492,  919 => 491,  914 => 488,  912 => 487,  908 => 485,  905 => 484,  900 => 494,  898 => 484,  894 => 482,  891 => 481,  885 => 475,  865 => 474,  859 => 471,  853 => 470,  845 => 711,  839 => 708,  833 => 705,  828 => 703,  823 => 701,  818 => 699,  813 => 697,  808 => 695,  802 => 692,  797 => 690,  793 => 689,  788 => 687,  783 => 685,  777 => 682,  766 => 674,  586 => 496,  584 => 481,  574 => 475,  572 => 474,  565 => 471,  563 => 470,  442 => 352,  435 => 348,  431 => 347,  407 => 326,  377 => 299,  330 => 255,  321 => 249,  189 => 120,  174 => 108,  159 => 96,  144 => 84,  129 => 72,  84 => 30,  79 => 28,  74 => 26,  69 => 24,  64 => 22,  59 => 20,  54 => 18,  48 => 15,  39 => 9,  29 => 1,);
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+        return array (  950 => 713,  947 => 712,  942 => 491,  937 => 487,  932 => 492,  930 => 491,  925 => 488,  923 => 487,  919 => 485,  916 => 484,  911 => 494,  909 => 484,  905 => 482,  902 => 481,  896 => 475,  876 => 474,  870 => 471,  864 => 470,  858 => 714,  856 => 712,  852 => 711,  846 => 708,  840 => 705,  835 => 703,  830 => 701,  825 => 699,  820 => 697,  815 => 695,  809 => 692,  804 => 690,  800 => 689,  795 => 687,  790 => 685,  784 => 682,  773 => 674,  593 => 496,  591 => 481,  581 => 475,  579 => 474,  572 => 471,  570 => 470,  461 => 364,  457 => 363,  443 => 352,  436 => 348,  432 => 347,  408 => 326,  378 => 299,  331 => 255,  322 => 249,  190 => 120,  175 => 108,  160 => 96,  145 => 84,  130 => 72,  85 => 30,  80 => 28,  75 => 26,  70 => 24,  65 => 22,  60 => 20,  55 => 18,  49 => 15,  40 => 9,  30 => 1,);
     }
 }
