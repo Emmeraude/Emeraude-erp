@@ -29,17 +29,29 @@ class Grille
     private $titre;
     
     /**
+     * @var smallint
+     *
+     * @ORM\Column(name="numeroSemestre", type="smallint")
+     */
+    private $numeroSemestre;
+    
+    /**
      * @ORM\OneToOne(targetEntity="EPlan\PlanningBundle\Entity\Etape", mappedBy="grille")
      * @ORM\JoinColumn(nullable=false)
      */
     private $etape;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UE", mappedBy="grille", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $ues;
 
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UEGrille", mappedBy="grille", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ueGrilles;
 
     /**
      * Get id
@@ -93,6 +105,43 @@ class Grille
     {
         $this->ues[] = $ue;
 
+	}
+	
+	/**
+     * Set etape
+     *
+     * @param \EPlan\PlanningBundle\Entity\Etape $etape
+     *
+     * @return Grille
+     */
+    public function setEtape(\EPlan\PlanningBundle\Entity\Etape $etape)
+    {
+        $etape ->setGrille($this);
+        $this->etape = $etape;
+        return $this;
+    }
+
+    /**
+     * Get etape
+     *
+     * @return \EPlan\PlanningBundle\Entity\Etape
+     */
+    public function getEtape()
+    {
+        return $this->etape;
+    }
+
+    /**
+     * Add ueGrille
+     *
+     * @param \EPlan\PlanningBundle\Entity\UEGrile $ueGrille
+     *
+     * @return Grille
+     */
+    public function addUeGrille(\EPlan\PlanningBundle\Entity\UEGrille $ueGrille)
+    {
+        $ueGrille->setGrille($this);
+        $this->ueGrilles[] = $ueGrille;
         return $this;
     }
 
@@ -126,6 +175,38 @@ class Grille
     public function setEtape(\EPlan\PlanningBundle\Entity\Etape $etape)
     {
         $this->etape = $etape;
+    }
+	
+    /**
+     * Remove ueGrille
+     *
+     * @param \EPlan\PlanningBundle\Entity\UEGrile $ueGrille
+     */
+    public function removeUeGrille(\EPlan\PlanningBundle\Entity\UEGrille $ueGrille)
+    {
+        $this->ueGrilles->removeElement($ueGrille);
+    }
+
+    /**
+     * Get ueGrilles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUeGrilles()
+    {
+        return $this->ueGrilles;
+    }
+
+    /**
+     * Set numeroSemestre
+     *
+     * @param integer $numeroSemestre
+     *
+     * @return Grille
+     */
+    public function setNumeroSemestre($numeroSemestre)
+    {
+        $this->numeroSemestre = $numeroSemestre;
 
         return $this;
     }
@@ -138,5 +219,23 @@ class Grille
     public function getEtape()
     {
         return $this->etape;
+	}
+	/**
+     * Get numeroSemestre
+     *
+     * @return integer
+     */
+    public function getNumeroSemestre()
+    {
+        return $this->numeroSemestre;
+    }
+    
+    /**
+     *
+     * @return integer
+     */
+    public function getNombreUes()
+    {
+        return $this->ueGrilles->count();
     }
 }

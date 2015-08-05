@@ -240,6 +240,7 @@ class Ec
     {
         $this->ecUes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->enseigantsEc = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -391,4 +392,5 @@ class Ec
     {
         return $this->enseignantsEc;
     }
+
 }

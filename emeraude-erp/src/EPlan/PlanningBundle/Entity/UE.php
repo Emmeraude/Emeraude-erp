@@ -54,7 +54,6 @@ class UE
      */
     private $ecs;
 
-
     /**
      * Get id
      *

@@ -52,11 +52,17 @@ e_plan_planning_test:
 e_plan_planning_welcome:
     path:     /welcome
     defaults: { _controller: EPlanPlanningBundle:Presentation:welcome }
+e_plan_planning_view_parcourt_Type:
+    path:     /viewParcourtType/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:viewParcourtType }
+    requirements:
+        id:    \d+
 e_plan_planning_mention_ec:
     path:     /param-plan-manuel-listEc
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:ecMention }
 e_plan_planning_modif_enseignant:
     path:     /modif-enseignant
+<<<<<<< HEAD
     defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }
 e_plan_planning_registrer_salle:
      path:     /formCreateSalle
@@ -72,3 +78,18 @@ e_plan_planning_view_parcourt_Type:
     defaults: { _controller: EPlanPlanningBundle:Division:viewParcourtType }
     requirements:
         id:    \d+
+=======
+<<<<<<< HEAD
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }
+
+e_plan_planning_enregitrer_UE:
+    path:     /enregUE
+    defaults: { _controller: EPlanPlanningBundle:Division:enregistrerUE }
+    
+e_plan_planning_enregitrer_Ec:
+    path:     /enregEc
+    defaults: { _controller: EPlanPlanningBundle:Division:enregistrerEc }
+=======
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
+>>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d

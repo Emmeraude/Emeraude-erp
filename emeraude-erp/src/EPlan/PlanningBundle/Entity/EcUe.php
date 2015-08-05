@@ -33,6 +33,12 @@ class EcUe
      * @ORM\JoinColumn(nullable=false)
      */
     private $ue;
+	
+    /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\UEGrille", inversedBy="ecUes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ueGrille;
     
     /**
      * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Ec", inversedBy="ecUes")
@@ -121,5 +127,28 @@ class EcUe
     public function getEc()
     {
         return $this->ec;
+    }
+    /**
+     * Set ueGrille
+     *
+     * @param \EPlan\PlanningBundle\Entity\UEGrille $ueGrille
+     *
+     * @return EcUe
+     */
+    public function setUeGrille(\EPlan\PlanningBundle\Entity\UEGrille $ueGrille)
+    {
+        $this->ueGrille = $ueGrille;
+
+        return $this;
+    }
+
+    /**
+     * Get ueGrille
+     *
+     * @return \EPlan\PlanningBundle\Entity\UEGrille
+     */
+    public function getUeGrille()
+    {
+        return $this->ueGrille;
     }
 }

@@ -1,0 +1,60 @@
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{% block contenu %}
+<div class="box" style="text-align: justify; width: 400px">
+  <form class="box-body" method="post" action="{{path('e_plan_planning_enregitrer_Ec')}}"  style="margin-bottom: 100px;" {{form_enctype(form) }}>
+    {# Les erreurs générales du formulaire. #}
+   {{ form_errors(form) }}
+   <div style="margin-bottom: 20px;">
+     {# Génération du label. #}
+     {{ form_label(form.code, "Code de l'EC") }}
+     {# Affichage des erreurs pour ce champ précis. #}
+     {{ form_errors(form.code) }}
+     {# Génération de l'input. #}
+     {{ form_widget(form.code) }}
+   </div>
+   {# Idem pour un autre champ. #}
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.libelle, "Libellé de l'EC") }}
+     {{ form_errors(form.libelle) }}
+     {{ form_widget(form.libelle) }}
+   </div>
+
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.volHeuresCM, " Volume Horaire du CM") }}
+     {{ form_errors(form.volHeuresCM) }}
+     {{ form_widget(form.volHeuresCM) }}
+   </div>
+
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.volHeuresTD, " Volume Horaire des TD") }}
+     {{ form_errors(form.volHeuresTD) }}
+     {{ form_widget(form.volHeuresTD) }}
+   </div>
+
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.volHeuresTP, " Volume Horaire des TP") }}
+     {{ form_errors(form.volHeuresTP) }}
+     {{ form_widget(form.volHeuresTP) }}
+   </div>
+
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.niveau, "Etape de l'EC") }}
+     {{ form_errors(form.niveau) }}
+     {{ form_widget(form.niveau) }}
+   </div>
+
+   
+   <div style="margin-bottom: 20px;">
+     {{ form_label(form.departement, "Département de l'EC") }}
+     {{ form_errors(form.departement) }}
+     {{ form_widget(form.departement) }}
+   </div>
+   
+   {#{ form_rest(form) }#}
+   <div>
+   <input class="btn btn-success" style="display: inline;" value="Enregistrer" type="submit" style="margin-right: 100px;"/> 
+   <input class="btn btn-warning" value="Annuler" style="display: inline;" type="reset" /> 
+  </div>
+  </form>
+</div>
+   {%endblock%}   

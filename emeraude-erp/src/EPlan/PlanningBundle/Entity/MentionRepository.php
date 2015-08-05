@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class MentionRepository extends EntityRepository
 {
+    public function findWithDepartement() {
+        $qb = $this->createQueryBuilder('m')->join('m.departement', 'd')->addSelect('d');
+        return $qb->getQuery()->getSingleResult();
+    }
+    
+    public function findWithParcourtTypes() {
+        $qb = $this->createQueryBuilder('m')->join('m.parcourtTypes', 'p')->addSelect('p');
+        return $qb->getQuery()->getResult();
+    }
 }
