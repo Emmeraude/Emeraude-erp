@@ -24,11 +24,7 @@ class __TwigTemplate_50028ec6be112c4c53b5a870243514758c19f2725e7c9ab6820faaec52a
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-<<<<<<< HEAD
-        $context["__internal_dbdbcc0028c81bfc11d8703b0505ed801a0b78070a5b489933c8ea9246d64d6e"] = $this;
-=======
-        $context["__internal_16fcd095db62484a8d6781202f30939a1af1a7a689bce0179ddd9cdbff8f941d"] = $this;
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+        $context["__internal_0e4ce8b21b077b72e2e275fc4590a2a2ef763a6fea81acb2cf47be2f38a7146b"] = $this;
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
@@ -89,11 +85,7 @@ class __TwigTemplate_50028ec6be112c4c53b5a870243514758c19f2725e7c9ab6820faaec52a
             echo "</code></td>
                 <td><code>";
             // line 34
-<<<<<<< HEAD
-            echo $context["__internal_dbdbcc0028c81bfc11d8703b0505ed801a0b78070a5b489933c8ea9246d64d6e"]->getdisplay_listener($context["listener"]);
-=======
-            echo $context["__internal_16fcd095db62484a8d6781202f30939a1af1a7a689bce0179ddd9cdbff8f941d"]->getdisplay_listener($context["listener"]);
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+            echo $context["__internal_0e4ce8b21b077b72e2e275fc4590a2a2ef763a6fea81acb2cf47be2f38a7146b"]->getdisplay_listener($context["listener"]);
             echo "</code></td>
             </tr>
         ";
@@ -131,11 +123,7 @@ class __TwigTemplate_50028ec6be112c4c53b5a870243514758c19f2725e7c9ab6820faaec52a
                 echo "</code></td>
                     <td><code>";
                 // line 51
-<<<<<<< HEAD
-                echo $context["__internal_dbdbcc0028c81bfc11d8703b0505ed801a0b78070a5b489933c8ea9246d64d6e"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
-=======
-                echo $context["__internal_16fcd095db62484a8d6781202f30939a1af1a7a689bce0179ddd9cdbff8f941d"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
+                echo $context["__internal_0e4ce8b21b077b72e2e275fc4590a2a2ef763a6fea81acb2cf47be2f38a7146b"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
                 echo "</code></td>
                 </tr>
             ";

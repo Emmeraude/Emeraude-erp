@@ -8,6 +8,11 @@ use EPlan\PlanningBundle\Entity\Etape;
 use EPlan\PlanningBundle\Entity\Mention;
 use EPlan\PlanningBundle\Entity\Departement;
 use EPlan\PlanningBundle\Entity\ObjectError;
+use EPlan\PlanningBundle\Entity\Grille;
+use EPlan\PlanningBundle\Form\GrilleType;
+use EPlan\PlanningBundle\Entity\UE;
+use EPlan\PlanningBundle\Entity\Ec;
+use EPlan\PlanningBundle\Entity\UEGrille;
 
 class DivisionController extends Controller
 {
@@ -33,16 +38,51 @@ class DivisionController extends Controller
     }
     
     public function viewGrilleAction($id) {
-        return $this->redirect($this->generateUrl('e_plan_planning_manage_division'));
+        $em = $this -> getDoctrine() -> getManager();
+        $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository->find($id);
+        if($etape){
+            return $this->render('EPlanPlanningBundle:Grille:showOneGrille.html.twig', array('etape' => $etape));
+        }
+        $message = new ObjectError();
+        $message->setTitle('Grille De programme Indisponible');
+        $message->setMessageUser('Cette Grille de programme est indiponible. il est probable que elle a pas ete realisee');
+        return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
     }
     
     public function editOneGrilleAction($id) {
+        $etape = $this->getDoctrine()->getManager()->find('EPlan\PlanningBundle\Entity\Etape', $id);
+        $grille = $etape->getGrille();
+        $nombreUes = 0;
+        //$grille = $this->getDoctrine()->getManager()->find('EPlan\PlanningBundle\Entity\Grille', $etape->getGrille()->getId());
+        if(!($grille)){
+            $grille = new Grille();
+            $ue = new UEGrille();
+            $parcourt = $etape -> getParcourtType();
+            $grille ->setTitre('Grille de Prodramme'.$parcourt->getNom());
+            $grille->setEtape($etape);
+            $ec = new Ec();
+            $ue ->addEc($ec);
+            $grille ->addUeGrille($ue);
+        }else{
+            $nombreUes = $grille->getNombreUes();
+        }
+        $form = $this -> createForm(new GrilleType(), $grille);
+        $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
-        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
-        $etape = $etapeRepository ->find($id);
+        if($request->getMethod()=='POST'){
+            $form -> bind($request);
+            //if($form->isValid()){
+                $em ->persist($grille);
+                $em ->flush();
+                return $this -> redirect($this->generateUrl('e_plan_planning_show_one_grille', array('id' => $id)));
+            //}
+        }
+        //$etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
+        //$etape = $etapeRepository ->find($id);
         //$departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
         //$listOfEcs = $departement -> getEcs();
-        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape));
+        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape, 'nombreUes'=>$nombreUes, 'form' => $form ->createView()));
     }
     
     public function registerOneGrilleAction($id) {

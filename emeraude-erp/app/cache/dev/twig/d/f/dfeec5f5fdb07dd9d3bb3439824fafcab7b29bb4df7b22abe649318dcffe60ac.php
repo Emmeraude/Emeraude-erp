@@ -102,8 +102,10 @@ class __TwigTemplate_dfeec5f5fdb07dd9d3bb3439824fafcab7b29bb4df7b22abe649318dcff
             echo twig_escape_filter($this->env, $this->getAttribute($context["etape"], "id", array()), "html", null, true);
             echo "\"/></td>
                                 <td class=\"mailbox-star\"><a href=\"#\"><i class=\"fa fa-star text-yellow\"></i></a></td>
-                                <td class=\"mailbox-name\"><a href=\"#\">";
+                                <td class=\"mailbox-name\"><a href=\"";
             // line 59
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_show_one_grille", array("id" => $this->getAttribute($context["etape"], "id", array()))), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["parcourtType"]) ? $context["parcourtType"] : $this->getContext($context, "parcourtType")), "code", array()), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($context["etape"], "numero", array()), "html", null, true);
             echo "</a></td>
@@ -175,6 +177,6 @@ class __TwigTemplate_dfeec5f5fdb07dd9d3bb3439824fafcab7b29bb4df7b22abe649318dcff
 
     public function getDebugInfo()
     {
-        return array (  160 => 92,  157 => 91,  128 => 65,  119 => 62,  112 => 60,  107 => 59,  102 => 57,  99 => 56,  95 => 55,  63 => 26,  49 => 15,  36 => 5,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  162 => 92,  159 => 91,  130 => 65,  121 => 62,  114 => 60,  107 => 59,  102 => 57,  99 => 56,  95 => 55,  63 => 26,  49 => 15,  36 => 5,  32 => 3,  29 => 2,  11 => 1,);
     }
 }

@@ -29,13 +29,6 @@ class UE
     private $nom;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="numSemestre", type="smallint")
-     */
-    private $numSemestre;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=8)
@@ -43,17 +36,10 @@ class UE
     private $code;
     
     /**
-     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Grille", inversedBy="ues")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $grille;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EcUe", mappedBy="ue", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ecs;
-
 
     /**
      * Get id
@@ -145,37 +131,13 @@ class UE
     }
 
     /**
-     * Set grille
-     *
-     * @param \EPlan\PlanningBundle\Entity\Grille $grille
-     *
-     * @return UE
-     */
-    public function setGrille(\EPlan\PlanningBundle\Entity\Grille $grille)
-    {
-        $this->grille = $grille;
-
-        return $this;
-    }
-
-    /**
-     * Get grille
-     *
-     * @return \EPlan\PlanningBundle\Entity\Grille
-     */
-    public function getGrille()
-    {
-        return $this->grille;
-    }
-
-    /**
      * Add ec
      *
      * @param \EPlan\PlanningBundle\Entity\EcUe $ec
      *
      * @return UE
      */
-    public function addEc(\EPlan\PlanningBundle\Entity\EcUe $ec)
+    public function addEc(\EPlan\PlanningBundle\Entity\Ec $ec)
     {
         $this->ecs[] = $ec;
 
@@ -187,7 +149,7 @@ class UE
      *
      * @param \EPlan\PlanningBundle\Entity\EcUe $ec
      */
-    public function removeEc(\EPlan\PlanningBundle\Entity\EcUe $ec)
+    public function removeEc(\EPlan\PlanningBundle\Entity\Ec $ec)
     {
         $this->ecs->removeElement($ec);
     }

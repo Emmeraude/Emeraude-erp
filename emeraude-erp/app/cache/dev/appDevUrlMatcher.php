@@ -203,11 +203,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PresentationController::welcomeAction',  '_route' => 'e_plan_planning_welcome',);
             }
 
-<<<<<<< HEAD
             // e_plan_planning_view_parcourt_Type
             if (0 === strpos($pathinfo, '/planning/viewParcourtType') && preg_match('#^/planning/viewParcourtType/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_view_parcourt_Type')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewParcourtTypeAction',));
-=======
+            }
+
             // e_plan_planning_mention_ec
             if ($pathinfo === '/planning/param-plan-manuel-listEc') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\PlanManuelController::ecMentionAction',  '_route' => 'e_plan_planning_mention_ec',);
@@ -216,7 +216,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // e_plan_planning_modif_enseignant
             if ($pathinfo === '/planning/modif-enseignant') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::modifEnseignantAction',  '_route' => 'e_plan_planning_modif_enseignant',);
->>>>>>> a4eba665dcabdbba3b7546a63787330435c0f30f
             }
 
         }

@@ -56,7 +56,7 @@
                               <tr>
                                 <td><input type="checkbox" class="parcourt" value ="{{ etape.id }}"/></td>
                                 <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                <td class="mailbox-name"><a href="#">{{parcourtType.code}}{{etape.numero}}</a></td>
+                                <td class="mailbox-name"><a href="{{ path('e_plan_planning_show_one_grille', { 'id': etape.id }) }}">{{parcourtType.code}}{{etape.numero}}</a></td>
                                 <td class="mailbox-subject"><b>{{parcourtType.nom}}</b> - Niveau{{etape.numero}}</td>
                                 <td class="mailbox-attachment"></td>
                                 <td class="mailbox-date">{{parcourtType.nombreEtudiants}} &eacute;tudiants</td>

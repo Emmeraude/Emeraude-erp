@@ -52,9 +52,6 @@ class __TwigTemplate_e68ffb27ec45c8291a7ec48d197ceee892f642aa257110d8d0732b61e30
         // line 23
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_load_division");
         echo "\"><i class=\"fa fa-circle-o text-red\"></i> Charger les Departements</a></li>
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-yellow\"></i> Editer la Grille De programme</a></li>
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire la Grille</a></li>
-                    <li><a href=\"#\"><i class=\"fa fa-circle-o text-light-blue\"></i> Reconduire toutes les Grilles</a></li>
                   </ul>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -74,11 +71,11 @@ class __TwigTemplate_e68ffb27ec45c8291a7ec48d197ceee892f642aa257110d8d0732b61e30
                  
                   <div class=\"callout callout-info\">
             <h4>";
-        // line 45
+        // line 42
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["message"]) ? $context["message"] : $this->getContext($context, "message")), "title", array()), "html", null, true);
         echo "</h4>
             <p>";
-        // line 46
+        // line 43
         echo $this->getAttribute((isset($context["message"]) ? $context["message"] : $this->getContext($context, "message")), "messageUser", array());
         echo "</p>
           </div>
@@ -101,6 +98,6 @@ class __TwigTemplate_e68ffb27ec45c8291a7ec48d197ceee892f642aa257110d8d0732b61e30
 
     public function getDebugInfo()
     {
-        return array (  82 => 46,  78 => 45,  53 => 23,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  79 => 43,  75 => 42,  53 => 23,  31 => 3,  28 => 2,  11 => 1,);
     }
 }
