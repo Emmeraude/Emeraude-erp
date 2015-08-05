@@ -43,17 +43,10 @@ class UE
     private $code;
     
     /**
-     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\Grille", inversedBy="ues")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $grille;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EcUe", mappedBy="ue", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ecs;
-
 
     /**
      * Get id
@@ -136,5 +129,93 @@ class UE
     {
         return $this->code;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ecs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set grille
+     *
+     * @param \EPlan\PlanningBundle\Entity\Grille $grille
+     *
+     * @return UE
+     */
+    public function setGrille(\EPlan\PlanningBundle\Entity\Grille $grille)
+    {
+        $this->grille = $grille;
+
+        return $this;
+    }
+
+    /**
+     * Get grille
+     *
+     * @return \EPlan\PlanningBundle\Entity\Grille
+     */
+    public function getGrille()
+    {
+        return $this->grille;
+    }
+
+    /**
+     * Add ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\EcUe $ec
+     *
+     * @return UE
+     */
+    public function addEc(\EPlan\PlanningBundle\Entity\EcUe $ec)
+    {
+        $this->ecs[] = $ec;
+
+        return $this;
+    }
+
+    /**
+     * Remove ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\EcUe $ec
+     */
+    public function removeEc(\EPlan\PlanningBundle\Entity\EcUe $ec)
+    {
+        $this->ecs->removeElement($ec);
+    }
+
+    /**
+     * Get ecs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcs()
+    {
+        return $this->ecs;
+    }
+
+    /**
+     * Add grille
+     *
+     * @param \EPlan\PlanningBundle\Entity\Grille $grille
+     *
+     * @return UE
+     */
+    public function addGrille(\EPlan\PlanningBundle\Entity\Grille $grille)
+    {
+        $this->grille[] = $grille;
+
+        return $this;
+    }
+
+    /**
+     * Remove grille
+     *
+     * @param \EPlan\PlanningBundle\Entity\Grille $grille
+     */
+    public function removeGrille(\EPlan\PlanningBundle\Entity\Grille $grille)
+    {
+        $this->grille->removeElement($grille);
+    }
+}

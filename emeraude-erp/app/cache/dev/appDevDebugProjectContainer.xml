@@ -447,7 +447,11 @@
     <parameter key="assetic.read_from">C:\wamp\www\Emeraude-erp\emeraude-erp\app/../web</parameter>
     <parameter key="assetic.write_to">C:\wamp\www\Emeraude-erp\emeraude-erp\app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
+<<<<<<< HEAD
     <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
+=======
+    <parameter key="assetic.java.bin">C:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>

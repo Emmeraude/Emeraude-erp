@@ -29,16 +29,27 @@ class Grille
     private $titre;
     
     /**
+     * @var smallint
+     *
+     * @ORM\Column(name="numeroSemestre", type="smallint")
+     */
+    private $numeroSemestre;
+    
+    /**
      * @ORM\OneToOne(targetEntity="EPlan\PlanningBundle\Entity\Etape", mappedBy="grille")
      * @ORM\JoinColumn(nullable=false)
      */
     private $etape;
     
+    //private $ues;
+    
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UE", mappedBy="grille", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UEGrille", mappedBy="grille", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $ues;
+    private $ueGrilles;
+    
+    
 
 
     /**
@@ -83,60 +94,93 @@ class Grille
     }
 
     /**
-     * Set parcourtType
+     * Set etape
      *
-     * @param \EPlan\PlanningBundle\Entity\ParcourtType $parcourtType
+     * @param \EPlan\PlanningBundle\Entity\Etape $etape
      *
      * @return Grille
      */
-    public function setParcourtType(\EPlan\PlanningBundle\Entity\ParcourtType $parcourtType)
+    public function setEtape(\EPlan\PlanningBundle\Entity\Etape $etape)
     {
-        $this->parcourtType = $parcourtType;
-
+        $etape ->setGrille($this);
+        $this->etape = $etape;
         return $this;
     }
 
     /**
-     * Get parcourtType
+     * Get etape
      *
-     * @return \EPlan\PlanningBundle\Entity\ParcourtType
+     * @return \EPlan\PlanningBundle\Entity\Etape
      */
-    public function getParcourtType()
+    public function getEtape()
     {
-        return $this->parcourtType;
+        return $this->etape;
     }
 
     /**
-     * Add ue
+     * Add ueGrille
      *
-     * @param \EPlan\PlanningBundle\Entity\UE $ue
+     * @param \EPlan\PlanningBundle\Entity\UEGrile $ueGrille
      *
      * @return Grille
      */
-    public function addUe(\EPlan\PlanningBundle\Entity\UE $ue)
+    public function addUeGrille(\EPlan\PlanningBundle\Entity\UEGrille $ueGrille)
     {
-        $this->ues[] = $ue;
-
+        $ueGrille->setGrille($this);
+        $this->ueGrilles[] = $ueGrille;
         return $this;
     }
 
     /**
-     * Remove ue
+     * Remove ueGrille
      *
-     * @param \EPlan\PlanningBundle\Entity\UE $ue
+     * @param \EPlan\PlanningBundle\Entity\UEGrile $ueGrille
      */
-    public function removeUe(\EPlan\PlanningBundle\Entity\UE $ue)
+    public function removeUeGrille(\EPlan\PlanningBundle\Entity\UEGrille $ueGrille)
     {
-        $this->ues->removeElement($ue);
+        $this->ueGrilles->removeElement($ueGrille);
     }
 
     /**
-     * Get ues
+     * Get ueGrilles
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUes()
+    public function getUeGrilles()
     {
-        return $this->ues;
+        return $this->ueGrilles;
+    }
+
+    /**
+     * Set numeroSemestre
+     *
+     * @param integer $numeroSemestre
+     *
+     * @return Grille
+     */
+    public function setNumeroSemestre($numeroSemestre)
+    {
+        $this->numeroSemestre = $numeroSemestre;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroSemestre
+     *
+     * @return integer
+     */
+    public function getNumeroSemestre()
+    {
+        return $this->numeroSemestre;
+    }
+    
+    /**
+     *
+     * @return integer
+     */
+    public function getNombreUes()
+    {
+        return $this->ueGrilles->count();
     }
 }

@@ -19,7 +19,7 @@ use EPlan\PlanningBundle\Entity\Ec;
  */
 class Ecs implements FixtureInterface{
     public function load(ObjectManager $manager) {
-        $departement = $manager->getRepository('EPlanPlanningBundle:Departement')->find(3);
+        $departements = $manager->getRepository('EPlanPlanningBundle:Departement')->findAll();
         $ec = new Ec();
         $ec ->setLibelle('Achitecture des Ordinateurs');
         $ec->setCode('IN120');
@@ -27,7 +27,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-        $ec->setDepartement($departement);
+        $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -37,7 +37,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-        $ec->setDepartement($departement);
+        $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -47,7 +47,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-        $ec->setDepartement($departement);
+        $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -57,7 +57,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-        $ec->setDepartement($departement);
+        $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -67,7 +67,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-        $ec->setDepartement($departement);
+        $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();
     }

@@ -216,6 +216,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // e_plan_planning_modif_enseignant
             if ($pathinfo === '/planning/modif-enseignant') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::modifEnseignantAction',  '_route' => 'e_plan_planning_modif_enseignant',);
+<<<<<<< HEAD
             }
 
             if (0 === strpos($pathinfo, '/planning/enreg')) {
@@ -229,6 +230,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::enregistrerEcAction',  '_route' => 'e_plan_planning_enregitrer_Ec',);
                 }
 
+=======
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
             }
 
         }

@@ -7,14 +7,75 @@
                 </div><!-- /.box-header -->
                 <div class="box-body" >
                     <!--p><a href="#" class="pull-right">Selectionner une UE existante</a></p-->
-                    <form action="{{ path('e_plan_planning_register_one_grille', {'id': 1}) }}" role="form" class="form-horizontal" id="formulaire">
-                    <!-- text input -->
-                    <div class="templateUE box-header">
+                    <form role="form" method="post" class="form-horizontal" id="formulaire" {{form_enctype(form)}} >
+                            <div class="row" style="padding-left: 10px;padding-right: 10px">
+                                <div class="form-group">
+                                    <label class="col-lg-3">Semestre </label>
+                                    <div class="col-lg-9">
+                                        {{ form_widget(form.numeroSemestre, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% if nombreUes==0%}
+                            {% set nombreUes=1 %}
+                        {% endif %}
+                        {% for indice in range(0, nombreUes-1) %}
+                              <!-- text input -->
+                                <div class="templateUE box-header">
+                                    
+                                    <div class="row" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="form-group">
+                                            <label class="col-lg-3">Qualite De L'UE </label>
+                                            <div class="col-lg-9">
+                                                {{ form_widget(form.ueGrilles[indice].quality, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="row" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="form-group">
+                                            <label class="col-lg-3">Code De L'UE </label>
+                                            <div class="col-lg-9">
+                                                {{ form_widget(form.ueGrilles[indice].ue.code, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="form-group">
+                                            <label class="col-lg-3">Libelle De L'UE </label>
+                                            <div class="col-lg-9">
+                                                {{ form_widget(form.ueGrilles[indice].ue.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Select multiple-->
+                                    <div class="row" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="form-group">
+                                            <label class="col-lg-3">Ecs de l'ue</label>
+                                            <div class="col-lg-9">
+                                                {{ form_widget(form.ueGrilles[indice].ue.ecs, {'attr': {'class': 'form-control mySelect'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="btn btn-danger" style="margin-left: 10px">Supprimer</a><a href="#" class="btn btn-twitter pull-right" style="margin-left: 10px">Valider</a> <a href="#" class="btn btn-warning pull-right">Selectionner</a> 
+                                </div>
+                        {% endfor %}
+                    <div id="templateUE" style="margin-top: 10px;display: none" class="templateUE box-header">
                         <div class="row" style="padding-left: 10px;padding-right: 10px">
+                            
                             <div class="form-group">
                                 <label class="col-lg-3">Code De L'UE </label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" placeholder="Enter ..." />
+                                    {{ form_widget(form.ueGrilles.vars.prototype.quality, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3">Code De L'UE </label>
+                                <div class="col-lg-9">
+                                    {{ form_widget(form.ueGrilles.vars.prototype.ue.code, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
                                 </div>
                             </div>
                         </div>
@@ -23,96 +84,32 @@
                             <div class="form-group">
                                 <label class="col-lg-3">Libelle De L'UE </label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" placeholder="Enter ..." />
+                                    {{ form_widget(form.ueGrilles.vars.prototype.ue.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter ...'}}) }}
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Select multiple-->
+                        <!--Select multiple-->
                         <div class="row" style="padding-left: 10px;padding-right: 10px">
                             <div class="form-group">
                                 <label class="col-lg-3">Ecs de l'ue</label>
                                 <div class="col-lg-9">
-                                    <select multiple class="form-control">
-                                        {% for ec in etape.parcourtType.mention.departement.ecs %}
-                                         <option>{{ ec.code}} </option>
-                                        {% endfor %}
-                                    </select>
+                                    {{ form_widget(form.ueGrilles.vars.prototype.ue.ecs, {'attr': {'class': 'form-control mySelect'}}) }}
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="row" style="padding-left: 10px;padding-right: 10px;display: none">
-                            <div class="form-group">
-                                <label class="col-lg-3">Ecs de l'ue</label>
-                                <div class="col-lg-9">
-                                    <select multiple class="form-control" disabled>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-twitter pull-right" style="margin-left: 10px">Valider</a> <a href="#" class="btn btn-warning pull-right">Selectionner</a> 
+                        <a id="removeUE" href="#" class="btn btn-danger" style="margin-left: 10px">Supprimer</a><a href="#" class="btn btn-twitter pull-right" style="margin-left: 10px">Valider</a> <a href="#" class="btn btn-warning pull-right">Selectionner</a> 
                     </div>
-                    
-                     <div style="display: none" id="templateUE" class="templateUE box-header" style="margin-top: 100px;">
-                        <div class="row" style="padding-left: 10px;padding-right: 10px">
-                            <div class="form-group">
-                                <label class="col-lg-3">Code De L'UE </label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" placeholder="Enter ..." />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row" style="padding-left: 10px;padding-right: 10px">
-                            <div class="form-group">
-                                <label class="col-lg-3">Libelle De L'UE </label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" placeholder="Enter ..." />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Select multiple-->
-                        <div class="row" style="padding-left: 10px;padding-right: 10px">
-                            <div class="form-group">
-                                <label class="col-lg-3">Ecs de l'ue</label>
-                                <div class="col-lg-9">
-                                    <select multiple class="form-control">
-                                        {% for ec in etape.parcourtType.mention.departement.ecs %}
-                                         <option>{{ ec.code}} </option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row" style="padding-left: 10px;padding-right: 10px;display: none">
-                            <div class="form-group">
-                                <label class="col-lg-3">Ecs de l'ue</label>
-                                <div class="col-lg-9">
-                                    <select multiple class="form-control" disabled>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-twitter pull-right" style="margin-left: 10px">Valider</a> <a href="#" class="btn btn-warning pull-right">Selectionner</a> 
-                    </div>
-                    <a href="#" class="btn btn-danger" id="addUE">ajouter une UE</a><button type="submit" class="btn btn-success pull-right">Terminer</button>
+                    <a href="#" class="btn btn-danger" id="addUE">ajouter une UE</a><input type="submit" class="btn btn-success pull-right" id="terminer" value="Terminer"/>
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 {% endblock %}
 {%block script %}
+    <script src={{ asset("NosScripts/js/jquery.sumoselect.min.js") }} type="text/javascript"></script>
+    <link href={{ asset("NosScripts/css/sumoselect.css") }} rel="stylesheet" />
     <script src={{ asset("NosScripts/js/editGrille.js") }} type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.mySelect').SumoSelect({placeholder: 'Selectionner les Ecs'});
+    </script>
 {% endblock %}

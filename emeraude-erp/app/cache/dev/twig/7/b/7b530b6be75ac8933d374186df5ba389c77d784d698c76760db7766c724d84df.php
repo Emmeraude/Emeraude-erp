@@ -24,7 +24,11 @@ class __TwigTemplate_7b530b6be75ac8933d374186df5ba389c77d784d698c76760db7766c724
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
+<<<<<<< HEAD
         $context["__internal_550c90b8fcfbe0b98dcdb93aba7cd570bbdc56349f271451e12d8d18cc6e56e1"] = $this;
+=======
+        $context["__internal_ad5d0d63196a876e8ebab25ffded658a3eaa755126fd3476626ebd1764611753"] = $this;
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
@@ -261,7 +265,11 @@ class __TwigTemplate_7b530b6be75ac8933d374186df5ba389c77d784d698c76760db7766c724
             foreach ($context['_seq'] as $context["formName"] => $context["formData"]) {
                 // line 188
                 echo "                    ";
+<<<<<<< HEAD
                 echo $context["__internal_550c90b8fcfbe0b98dcdb93aba7cd570bbdc56349f271451e12d8d18cc6e56e1"]->getform_tree_entry($context["formName"], $context["formData"], true);
+=======
+                echo $context["__internal_ad5d0d63196a876e8ebab25ffded658a3eaa755126fd3476626ebd1764611753"]->getform_tree_entry($context["formName"], $context["formData"], true);
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
                 echo "
                 ";
             }
@@ -279,7 +287,11 @@ class __TwigTemplate_7b530b6be75ac8933d374186df5ba389c77d784d698c76760db7766c724
             foreach ($context['_seq'] as $context["formName"] => $context["formData"]) {
                 // line 194
                 echo "                ";
+<<<<<<< HEAD
                 echo $context["__internal_550c90b8fcfbe0b98dcdb93aba7cd570bbdc56349f271451e12d8d18cc6e56e1"]->getform_tree_details($context["formName"], $context["formData"], $this->getAttribute($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "data", array()), "forms_by_hash", array()));
+=======
+                echo $context["__internal_ad5d0d63196a876e8ebab25ffded658a3eaa755126fd3476626ebd1764611753"]->getform_tree_details($context["formName"], $context["formData"], $this->getAttribute($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "data", array()), "forms_by_hash", array()));
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
                 echo "
             ";
             }

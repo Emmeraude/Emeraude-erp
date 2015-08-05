@@ -86,7 +86,11 @@
   'EPlanPlanningBundle:Enseignant:indexEns.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/indexEns.html.twig',
   'EPlanPlanningBundle:Enseignant:modifEnseignant.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Enseignant/modifEnseignant.html.twig',
   'EPlanPlanningBundle:Grille:editOneGrille.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Grille/editOneGrille.html.twig',
+<<<<<<< HEAD
   'EPlanPlanningBundle:Grille:EnregistrerUE.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Grille/EnregistrerUE.html.twig',
+=======
+  'EPlanPlanningBundle:Grille:showOneGrille.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Grille/showOneGrille.html.twig',
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
   'EPlanPlanningBundle:ParcourtType:index.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/index.html.twig',
   'EPlanPlanningBundle:ParcourtType:showParcourtType.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/ParcourtType/showParcourtType.html.twig',
   'EPlanPlanningBundle:Plannification:indexPlanManuel.html.twig' => 'C:\\wamp\\www\\Emeraude-erp\\emeraude-erp\\src\\EPlan\\PlanningBundle/Resources/views/Plannification/indexPlanManuel.html.twig',

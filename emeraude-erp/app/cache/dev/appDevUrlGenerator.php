@@ -45,8 +45,11 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'e_plan_planning_view_parcourt_Type' => array (  0 =>   array (    0 => 'id',  ),  1 =>   array (    '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewParcourtTypeAction',  ),  2 =>   array (    'id' => '\\d+',  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '\\d+',      3 => 'id',    ),    1 =>     array (      0 => 'text',      1 => '/planning/viewParcourtType',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'e_plan_planning_mention_ec' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'EPlan\\PlanningBundle\\Controller\\PlanManuelController::ecMentionAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/planning/param-plan-manuel-listEc',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'e_plan_planning_modif_enseignant' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::modifEnseignantAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/planning/modif-enseignant',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+<<<<<<< HEAD
         'e_plan_planning_enregitrer_UE' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::enregistrerUEAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/planning/enregUE',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'e_plan_planning_enregitrer_Ec' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::enregistrerEcAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/planning/enregEc',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+=======
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
     );
 
     /**

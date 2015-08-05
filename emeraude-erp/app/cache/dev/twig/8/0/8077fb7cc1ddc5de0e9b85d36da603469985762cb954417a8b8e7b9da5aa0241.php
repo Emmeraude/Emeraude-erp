@@ -24,7 +24,11 @@ class __TwigTemplate_8077fb7cc1ddc5de0e9b85d36da603469985762cb954417a8b8e7b9da5a
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
+<<<<<<< HEAD
         $context["__internal_2b8f8cf4e630aa9372b0b0572210a3ec33063b1e26c6cbb0012baf3e0c5c99a6"] = $this;
+=======
+        $context["__internal_b800cb6b6b9d15160e237ee874d3ce334cc616b14890b37ddacf917bf70e2981"] = $this;
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
@@ -85,7 +89,11 @@ class __TwigTemplate_8077fb7cc1ddc5de0e9b85d36da603469985762cb954417a8b8e7b9da5a
             echo "</code></td>
                 <td><code>";
             // line 34
+<<<<<<< HEAD
             echo $context["__internal_2b8f8cf4e630aa9372b0b0572210a3ec33063b1e26c6cbb0012baf3e0c5c99a6"]->getdisplay_listener($context["listener"]);
+=======
+            echo $context["__internal_b800cb6b6b9d15160e237ee874d3ce334cc616b14890b37ddacf917bf70e2981"]->getdisplay_listener($context["listener"]);
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
             echo "</code></td>
             </tr>
         ";
@@ -123,7 +131,11 @@ class __TwigTemplate_8077fb7cc1ddc5de0e9b85d36da603469985762cb954417a8b8e7b9da5a
                 echo "</code></td>
                     <td><code>";
                 // line 51
+<<<<<<< HEAD
                 echo $context["__internal_2b8f8cf4e630aa9372b0b0572210a3ec33063b1e26c6cbb0012baf3e0c5c99a6"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
+=======
+                echo $context["__internal_b800cb6b6b9d15160e237ee874d3ce334cc616b14890b37ddacf917bf70e2981"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
+>>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
                 echo "</code></td>
                 </tr>
             ";
