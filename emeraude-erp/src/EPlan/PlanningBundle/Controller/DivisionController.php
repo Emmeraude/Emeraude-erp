@@ -15,15 +15,62 @@ class DivisionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $departementRepository = $em->getRepository('EPlanPlanningBundle:Departement');
-        $listOfDepartement = $departementRepository ->findAll();
-        if($listOfDepartement){
-            $listOfParcourtTypeOfFirstDepartement = $listOfDepartement[0]->getParcourtTypes(); 
-            return $this->render('EPlanPlanningBundle:Division:manageDivision.html.twig', array('departements'=>$listOfDepartement, 'parcourtTypes'=>$listOfParcourtTypeOfFirstDepartement));
+        $listOfDepartement = $departementRepository ->findWithMentions();
+        if($listOfDepartement){ 
+            return $this->render('EPlanPlanningBundle:Division:manageDivision.html.twig', array('departements'=>$listOfDepartement));
         }
         $message = new ObjectError();
         $message->setTitle("Désolé, Aucun Département n'a été enregistré" );
         $message->setMessageUser('svp assurez vous que les departements ont été crées et chargez les.<br>merci!');
         return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
+    }
+    
+    public function menuDepartementAction() {
+        $em = $this->getDoctrine()->getManager();
+        $departementRepository = $em->getRepository('EPlanPlanningBundle:Departement');
+        $listOfDepartement = $departementRepository ->findWithMentions(); 
+        return $this->render('EPlanPlanningBundle:Division:menuDepartement.html.twig', array('departements'=>$listOfDepartement));
+    }
+    
+    public function viewGrilleAction($id) {
+        return $this->redirect($this->generateUrl('e_plan_planning_manage_division'));
+    }
+    
+    public function editOneGrilleAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository ->find($id);
+        //$departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
+        //$listOfEcs = $departement -> getEcs();
+        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape));
+    }
+    
+    public function registerOneGrilleAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository ->find($id);
+        $departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
+        $listOfEcs = $departement -> getEcs();
+        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('listeEc'=>$listOfEcs));
+    }
+    
+    public function viewParcourtTypeAction($id) {
+        if($id<1){
+            $message = new ObjectError();
+            $message->setTitle('accès au serveur refusé');
+            $message->setMessageUser('pour des raisons de sécurité, nous ne pouvons pas continuer le traitement de cette requette car un accès frauduleux ä été intercepté<br /> merci');
+            return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponibleBis.html.twig', array('message'=>$message));
+        }
+        $em = $this->getDoctrine()->getManager();
+        $parcourtTypeRepository = $em ->getRepository('EPlanPlanningBundle:ParcourtType');
+        $parcourtType = $parcourtTypeRepository->find($id);
+        if($parcourtType){
+            return $this->render('EPlanPlanningBundle:ParcourtType:showParcourtType.html.twig', array('parcourtType'=>$parcourtType));
+        }
+        $message = new ObjectError();
+            $message->setTitle('accès au serveur refusé');
+            $message->setMessageUser('pour des raisons de sécurité, nous ne pouvons pas continuer le traitement de cette requette car un accès frauduleux ä été intercepté<br /> merci');
+            return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponibleBis.html.twig', array('message'=>$message));
     }
     
     public function loadDepartementAction(){

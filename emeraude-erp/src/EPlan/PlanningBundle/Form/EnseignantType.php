@@ -18,7 +18,7 @@ class EnseignantType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('tel')
-            ->add('email')
+            ->add('email','email')
             ->add('titre')
             ->add('departement','entity',array('class'=>'EPlanPlanningBundle:Departement',
                                                'property'=>'nom',

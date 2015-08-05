@@ -1,6 +1,21 @@
 e_plan_planning_manage_division:
     path:     /manageDivision
     defaults: { _controller: EPlanPlanningBundle:Division:managePresentation }
+e_plan_planning_show_one_grille:
+    path:     /showGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:viewGrille }
+    requirements:
+        id:    \d+
+e_plan_planning_edit_one_grille:
+    path:     /editOneGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:editOneGrille, id: 0 }
+    requirements:
+        id:    \d+
+e_plan_planning_register_one_grille:
+    path:     /registertOneGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:registerOneGrille }
+    requirements:
+        id:    \d+
 e_plan_planning_load_division:
     path:     /charger-les-departements
     defaults: { _controller: EPlanPlanningBundle:Division:loadDepartement }
@@ -22,6 +37,12 @@ e_plan_planning_attrib_ec_enseignant:
 e_plan_planning_fiche_enseignant:
     path:     /fiche-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:ficheEnseignant }
+e_plan_planning_ec_enseignant:
+    path:     /alloc-enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:attribEc }
+e_plan_planning_supp_enseignant:
+    path:     /supp-enseignant
+    defaults: { _controller: EPlanPlanningBundle:Enseignant:suppEnseignant }
 e_plan_planning_indexPlanManuel:
     path:     /param-plan-manuel
     defaults: { _controller: EPlanPlanningBundle:PlanManuel:indexPlanManuel }
@@ -37,3 +58,17 @@ e_plan_planning_mention_ec:
 e_plan_planning_modif_enseignant:
     path:     /modif-enseignant
     defaults: { _controller: EPlanPlanningBundle:Enseignant:modifEnseignant }
+e_plan_planning_registrer_salle:
+     path:     /formCreateSalle
+     defaults: { _controller: EPlanPlanningBundle:Salle:salle }
+e_plan_planning_register_disponibilite:
+     path:     /SalleDispo
+     defaults: { _controller: EPlanPlanningBundle:SalleDispo:SalleDisponible }
+e_plan_planning_register_indisponibilite:
+     path:     /SalleIndispo
+     defaults: { _controller: EPlanPlanningBundle:SalleDispo:Salleindisponible }	
+e_plan_planning_view_parcourt_Type:
+    path:     /viewParcourtType/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:viewParcourtType }
+    requirements:
+        id:    \d+

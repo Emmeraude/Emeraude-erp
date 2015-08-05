@@ -63,12 +63,12 @@ class Enseignant
     private $departement;
     
     /**
-     * Constructor
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EnseignantEc", mappedBy="enseignant")
+     * @ORM\JoinColumn(nullable=false)
      */
-    public function __construct()
-    {
-        $this->departement = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $ecsEnseignes;
+    
+   
 
     /**
      * Get id
@@ -217,4 +217,49 @@ class Enseignant
         
         return $this;
     }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ecsEnseignes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+
+    
+    /**
+     * Get ecsEnseignes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcsEnseignes()
+    {
+        return $this->ecsEnseignes;
+    }
+
+    /**
+     * Add ecsEnseignes
+     *
+     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $ecsEnseigne
+     *
+     * @return Enseignant
+     */
+    public function addEcsEnseignes(\EPlan\PlanningBundle\Entity\EnseignantEc $ecsEnseigne)
+    {
+        $this->ecsEnseignes[] = $ecsEnseigne;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ecsEnseigne
+     *
+     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $ecsEnseigne
+     */
+    public function removeEcsEnseignes(\EPlan\PlanningBundle\Entity\EnseignantEc $ecsEnseigne)
+    {
+        $this->ecsEnseignes->removeElement($ecsEnseigne);
+    }
+
 }

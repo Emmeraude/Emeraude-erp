@@ -27,65 +27,39 @@
                                              <input type="submit" value="Rechercher">
                    </form>
                </div>
-            <form>
-                <label style="font-size: 15px;">Genre : </label><select style="margin-bottom: 20px;">
+            <form method="POST" action="{{path('e_plan_planning_ec_enseignant')}}">
+                <label style="font-size: 15px;">Genre : </label><select name="type" style="margin-bottom: 20px;">
               <option value="CM">Cours Magistral</option>
               <option value="TD">Travaux Dirrigés</option>
               <option value="TP">Travaux Pratiques</option>
           </select>
+                <input type="hidden" name="id" value="{{ens.id}}">
               <div class="box">
                 <!--div class="box-header with-border">
                   <h3 class="box-title">B</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table class="table table-bordered">
-                    <tr>
+                   
+                    <tr><th style="width: 20px"></th>
                       <th style="width: 20px">#</th>
                       <th>Code</th>
                       <th>Libelle</th>
                       <!--th style="width: 50px">Libelle</th-->
                     </tr>
+                    {% for ec in listEc %}
                     <tr>
-                     <!--a href="{{path('e_plan_planning_index_enseignant')}}">Plus</a--><td>1.</td>
-                      <td>BI 656</td>
-                      <td>ttyurttytruert
+                      <td><input type="checkbox" name="ecEns[]" value="{{ec.id}}" /><!--span class="badge bg-red">55%</span--></td>  
+                     <!--a href="{{path('e_plan_planning_index_enseignant')}}">Plus</a--><td>{{ec.id}}</td>
+                      <td>{{ec.code}}</td>
+                      <td>{{ec.libelle}}
                         <!--div class="progress progress-xs">
                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
                         </div-->
                       </td> 
-                      <td><input type="checkbox" name="a" value="1" /><!--span class="badge bg-red">55%</span--></td>
                       <!--td> <a href="{{path('e_plan_planning_index_enseignant')}}">Plus</a></td-->
                     </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>BA 456</td>
-                      <td>849149814
-                        <!--div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                        </div-->
-                      </td>
-                      <td><input type="checkbox" name="a" value="2" /><!--span class="badge bg-yellow">70%</span--></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>BV 568</td>
-                      <td>54641564
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                        </div-->
-                      </td>
-                      <td><input type="checkbox" name="a" value="3" /><!--span class="badge bg-light-blue">30%</span--></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>BI 125</td>
-                      <td>56654544
-                        <!--div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                        </div-->
-                      </td>
-                      <td><input type="checkbox" name="a" value="4" /><!--span class="badge bg-green">90%</span--></td>
-                    </tr>
+                    {% endfor %}
                   </table>
                    
                  
@@ -103,11 +77,12 @@
               
                <input class="btn btn-primary" style="margin-right: 50px;" type="submit" value="allouer">
                <input class="btn btn-primary" style="margin-right: 50px;" type="reset" value="Annuler">
-                </form>
-               <form style="display :inline-block;" method="post" action="{{path('e_plan_planning_modif_enseignant')}}">
+              <form style="display :inline-block;" method="post" action="{{path('e_plan_planning_modif_enseignant')}}">
                <input type="hidden" name="id" value="{{ens.id}}">
                <input  class="btn btn-primary" type="submit" value="Back">
-               </form>
+               </form>  
+              </form>
+               
                <!--/section-->
          
         </section>

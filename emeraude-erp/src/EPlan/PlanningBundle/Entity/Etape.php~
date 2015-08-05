@@ -69,4 +69,27 @@ class Etape
     {
         return $this->numero;
     }
+
+    /**
+     * Set parcourtType
+     *
+     * @param \EPlan\PlanningBundle\Entity\ParcourtType $parcourtType
+     * @return Etape
+     */
+    public function setParcourtType(\EPlan\PlanningBundle\Entity\ParcourtType $parcourtType)
+    {
+        $this->parcourtType = $parcourtType;
+    
+        return $this;
+    }
+
+    /**
+     * Get parcourtType
+     *
+     * @return \EPlan\PlanningBundle\Entity\ParcourtType 
+     */
+    public function getParcourtType()
+    {
+        return $this->parcourtType;
+    }
 }

@@ -1,2 +1,5 @@
 {# empty Twig template #}
 {% extends "::planningTemplate.html.twig" %}
+{% block contenu %}
+    <a href="{{path('e_plan_planning_index_enseignant')}}">Charger les ECs</a>
+{% endblock %}

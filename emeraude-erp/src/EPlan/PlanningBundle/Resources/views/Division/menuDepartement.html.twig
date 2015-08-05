@@ -1,0 +1,32 @@
+ 
+                <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">D&eacute;partements</h3>
+                  <div class="box-tools">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                {% if departements is not null %}
+                  <ul class="nav nav-pills nav-stacked">
+                      {% for departement in departements %}
+                          {% if loop.first %}
+                              <li class="active"><a href="#"><i class="fa fa-inbox"></i> {{ departement.nom}}<span class="label label-primary pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% elseif loop.index0%5 == 1 %}
+                            <li><a href="#"><i class="fa fa-envelope-o"></i> {{ departement.nom}} <span class="label label-warning pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% elseif loop.index0%5 == 2 %}
+                            <li><a href="#"><i class="fa fa-file-text-o"></i> {{ departement.nom}} <span class="label label-warning pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% elseif loop.index0%5 == 3 %}
+                            <li><a href="#"><i class="fa fa-filter"></i> {{ departement.nom}} <span class="label label-warning pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% elseif loop.index0%5 == 4 %}
+                            <li><a href="#"><i class="fa fa-trash-o"></i> {{ departement.nom}} <span class="label label-warning pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% else %}
+                            <li><a href="#"><i class="fa fa-inbox"></i> {{ departement.nom}} <span class="label label-warning pull-right">{{ departement.nombreDeMention }}</span></a></li>
+                          {% endif %}
+                      {% endfor %}
+                  </ul>
+                  {% else %}
+                  {% endif%}
+                </div><!-- /.box-body -->
+              </div><!-- /. box -->
+            

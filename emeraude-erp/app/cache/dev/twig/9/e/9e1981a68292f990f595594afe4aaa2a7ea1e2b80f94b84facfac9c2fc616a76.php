@@ -29,7 +29,7 @@ class __TwigTemplate_9e1981a68292f990f595594afe4aaa2a7ea1e2b80f94b84facfac9c2fc6
     public function block_titrePage($context, array $blocks = array())
     {
         // line 3
-        echo "            Enregistrement d'un enseignant
+        echo "           
    
 ";
     }
@@ -38,117 +38,126 @@ class __TwigTemplate_9e1981a68292f990f595594afe4aaa2a7ea1e2b80f94b84facfac9c2fc6
     public function block_contenu($context, array $blocks = array())
     {
         // line 7
-        echo " <form class=\"box-body\" method=\"post\" action=\"";
+        echo " <div class=\"box\" style=\"padding:15px 15px 15px 20px;\" style=\"border-top-color: skyblue;\">
+       <div class=\"box-header with-border\">
+         <h3 class=\"box-title\">Enregistrement d'un enseignant</h3>
+       </div>
+ <div class=\"box-body\"> 
+ <form method=\"post\" action=\"";
+        // line 12
         echo $this->env->getExtension('routing')->getPath("e_plan_planning_registrer_enseignant");
         echo "\"  style=\"margin-bottom: 100px;\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo ">
 ";
-        // line 9
+        // line 14
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 <div style=\"margin-bottom: 20px;\">
 ";
-        // line 12
+        // line 17
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'label', array("label" => "Nom de l'enseignant"));
         echo "
 ";
-        // line 14
+        // line 19
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'errors');
         echo "
 ";
-        // line 16
+        // line 21
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nom", array()), 'widget');
         echo "
 </div>
 ";
-        // line 19
+        // line 24
         echo "<div style=\"margin-bottom: 20px;\">
 ";
-        // line 20
+        // line 25
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'label', array("label" => "Prenom de l'enseignant"));
         echo "
 ";
-        // line 21
+        // line 26
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'errors');
         echo "
 ";
-        // line 22
+        // line 27
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "prenom", array()), 'widget');
         echo "
 </div>
 
 <div style=\"margin-bottom: 20px;\">
 ";
-        // line 26
+        // line 31
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'label', array("label" => "Grade de l'enseignant"));
         echo "
 ";
-        // line 27
+        // line 32
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'errors');
         echo "
 ";
-        // line 28
+        // line 33
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "titre", array()), 'widget');
         echo "
 </div>
 <div style=\"margin-bottom: 20px;\">
 ";
-        // line 31
+        // line 36
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'label', array("label" => "Telephone de l'enseignant"));
         echo "
 ";
-        // line 32
+        // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'errors');
         echo "
 ";
-        // line 33
+        // line 38
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tel", array()), 'widget');
         echo "
 </div>
 <div style=\"margin-bottom: 20px;\">
 ";
-        // line 36
+        // line 41
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'label', array("label" => "Email de l'enseignant"));
         echo "
 ";
-        // line 37
+        // line 42
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'errors');
         echo "
 ";
-        // line 38
+        // line 43
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'widget');
         echo "
 </div>
-<div style=\"margin-bottom: 20px;\">
+<div>
 ";
-        // line 41
+        // line 46
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'label', array("label" => "Departement de l'enseignant"));
         echo "
 ";
-        // line 42
+        // line 47
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'errors');
         echo "
 ";
-        // line 43
+        // line 48
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departement", array()), 'widget');
         echo "
 </div>
 ";
-        // line 45
+        // line 50
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 ";
-        // line 51
-        echo "
-<input class=\"btn btn-primary\" type=\"submit\" style=\"margin-right: 100px;\"/>
- <input class=\"btn btn-primary\" type=\"reset\" />  
+        // line 56
+        echo " </div>
+ <input class=\"btn btn-warning\" type=\"reset\"  style=\"margin-right: 100px;\"/> 
+ <input class=\"btn btn-success\" type=\"submit\" name=\"good\" value=\"Creer\" style=\"margin-right: 100px;\"/>
+<input class=\"btn btn-success\" type=\"submit\" name=\"good\" value=\"Creer puis attribuer ECs\"/> 
+ 
+ </div>
 <!--
      ";
-        // line 58
+        // line 66
         echo "<script src=\"http://code.jquery.com/jquery-1.8.2.min.js\"></script>
 ";
-        // line 60
+        // line 68
         echo "<script type=\"text/javascript\">
 \$(document).ready(function() {
 // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
@@ -231,6 +240,6 @@ return false;
 
     public function getDebugInfo()
     {
-        return array (  152 => 60,  149 => 58,  143 => 51,  139 => 45,  134 => 43,  130 => 42,  126 => 41,  120 => 38,  116 => 37,  112 => 36,  106 => 33,  102 => 32,  98 => 31,  92 => 28,  88 => 27,  84 => 26,  77 => 22,  73 => 21,  69 => 20,  66 => 19,  61 => 16,  57 => 14,  53 => 12,  48 => 9,  41 => 7,  38 => 6,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  161 => 68,  158 => 66,  149 => 56,  145 => 50,  140 => 48,  136 => 47,  132 => 46,  126 => 43,  122 => 42,  118 => 41,  112 => 38,  108 => 37,  104 => 36,  98 => 33,  94 => 32,  90 => 31,  83 => 27,  79 => 26,  75 => 25,  72 => 24,  67 => 21,  63 => 19,  59 => 17,  54 => 14,  48 => 12,  41 => 7,  38 => 6,  32 => 3,  29 => 2,  11 => 1,);
     }
 }

@@ -6,7 +6,7 @@
 
 {% block contenu %}
     
-    <div class="box">
+    <div class="box" style="border-top-color: skyblue;">
        <div class="box-header with-border">
          <h3 class="box-title">Identité</h3>
        </div>
@@ -23,7 +23,7 @@
      </div>
     </div>
     
-    <div class="box">
+    <div class="box" style="border-top-color: skyblue;">
        <div class="box-header with-border">
          <h3 class="box-title">Contacts</h3>
        </div>
@@ -36,28 +36,40 @@
      </div>
     </div>
      
-     <div class="box">
+     <div class="box" style="border-top-color: skyblue;">
        <div class="box-header with-border">
          <h3 class="box-title">Cours Magistraux</h3>
        </div>
      <div class="box-body">   
-     
+     {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="CM" %}
+         <div>{{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
      </div>
     </div>
-     <div class="box">
+     <div class="box" style="border-top-color: skyblue;">
        <div class="box-header with-border">
          <h3 class="box-title">Travaux Dirrigée</h3>
        </div>
      <div class="box-body">   
-    
+       {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="TD" %}
+         <div>{{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
      </div>
     </div>
-     <div class="box">
+     <div class="box" style="border-top-color: skyblue;">
        <div class="box-header with-border">
          <h3 class="box-title">Travaux Pratiques</h3>
        </div>
      <div class="box-body">   
-    
+      {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="TP" %}
+         <div>{{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
      </div>
     </div>
      <a class="btn btn-primary" style="margin-top: 10px;" href="{{path('e_plan_planning_consult_enseignant')}}"><<</a>

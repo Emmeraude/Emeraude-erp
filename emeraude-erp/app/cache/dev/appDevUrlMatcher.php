@@ -128,6 +128,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::managePresentationAction',  '_route' => 'e_plan_planning_manage_division',);
             }
 
+            // e_plan_planning_show_one_grille
+            if (0 === strpos($pathinfo, '/planning/showGrille') && preg_match('#^/planning/showGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_show_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewGrilleAction',));
+            }
+
+            // e_plan_planning_edit_one_grille
+            if (0 === strpos($pathinfo, '/planning/editOneGrille') && preg_match('#^/planning/editOneGrille(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_edit_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::editOneGrilleAction',  'id' => 0,));
+            }
+
+            // e_plan_planning_register_one_grille
+            if (0 === strpos($pathinfo, '/planning/registertOneGrille') && preg_match('#^/planning/registertOneGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_register_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::registerOneGrilleAction',));
+            }
+
             // e_plan_planning_load_division
             if ($pathinfo === '/planning/charger-les-departements') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::loadDepartementAction',  '_route' => 'e_plan_planning_load_division',);
@@ -170,6 +185,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::ficheEnseignantAction',  '_route' => 'e_plan_planning_fiche_enseignant',);
             }
 
+            // e_plan_planning_ec_enseignant
+            if ($pathinfo === '/planning/alloc-enseignant') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::attribEcAction',  '_route' => 'e_plan_planning_ec_enseignant',);
+            }
+
+            // e_plan_planning_supp_enseignant
+            if ($pathinfo === '/planning/supp-enseignant') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::suppEnseignantAction',  '_route' => 'e_plan_planning_supp_enseignant',);
+            }
+
             if (0 === strpos($pathinfo, '/planning/param-plan-manuel')) {
                 // e_plan_planning_indexPlanManuel
                 if ($pathinfo === '/planning/param-plan-manuel') {
@@ -196,6 +221,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // e_plan_planning_modif_enseignant
             if ($pathinfo === '/planning/modif-enseignant') {
                 return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\EnseignantController::modifEnseignantAction',  '_route' => 'e_plan_planning_modif_enseignant',);
+            }
+
+            // e_plan_planning_registrer_salle
+            if ($pathinfo === '/planning/formCreateSalle') {
+                return array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\SalleController::salleAction',  '_route' => 'e_plan_planning_registrer_salle',);
+            }
+
+            if (0 === strpos($pathinfo, '/planning/Salle')) {
+                // e_plan_planning_register_disponibilite
+                if ($pathinfo === '/planning/SalleDispo') {
+                    return array (  '_controller' => 'EPlanPlanningBundle:SalleDispo:SalleDisponible',  '_route' => 'e_plan_planning_register_disponibilite',);
+                }
+
+                // e_plan_planning_register_indisponibilite
+                if ($pathinfo === '/planning/SalleIndispo') {
+                    return array (  '_controller' => 'EPlanPlanningBundle:SalleDispo:Salleindisponible',  '_route' => 'e_plan_planning_register_indisponibilite',);
+                }
+
+            }
+
+            // e_plan_planning_view_parcourt_Type
+            if (0 === strpos($pathinfo, '/planning/viewParcourtType') && preg_match('#^/planning/viewParcourtType/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_view_parcourt_Type')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewParcourtTypeAction',));
             }
 
         }

@@ -33,12 +33,18 @@ class Departement
      * @ORM\JoinColumn(nullable=false)
      */
     private $mentions;
-
+    
     /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Enseignant", mappedBy="departement", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $enseignants;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec", mappedBy="departement")
+     */
+    private $ecs;
+
 
     /**
      * Get id
@@ -78,6 +84,7 @@ class Departement
     public function __construct()
     {
         $this->mentions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->departements = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -94,19 +101,6 @@ class Departement
         return $this;
     }
 
-    /**
-     * Add enseignants
-     *
-     * @param \EPlan\PlanningBundle\Entity\Mention $enseignants
-     * @return Departement
-     */
-    public function addEnseignant(\EPlan\PlanningBundle\Entity\Mention $enseignants)
-    {
-        $enseignants ->setDepartement($this);
-        $this->enseignants[] = $enseignants;
-        return $this;
-    }
-    
     /**
      * Remove mentions
      *
@@ -146,5 +140,73 @@ class Departement
     
     public function getNombreDeMention() {
         return $this->mentions->count();
+    }
+
+    /**
+     * Add ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\Ec $ec
+     *
+     * @return Departement
+     */
+    public function addEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+        $this->ecs[] = $ec;
+
+        return $this;
+    }
+
+    /**
+     * Remove ec
+     *
+     * @param \EPlan\PlanningBundle\Entity\Ec $ec
+     */
+    public function removeEc(\EPlan\PlanningBundle\Entity\Ec $ec)
+    {
+        $this->ecs->removeElement($ec);
+    }
+
+    /**
+     * Get ecs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcs()
+    {
+        return $this->ecs;
+    }
+
+    /**
+     * Add enseignant
+     *
+     * @param \EPlan\PlanningBundle\Entity\Enseignant $enseignant
+     *
+     * @return Departement
+     */
+    public function addEnseignant(\EPlan\PlanningBundle\Entity\Enseignant $enseignant)
+    {
+        $this->enseignants[] = $enseignant;
+    
+        return $this;
+    }
+
+    /**
+     * Remove enseignant
+     *
+     * @param \EPlan\PlanningBundle\Entity\Enseignant $enseignant
+     */
+    public function removeEnseignant(\EPlan\PlanningBundle\Entity\Enseignant $enseignant)
+    {
+        $this->enseignants->removeElement($enseignant);
+    }
+
+    /**
+     * Get enseignants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnseignants()
+    {
+        return $this->enseignants;
     }
 }

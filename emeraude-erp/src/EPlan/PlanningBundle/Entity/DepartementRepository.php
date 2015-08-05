@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class DepartementRepository extends EntityRepository
 {
+    public function findWithMentions() {
+        $qb = $this->createQueryBuilder('d')->join('d.mentions', 'm')->addSelect('m');
+        return $qb->getQuery()->getResult();
+    }
+    public function findAndGetWithAll() {
+        
+    }
 }
