@@ -25,5 +25,15 @@ class EnseignantRepository extends EntityRepository
             ->getResult();
 }
     
-    
+    public function delete($id)
+{
+
+  $qb = $this->_em->createQueryBuilder()
+                  ->delete()
+                  ->from($this->_entityName,'e')
+                  ->where('e.id = :id')
+                  ->setParameter('id', $id);
+   return $qb->getQuery()
+            ->getResult();
+}   
 }

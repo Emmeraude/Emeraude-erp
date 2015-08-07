@@ -53,6 +53,7 @@ class DivisionController extends Controller
     }
     
     public function viewGrilleAction($id) {
+
         $em = $this -> getDoctrine() -> getManager();
         $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
         $etape = $etapeRepository->find($id);
@@ -255,4 +256,54 @@ class DivisionController extends Controller
         
         return $this->redirect($this->generateUrl('e_plan_planning_manage_division'));
     }
+     public function enregistrerUEAction()
+    {
+        
+        $ue=new UE();
+        $form = $this->createForm(new UEType, $ue);
+
+        $request=$this->get('request');
+        if($request->getMethod()=='POST'){
+           $form->bind($request);
+            if($form->isValid()){
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($ue);
+                $em->flush();
+            //return $this->render('EPlanPlanningBundle:Enseignant:ficheEnseignant.html.twig',array('ens'=>$ens));
+            }
+             //$request->get('nom');
+        }
+        return $this->render('EPlanPlanningBundle:Grille:EnregistrerUE.html.twig',
+                             array(
+                                'form' => $form->createView(),
+                                 ));
+        
+       // return $this->render('EPlanPlanningBundle:Enseignant:createEnseignant.html.twig');
+    }
+    
+    public function enregistrerEcAction()
+    {
+        
+        $ec=new Ec();
+        $form = $this->createForm(new EcType, $ec);
+
+        $request=$this->get('request');
+        if($request->getMethod()=='POST'){
+           $form->bind($request);
+            if($form->isValid()){
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($ec);
+                $em->flush();
+            //return $this->render('EPlanPlanningBundle:Enseignant:ficheEnseignant.html.twig',array('ens'=>$ens));
+            }
+             //$request->get('nom');
+        }
+        return $this->render('EPlanPlanningBundle:Grille:EnregistrerEc.html.twig',
+                             array(
+                                'form' => $form->createView(),
+                                 ));
+        
+       // return $this->render('EPlanPlanningBundle:Enseignant:createEnseignant.html.twig');
+    }
+    
 }

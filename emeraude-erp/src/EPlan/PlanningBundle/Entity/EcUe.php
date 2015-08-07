@@ -29,6 +29,12 @@ class EcUe
     private $etat;
     
     /**
+     * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\UE", inversedBy="ecs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ue;
+	
+    /**
      * @ORM\ManyToOne(targetEntity="EPlan\PlanningBundle\Entity\UEGrille", inversedBy="ecUes")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -122,7 +128,6 @@ class EcUe
     {
         return $this->ec;
     }
-
     /**
      * Set ueGrille
      *

@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{% extends "EPlanPlanningBundle::template.html.twig" %}
+{%block  titrePage%}
+{%endblock %}
+
+{% block contenu %}
+
+          <h1>
+           Suppression d'Ec à {{ens.prenom}} {{ens.nom}}
+            <!--small>preview of simple tables</small-->
+          </h1>
+          <!--ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Simple</li>
+          </ol-->
+    
+ <form method="POST" action="">
+     <div class="box" style="border-top-color: skyblue;">
+       <div class="box-header with-border">
+         <h3 class="box-title">Cours Magistraux</h3>
+       </div>
+     <div class="box-body">   
+     {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="CM" %}
+           <div> <input type="checkbox" name="listEcs[]" value="{{ec.ec.id}}"> {{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
+     </div>
+    </div>
+     <div class="box" style="border-top-color: skyblue;">
+       <div class="box-header with-border">
+         <h3 class="box-title">Travaux Dirrigée</h3>
+       </div>
+     <div class="box-body">   
+       {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="TD" %}
+         <div><input type="checkbox" name="listEcs[]" value="{{ec.ec.id}}"> {{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
+     </div>
+    </div>
+     <div class="box" style="border-top-color: skyblue;">
+       <div class="box-header with-border">
+         <h3 class="box-title">Travaux Pratiques</h3>
+       </div>
+     <div class="box-body">   
+      {% for ec in ens.ecsEnseignes%}
+       {%if ec.type=="TP" %}
+         <div><input type="checkbox" name="listEcs[]" value="{{ec.ec.id}}"> {{ec.ec.code}}</div>
+       {% endif %}
+     {% endfor %}
+     </div>
+    </div>
+     
+      <input class="btn btn-primary" style="margin-right: 50px;" type="submit" value="supp">
+               <input class="btn btn-primary" style="margin-right: 50px;" type="reset" value="Annuler">
+              
+     <a class="btn btn-primary" style="margin-top: 10px;" href="{{path('e_plan_planning_consult_enseignant')}}"><<</a>
+ </form>   
+{%endblock %}

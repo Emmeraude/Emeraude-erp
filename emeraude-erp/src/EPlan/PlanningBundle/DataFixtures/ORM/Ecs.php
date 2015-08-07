@@ -19,6 +19,7 @@ use EPlan\PlanningBundle\Entity\Ec;
  */
 class Ecs implements FixtureInterface{
     public function load(ObjectManager $manager) {
+
         $departements = $manager->getRepository('EPlanPlanningBundle:Departement')->findAll();
         $ec = new Ec();
         $ec ->setLibelle('Achitecture des Ordinateurs');
@@ -27,6 +28,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
+
         $ec->setDepartement($departements[0]);
         $manager ->persist($ec);
         $manager ->flush();

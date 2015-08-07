@@ -73,7 +73,12 @@ class Ec
      * @ORM\JoinColumn(nullable=false)
      */
     private $departement;
-
+    
+     /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\EnseignantEc", mappedBy="ec")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $enseignantsEc;
 
     /**
      * Get id
@@ -234,6 +239,8 @@ class Ec
     public function __construct()
     {
         $this->ecUes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->enseigantsEc = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -317,4 +324,59 @@ class Ec
     {
         return $this->departement;
     }
+
+    /**
+     * Remove enseignantsEc
+     *
+     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $ensEc
+     */
+    public function removeEnseignantEc(\EPlan\PlanningBundle\Entity\EnseignantEc $ensEc)
+    {
+        $this->enseignantsEc->removeElement($ensEc);
+    }
+    
+    /**
+     * Get enseignantsEc
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnseignantEc()
+    {
+        return $this->enseignantsEc;
+    }
+
+    /**
+     * Add enseignantsEc
+     *
+     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $enseignantsEc
+     *
+     * @return Ec
+     */
+    public function addEnseignantsEc(\EPlan\PlanningBundle\Entity\EnseignantEc $enseignantsEc)
+    {
+        $this->enseignantsEc[] = $enseignantsEc;
+    
+        return $this;
+    }
+
+    /**
+     * Remove enseignantsEc
+     *
+     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $enseignantsEc
+     */
+    public function removeEnseignantsEc(\EPlan\PlanningBundle\Entity\EnseignantEc $enseignantsEc)
+    {
+        $this->enseignantsEc->removeElement($enseignantsEc);
+    }
+
+    /**
+     * Get enseignantsEc
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnseignantsEc()
+    {
+        return $this->enseignantsEc;
+    }
+
 }

@@ -35,15 +35,16 @@ class Departement
     private $mentions;
     
     /**
-     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec", mappedBy="departement")
-     */
-    private $ecs;
-
-    /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Enseignant", mappedBy="departement", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $enseignants;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\Ec", mappedBy="departement")
+     */
+    private $ecs;
+
 
     /**
      * Get id
@@ -83,6 +84,7 @@ class Departement
     public function __construct()
     {
         $this->mentions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->departements = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -99,19 +101,6 @@ class Departement
         return $this;
     }
 
-    /**
-     * Add enseignants
-     *
-     * @param \EPlan\PlanningBundle\Entity\Mention $enseignants
-     * @return Departement
-     */
-    public function addEnseignant(\EPlan\PlanningBundle\Entity\Mention $enseignants)
-    {
-        $enseignants ->setDepartement($this);
-        $this->enseignants[] = $enseignants;
-        return $this;
-    }
-    
     /**
      * Remove mentions
      *
@@ -185,5 +174,39 @@ class Departement
     public function getEcs()
     {
         return $this->ecs;
+    }
+
+    /**
+     * Add enseignant
+     *
+     * @param \EPlan\PlanningBundle\Entity\Enseignant $enseignant
+     *
+     * @return Departement
+     */
+    public function addEnseignant(\EPlan\PlanningBundle\Entity\Enseignant $enseignant)
+    {
+        $this->enseignants[] = $enseignant;
+    
+        return $this;
+    }
+
+    /**
+     * Remove enseignant
+     *
+     * @param \EPlan\PlanningBundle\Entity\Enseignant $enseignant
+     */
+    public function removeEnseignant(\EPlan\PlanningBundle\Entity\Enseignant $enseignant)
+    {
+        $this->enseignants->removeElement($enseignant);
+    }
+
+    /**
+     * Get enseignants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnseignants()
+    {
+        return $this->enseignants;
     }
 }

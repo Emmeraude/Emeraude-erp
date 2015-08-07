@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Plannification/indexPlanManuel.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Plannification/mention.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/PlanManuelController.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Plannification/listEcMention.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/DataFixtures/ORM/Ecs.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/DivisionController.php</file>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/editOneGrille.html.twig</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/UEType.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/UEGrille.php</file>
@@ -11,6 +18,14 @@
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Ec.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/GrilleRepository.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/DepartementRepository.php</file>
+=======
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/EcType.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/UEType.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/vendor/doctrine/common/tests/Doctrine/Tests/Common/Proxy/VariadicTypeHintClass.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/web/NosScripts/js/editGrille.js</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/web/NosScripts/js/manageShowParcourtType.js</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/app/config/routing.yml</file>
+>>>>>>> 4fd3db9023191b679aaa6cc61b1fad332d85b2c0
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Grille.php</file>
         </group>
     </open-files>

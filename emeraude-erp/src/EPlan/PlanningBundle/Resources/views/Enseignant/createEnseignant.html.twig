@@ -1,10 +1,15 @@
 {% extends "EPlanPlanningBundle::template.html.twig" %}
 {%block titrePage %}
-            Enregistrement d'un enseignant
+           
    
 {%endblock %}
 {% block contenu %}
- <form class="box-body" method="post" action="{{path('e_plan_planning_registrer_enseignant')}}"  style="margin-bottom: 100px;" {{form_enctype(form) }}>
+ <div class="box" style="padding:15px 15px 15px 20px;" style="border-top-color: skyblue;">
+       <div class="box-header with-border">
+         <h3 class="box-title">Enregistrement d'un enseignant</h3>
+       </div>
+ <div class="box-body"> 
+ <form method="post" action="{{path('e_plan_planning_registrer_enseignant')}}"  style="margin-bottom: 100px;" {{form_enctype(form) }}>
 {# Les erreurs générales du formulaire. #}
 {{ form_errors(form) }}
 <div style="margin-bottom: 20px;">
@@ -37,7 +42,7 @@
 {{ form_errors(form.email) }}
 {{ form_widget(form.email) }}
 </div>
-<div style="margin-bottom: 20px;">
+<div>
 {{ form_label(form.departement, "Departement de l'enseignant") }}
 {{ form_errors(form.departement) }}
 {{ form_widget(form.departement) }}
@@ -48,9 +53,12 @@ Dans cet exemple, ce serait « date », « auteur » et « publication »
 ,m
 ais aussi le champ CSRF (géré automatiquement par Symfony !)
 et tous les champs cachés (type « hidden »). #}
-
-<input class="btn btn-primary" type="submit" style="margin-right: 100px;"/>
- <input class="btn btn-primary" type="reset" />  
+ </div>
+ <input class="btn btn-warning" type="reset"  style="margin-right: 100px;"/> 
+ <input class="btn btn-success" type="submit" name="good" value="Creer" style="margin-right: 100px;"/>
+<input class="btn btn-success" type="submit" name="good" value="Creer puis attribuer ECs"/> 
+ 
+ </div>
 <!--
      {# On charge la bibliothèque jQuery. Ici, je la prends depuis le
 site jquery.com,

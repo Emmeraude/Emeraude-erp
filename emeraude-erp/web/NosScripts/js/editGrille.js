@@ -5,6 +5,7 @@
  */
 (function($){
     $('#addUE').click(function(e){
+
         var form = document.getElementById('formulaire');
         var div = document.getElementById('templateUE');
         var nouvelUE = div.cloneNode(true);

@@ -9,17 +9,19 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class UEType extends AbstractType
 {
         /**
-         * , 'querybuilder' => function(EPlan\PlanningBundle\Entity\EcRepository $r) use
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', 'text')
-            //->add('numSemestre', 'text')
-            ->add('code', 'text')
-            ->add('ecs', 'entity', array('class' => 'EPlanPlanningBundle:Ec', 'property' => 'code', 'multiple'=>true))
+            ->add('nom')
+            ->add('numSemestre')
+            ->add('code')
+            ->add('ecs','entity',array('class'=>'EPlanPlanningBundle:Ec',
+                                               'property'=>'code',
+                                               'multiple'=>true))
+        
         ;
     }
     

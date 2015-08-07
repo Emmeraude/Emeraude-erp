@@ -8,6 +8,7 @@
         var list = $('.parcourt:checked'),
             n = list.length;
         if(n==1){
+
             this.href = this.href.replace(/\/\d+/, '');
             this.href += '/'+list[0].value;
         }else if(n>1){

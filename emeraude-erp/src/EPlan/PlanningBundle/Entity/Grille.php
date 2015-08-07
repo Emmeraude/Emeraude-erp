@@ -40,17 +40,18 @@ class Grille
      * @ORM\JoinColumn(nullable=false)
      */
     private $etape;
-    
-    //private $ues;
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UE", mappedBy="grille", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ues;
+
     /**
      * @ORM\OneToMany(targetEntity="EPlan\PlanningBundle\Entity\UEGrille", mappedBy="grille", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $ueGrilles;
-    
-    
-
 
     /**
      * Get id
@@ -94,6 +95,19 @@ class Grille
     }
 
     /**
+     * Add ue
+     *
+     * @param \EPlan\PlanningBundle\Entity\UE $ue
+     *
+     * @return Grille
+     */
+    public function addUe(\EPlan\PlanningBundle\Entity\UE $ue)
+    {
+        $this->ues[] = $ue;
+
+	}
+	
+	/**
      * Set etape
      *
      * @param \EPlan\PlanningBundle\Entity\Etape $etape
@@ -105,16 +119,6 @@ class Grille
         $etape ->setGrille($this);
         $this->etape = $etape;
         return $this;
-    }
-
-    /**
-     * Get etape
-     *
-     * @return \EPlan\PlanningBundle\Entity\Etape
-     */
-    public function getEtape()
-    {
-        return $this->etape;
     }
 
     /**
@@ -131,6 +135,27 @@ class Grille
         return $this;
     }
 
+    /**
+     * Remove ue
+     *
+     * @param \EPlan\PlanningBundle\Entity\UE $ue
+     */
+    public function removeUe(\EPlan\PlanningBundle\Entity\UE $ue)
+    {
+        $this->ues->removeElement($ue);
+    }
+
+    /**
+     * Get ues
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUes()
+    {
+        return $this->ues;
+    }
+ 
+	
     /**
      * Remove ueGrille
      *
@@ -166,6 +191,15 @@ class Grille
     }
 
     /**
+     * Get etape
+     *
+     * @return \EPlan\PlanningBundle\Entity\Etape
+     */
+    public function getEtape()
+    {
+        return $this->etape;
+	}
+	/**
      * Get numeroSemestre
      *
      * @return integer
