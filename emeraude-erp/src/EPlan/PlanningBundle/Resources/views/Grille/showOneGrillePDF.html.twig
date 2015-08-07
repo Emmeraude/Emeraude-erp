@@ -1,0 +1,59 @@
+{% extends "EPlanPlanningBundle::templateSansMenu.html.twig" %}
+{% block print %}onload="window.print()"{% endblock %}
+{% block contenu %}
+       <section class="invoice">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="fa fa-globe"></i> Grille De Programme
+                <small class="pull-right">Ann&eacute;e acad&eacute;mique: 2015-2016</small>
+              </h2>
+            </div><!-- /.col -->
+          </div>
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+              Facult&eacute; Des Sciences
+              <address>
+                <strong>Departement : {{ etape.parcourtType.mention.departement.nom }} </strong><br>
+                Mention : {{ etape.parcourtType.mention.nom }} <br>
+                Parcourt-type : {{ etape.parcourtType.nom }} <br/>
+                Semestre : {{ etape.grille.numeroSemestre }} 
+              </address>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Table row -->
+          {% for ue in etape.grille.ueGrilles  %}
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+              <table class="table table-bordered table-striped table-condensed">
+                  <caption>
+                      <h5 class="text-bold text-center text-justify">UE {{ ue.ue.code }} : {{ue.ue.nom}}</h5>
+                  </caption>
+                <thead class="">
+                  <tr>
+                      <th class="col-xs-1"></th>
+                      <th class="col-xs-4">Code Ec</th>
+                      <th class="col-xs-7">Nom Ec</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ec in ue.ue.ecs %}
+                        <tr>
+                            <td class="col-xs-1">{{ loop.index }}</td>
+                            <td class="col-xs-4">{{ ec.code }}</td>
+                            <td class="col-xs-7">{{ ec.libelle }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          {% endfor %}
+
+          <!-- this row will not appear when printing -->
+          
+        </section>
+{% endblock %}

@@ -15,7 +15,7 @@ class GrilleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ueGrilles', 'collection', array('type' => new UEGrilleType(), 'allow_add' => true, 'allow_delete' => true))
+            ->add('ueGrilles', 'collection', array('type' => new UEGrilleType(), 'allow_add' => true, 'allow_delete' => true, 'by_reference'=>false))
             ->add('numeroSemestre', 'integer')
         ;
     }

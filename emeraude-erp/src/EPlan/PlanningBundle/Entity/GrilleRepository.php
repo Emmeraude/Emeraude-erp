@@ -10,4 +10,8 @@ namespace EPlan\PlanningBundle\Entity;
  */
 class GrilleRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findOneWithUeGrilles($id) {
+        $qb = $this->createQueryBuilder('g')->join('g.ueGrilles', 'u')->addSelect('u')->andWhere('d.id = :id')->setParameter('id', $id);
+        return $qb->getQuery()->getResult();
+    }
 }

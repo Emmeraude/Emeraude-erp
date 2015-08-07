@@ -55,9 +55,9 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimer</a>
-              <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Envoyer</button>
-              <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generer PDF</button>
+              <a href="{{ path('e_plan_planning_generate_pdf_grille', { 'id': etape.id }) }}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimer</a>
+              <a href="{{ path('e_plan_planning_send_link_grille', { 'id': etape.id }) }}" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Envoyer</a>
+              <a href="#" target="_blank" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generer PDF</a>
             </div>
           </div>
         </section>

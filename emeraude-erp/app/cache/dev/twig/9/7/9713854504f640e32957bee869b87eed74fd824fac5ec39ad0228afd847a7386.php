@@ -150,9 +150,15 @@ class __TwigTemplate_9713854504f640e32957bee869b87eed74fd824fac5ec39ad0228afd847
           <!-- this row will not appear when printing -->
           <div class=\"row no-print\">
             <div class=\"col-xs-12\">
-              <a href=\"invoice-print.html\" target=\"_blank\" class=\"btn btn-default\"><i class=\"fa fa-print\"></i> Imprimer</a>
-              <button class=\"btn btn-success pull-right\"><i class=\"fa fa-credit-card\"></i> Envoyer</button>
-              <button class=\"btn btn-primary pull-right\" style=\"margin-right: 5px;\"><i class=\"fa fa-download\"></i> Generer PDF</button>
+              <a href=\"";
+        // line 58
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_generate_pdf_grille", array("id" => $this->getAttribute((isset($context["etape"]) ? $context["etape"] : $this->getContext($context, "etape")), "id", array()))), "html", null, true);
+        echo "\" target=\"_blank\" class=\"btn btn-default\"><i class=\"fa fa-print\"></i> Imprimer</a>
+              <a href=\"";
+        // line 59
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("e_plan_planning_send_link_grille", array("id" => $this->getAttribute((isset($context["etape"]) ? $context["etape"] : $this->getContext($context, "etape")), "id", array()))), "html", null, true);
+        echo "\" class=\"btn btn-success pull-right\"><i class=\"fa fa-credit-card\"></i> Envoyer</a>
+              <a href=\"#\" target=\"_blank\" class=\"btn btn-primary pull-right\" style=\"margin-right: 5px;\"><i class=\"fa fa-download\"></i> Generer PDF</a>
             </div>
           </div>
         </section>
@@ -171,6 +177,6 @@ class __TwigTemplate_9713854504f640e32957bee869b87eed74fd824fac5ec39ad0228afd847
 
     public function getDebugInfo()
     {
-        return array (  149 => 54,  139 => 49,  122 => 46,  118 => 45,  114 => 44,  111 => 43,  94 => 42,  79 => 32,  73 => 28,  69 => 27,  60 => 21,  56 => 20,  52 => 19,  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  159 => 59,  155 => 58,  149 => 54,  139 => 49,  122 => 46,  118 => 45,  114 => 44,  111 => 43,  94 => 42,  79 => 32,  73 => 28,  69 => 27,  60 => 21,  56 => 20,  52 => 19,  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
     }
 }

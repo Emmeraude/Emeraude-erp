@@ -6,6 +6,16 @@ e_plan_planning_show_one_grille:
     defaults: { _controller: EPlanPlanningBundle:Division:viewGrille }
     requirements:
         id:    \d+
+e_plan_planning_generate_pdf_grille:
+    path:     /pdfGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:pdfGrille }
+    requirements:
+        id:    \d+
+e_plan_planning_send_link_grille:
+    path:     /sendLinkGrille/{id}
+    defaults: { _controller: EPlanPlanningBundle:Division:sendLinkGrille }
+    requirements:
+        id:    \d+
 e_plan_planning_edit_one_grille:
     path:     /editOneGrille/{id}
     defaults: { _controller: EPlanPlanningBundle:Division:editOneGrille, id: 0 }

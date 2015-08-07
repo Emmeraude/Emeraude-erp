@@ -37,12 +37,40 @@ class DivisionController extends Controller
         return $this->render('EPlanPlanningBundle:Division:menuDepartement.html.twig', array('departements'=>$listOfDepartement));
     }
     
+     public function sendLinkGrilleAction($id) {
+        $em = $this -> getDoctrine() -> getManager();
+        $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository->find($id);
+        $contenu = $this->renderView('EPlanPlanningBundle:Grille:showOneGrillePDF.html.twig', array('etape' => $etape));
+        $mailer = $this->get('mailer');
+        $message = \Swift_Message::newInstance();
+        $message->setSubject('test');
+        $message->setFrom('abel.fandio@yahoo.fr');
+        $message->setTo('dimitrieloundou@yahoo.fr');
+        $message->setBody($contenu);
+        $mailer->send($message);
+        return $this->render('EPlanPlanningBundle:Presentation:welcome.html.twig');
+    }
+    
     public function viewGrilleAction($id) {
         $em = $this -> getDoctrine() -> getManager();
         $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
         $etape = $etapeRepository->find($id);
         if($etape){
             return $this->render('EPlanPlanningBundle:Grille:showOneGrille.html.twig', array('etape' => $etape));
+        }
+        $message = new ObjectError();
+        $message->setTitle('Grille De programme Indisponible');
+        $message->setMessageUser('Cette Grille de programme est indiponible. il est probable que elle a pas ete realisee');
+        return $this->render('EPlanPlanningBundle:Presentation:RessourceIndisponible.html.twig', array('message'=>$message));
+    }
+    
+    public function pdfGrilleAction($id) {
+        $em = $this -> getDoctrine() -> getManager();
+        $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
+        $etape = $etapeRepository->find($id);
+        if($etape){
+            return $this->render('EPlanPlanningBundle:Grille:showOneGrillePDF.html.twig', array('etape' => $etape));
         }
         $message = new ObjectError();
         $message->setTitle('Grille De programme Indisponible');
@@ -59,7 +87,7 @@ class DivisionController extends Controller
             $grille = new Grille();
             $ue = new UEGrille();
             $parcourt = $etape -> getParcourtType();
-            $grille ->setTitre('Grille de Prodramme'.$parcourt->getNom());
+            $grille ->setTitre('Grille de Programme'.$parcourt->getNom());
             $grille->setEtape($etape);
             $ec = new Ec();
             $ue ->addEc($ec);

@@ -133,6 +133,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_show_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::viewGrilleAction',));
             }
 
+            // e_plan_planning_generate_pdf_grille
+            if (0 === strpos($pathinfo, '/planning/pdfGrille') && preg_match('#^/planning/pdfGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_generate_pdf_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::pdfGrilleAction',));
+            }
+
+            // e_plan_planning_send_link_grille
+            if (0 === strpos($pathinfo, '/planning/sendLinkGrille') && preg_match('#^/planning/sendLinkGrille/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_send_link_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::sendLinkGrilleAction',));
+            }
+
             // e_plan_planning_edit_one_grille
             if (0 === strpos($pathinfo, '/planning/editOneGrille') && preg_match('#^/planning/editOneGrille(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'e_plan_planning_edit_one_grille')), array (  '_controller' => 'EPlan\\PlanningBundle\\Controller\\DivisionController::editOneGrilleAction',  'id' => 0,));

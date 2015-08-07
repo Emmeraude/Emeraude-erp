@@ -7,9 +7,9 @@ parameters:
     database_user: root
     database_password: null
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: smtp.yahoo.fr
+    mailer_user: abel.fandio@yahoo.fr
+    mailer_password: tagni1981
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
     debug_toolbar: true
