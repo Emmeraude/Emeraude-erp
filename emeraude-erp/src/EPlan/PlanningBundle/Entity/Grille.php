@@ -122,16 +122,6 @@ class Grille
     }
 
     /**
-     * Get etape
-     *
-     * @return \EPlan\PlanningBundle\Entity\Etape
-     */
-    public function getEtape()
-    {
-        return $this->etape;
-    }
-
-    /**
      * Add ueGrille
      *
      * @param \EPlan\PlanningBundle\Entity\UEGrile $ueGrille
@@ -164,18 +154,7 @@ class Grille
     {
         return $this->ues;
     }
-
-    /**
-     * Set etape
-     *
-     * @param \EPlan\PlanningBundle\Entity\Etape $etape
-     *
-     * @return Grille
-     */
-    public function setEtape(\EPlan\PlanningBundle\Entity\Etape $etape)
-    {
-        $this->etape = $etape;
-    }
+ 
 	
     /**
      * Remove ueGrille

@@ -21,14 +21,10 @@ class EcType extends AbstractType
             ->add('volHeuresCM')
             ->add('volHeuresTP')
             ->add('niveau')
-<<<<<<< HEAD
             ->add('departement','entity',array('class'=>'EPlanPlanningBundle:Departement',
                                                'property'=>'nom',
                                                'multiple'=>false,
                                                'expanded'=>false))
-=======
-            ->add('departement')
->>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
         ;
     }
     

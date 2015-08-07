@@ -5,16 +5,7 @@
  */
 (function($){
     $('#addUE').click(function(e){
-<<<<<<< HEAD
-        var div = document.getElementById('templateUE'),
-            form = document.getElementById('formulaire');
-        var nouvelUE = div.cloneNode(true);
-        form.insertBefore(nouvelUE,div);
-        nouvelUE.style.display = 'block';
-    }
-            );
-})(jQuery);
-=======
+
         var form = document.getElementById('formulaire');
         var div = document.getElementById('templateUE');
         var nouvelUE = div.cloneNode(true);
@@ -45,4 +36,3 @@
         
     });
 })(jQuery);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d

@@ -28,51 +28,37 @@
                    </form>
                </div>
             <form method="POST" action="{{path('e_plan_planning_ec_enseignant')}}">
-                <label style="font-size: 15px;">Genre : </label><select name="type" style="margin-bottom: 20px;">
-              <option value="CM">Cours Magistral</option>
-              <option value="TD">Travaux Dirrigés</option>
-              <option value="TP">Travaux Pratiques</option>
-          </select>
+               
                 <input type="hidden" name="id" value="{{ens.id}}">
               <div class="box">
                 <!--div class="box-header with-border">
                   <h3 class="box-title">B</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table class="table table-bordered">
-                   
-                    <tr><th style="width: 20px"></th>
-                      <th style="width: 20px">#</th>
-                      <th>Code</th>
-                      <th>Libelle</th>
-                      <!--th style="width: 50px">Libelle</th-->
-                    </tr>
+                    <label >Selectionner les ECs en Cours Magistraux</label>
+                    <select multiple="multiple" name="cm[]" class="mySelect">
                     {% for ec in listEc %}
-                    <tr>
-                      <td><input type="checkbox" name="ecEns[]" value="{{ec.id}}" /><!--span class="badge bg-red">55%</span--></td>  
-                     <!--a href="{{path('e_plan_planning_index_enseignant')}}">Plus</a--><td>{{ec.id}}</td>
-                      <td>{{ec.code}}</td>
-                      <td>{{ec.libelle}}
-                        <!--div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div-->
-                      </td> 
-                      <!--td> <a href="{{path('e_plan_planning_index_enseignant')}}">Plus</a></td-->
-                    </tr>
+                        <option value="{{ec.id}}"> {{ec.code}} </option>
                     {% endfor %}
-                  </table>
-                   
-                 
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
+                    </select>
                 </div>
+                <div class="box-body">
+                    <label >Selectionner les ECs en Travaux Dirrigés</label>
+                    <select multiple="multiple" name="td[]" class="mySelect">
+                    {% for ec in listEc %}
+                        <option value="{{ec.id}}"> {{ec.code}} </option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="box-body">
+                    <label >Selectionner les ECs en Travaux Pratiques</label>
+                    <select multiple="multiple" name="tp[]" class="mySelect">
+                    {% for ec in listEc %}
+                        <option value="{{ec.id}}"> {{ec.code}} </option>
+                    {% endfor %}
+                    </select>
+                </div><!-- /.box-body -->
+              
               </div><!-- /.box -->
               
                <input class="btn btn-primary" style="margin-right: 50px;" type="submit" value="allouer">
@@ -90,3 +76,10 @@
      
     
  {% endblock %}
+ {%block script %}
+    <script src={{ asset("NosScripts/js/jquery.sumoselect.min.js") }} type="text/javascript"></script>
+    <link href={{ asset("NosScripts/css/sumoselect.css") }} rel="stylesheet" />
+    <script type="text/javascript">
+        $('.mySelect').SumoSelect({placeholder: 'Selectionner les Ecs'});
+    </script>
+{% endblock %}

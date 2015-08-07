@@ -19,11 +19,8 @@ use EPlan\PlanningBundle\Entity\Ec;
  */
 class Ecs implements FixtureInterface{
     public function load(ObjectManager $manager) {
-<<<<<<< HEAD
-        $departement = $manager->getRepository('EPlanPlanningBundle:Departement')->find(1);
-=======
+
         $departements = $manager->getRepository('EPlanPlanningBundle:Departement')->findAll();
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $ec = new Ec();
         $ec ->setLibelle('Achitecture des Ordinateurs');
         $ec->setCode('IN120');
@@ -31,11 +28,8 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-<<<<<<< HEAD
-        $ec->setDepartement($departement);
-=======
+
         $ec->setDepartement($departements[0]);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -45,11 +39,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-<<<<<<< HEAD
-        $ec->setDepartement($departement);
-=======
         $ec->setDepartement($departements[0]);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -59,11 +49,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-<<<<<<< HEAD
-        $ec->setDepartement($departement);
-=======
         $ec->setDepartement($departements[0]);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -73,11 +59,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-<<<<<<< HEAD
-        $ec->setDepartement($departement);
-=======
         $ec->setDepartement($departements[0]);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $manager ->persist($ec);
         $manager ->flush();
         $ec = new Ec();
@@ -87,11 +69,7 @@ class Ecs implements FixtureInterface{
         $ec->setVolHeuresCM(15);
         $ec->setVolHeuresTD(10);
         $ec->setVolHeuresTP(5);
-<<<<<<< HEAD
-        $ec->setDepartement($departement);
-=======
         $ec->setDepartement($departements[0]);
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
         $manager ->persist($ec);
         $manager ->flush();
     }

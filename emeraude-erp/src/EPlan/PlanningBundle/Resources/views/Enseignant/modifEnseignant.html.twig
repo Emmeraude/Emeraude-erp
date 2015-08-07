@@ -22,7 +22,7 @@
         <input class="btn btn-primary" type="submit" value="Ajouter des ECs"/>
        </form>
          
-        <form action="#" method="post" style="display: inline;margin: 20px 20px 20px 20px;">
+        <form action="{{path('e_plan_planning_suppec_enseignant')}}" method="post" style="display: inline;margin: 20px 20px 20px 20px;">
         <input type="hidden" name="id" value="{{ens.id}}"/>
         <input type="hidden" name="nom" value="{{ens.nom}}"/>
          <input type="hidden" name="prenom" value="{{ens.prenom}}"/>

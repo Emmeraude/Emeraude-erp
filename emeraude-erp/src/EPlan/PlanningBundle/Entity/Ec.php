@@ -324,20 +324,6 @@ class Ec
     {
         return $this->departement;
     }
-    
-    /**
-     * Add enseignantsEc
-     *
-     * @param \EPlan\PlanningBundle\Entity\EnseignantEc $ensEc
-     *
-     * @return Ec
-     */
-    public function addEnseignantEc(\EPlan\PlanningBundle\Entity\EnseignantEc $ensEc)
-    {
-        $this->enseignantsEc[] = $ensEc;
-
-        return $this;
-    }
 
     /**
      * Remove enseignantsEc

@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label class="col-lg-3">Ecs de l'ue</label>
                                 <div class="col-lg-9">
-                                    <select multiple class="form-control">
+                                    <select multiple class="form-control mySelect">
                                         {% for ec in etape.parcourtType.mention.departement.ecs %}
                                          <option>{{ ec.code}} </option>
                                         {% endfor %}

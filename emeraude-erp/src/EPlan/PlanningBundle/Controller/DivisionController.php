@@ -8,18 +8,11 @@ use EPlan\PlanningBundle\Entity\Etape;
 use EPlan\PlanningBundle\Entity\Mention;
 use EPlan\PlanningBundle\Entity\Departement;
 use EPlan\PlanningBundle\Entity\ObjectError;
-<<<<<<< HEAD
-use EPlan\PlanningBundle\Entity\Ec;
-use EPlan\PlanningBundle\Entity\UE;
-use EPlan\PlanningBundle\Form\UEType;
-use EPlan\PlanningBundle\Form\EcType;
-=======
 use EPlan\PlanningBundle\Entity\Grille;
 use EPlan\PlanningBundle\Form\GrilleType;
 use EPlan\PlanningBundle\Entity\UE;
 use EPlan\PlanningBundle\Entity\Ec;
 use EPlan\PlanningBundle\Entity\UEGrille;
->>>>>>> eea1c82c0eb0e23ab76a00fcf489ea99553eae9a
 
 class DivisionController extends Controller
 {
@@ -45,18 +38,7 @@ class DivisionController extends Controller
     }
     
     public function viewGrilleAction($id) {
-<<<<<<< HEAD
-        return $this->redirect($this->generateUrl('e_plan_planning_manage_division'));
-    }
-    
-    public function editOneGrilleAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $etapeRepository = $em->getRepository('EPlanPlanningBundle:Etape');
-        $etape = $etapeRepository ->find($id);
-        //$departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
-        //$listOfEcs = $departement -> getEcs();
-        return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape));
-=======
+
         $em = $this -> getDoctrine() -> getManager();
         $etapeRepository = $em ->getRepository('EPlanPlanningBundle:Etape');
         $etape = $etapeRepository->find($id);
@@ -102,7 +84,6 @@ class DivisionController extends Controller
         //$departement = $etape -> getParcourtType() -> getMention() -> getDepartement();
         //$listOfEcs = $departement -> getEcs();
         return $this->render('EPlanPlanningBundle:Grille:editOneGrille.html.twig', array('etape'=>$etape, 'nombreUes'=>$nombreUes, 'form' => $form ->createView()));
->>>>>>> e6fdc6664e6a6e0b1d84df385d6e9c2eab55dd6d
     }
     
     public function registerOneGrilleAction($id) {

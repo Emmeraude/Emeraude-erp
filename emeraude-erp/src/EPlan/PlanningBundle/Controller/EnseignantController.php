@@ -10,17 +10,16 @@ use EPlan\PlanningBundle\Entity\EnseignantEc;
 use EPlan\PlanningBundle\Form\EnseignantType;
 class EnseignantController extends Controller
 {
-   public function listEcDeptAction(Enseignant $id)
+   public function listEcDeptAction($id,$listEcDept)
     {
         $ensRepository= $this->getDoctrine()
                           ->getManager()
                           ->getRepository('EPlanPlanningBundle:Enseignant');
-        $ens= $ensRepository->find($id->getId());
+        $id= $ensRepository->find($id->getId());
         $ecRepository=$this->getDoctrine()
                             ->getManager()
                             ->getRepository('EPlanPlanningBundle:Ec');
-        $listEcDept= $ecRepository->findByDepartement($ens->getDepartement());
-        return $this->render('EPlanPlanningBundle:Enseignant:attribEcEnseignant.html.twig',array('ens'=>$ens,'listEc'=>$listEcDept));
+        $listEcDept= $ecRepository->findByDepartement($id->getDepartement());
            
   }
   
@@ -38,13 +37,21 @@ class EnseignantController extends Controller
                 $em->flush();
             if($btn==='Creer'){
              return $this->render('EPlanPlanningBundle:Enseignant:ficheEnseignant.html.twig',array('ens'=>$ens,'good'=>$btn));
-            }else{
-                $this->listEcDeptAction($ens);
-                
             }
+            if($btn==='Creer puis attribuer ECs'){
+                      $ensRepository= $this->getDoctrine()
+                          ->getManager()
+                          ->getRepository('EPlanPlanningBundle:Enseignant');
+        $ens= $ensRepository->find($ens->getId());
+        $ecRepository=$this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('EPlanPlanningBundle:Ec');
+        $listEcDept= $ecRepository->findByDepartement($ens->getDepartement());
+              return $this->render('EPlanPlanningBundle:Enseignant:attribEcEnseignant.html.twig',array('ens'=>$ens,'listEc'=>$listEcDept));
+   
+             }
             
             }
-             $request->get('nom');
         }
         return $this->render('EPlanPlanningBundle:Enseignant:createEnseignant.html.twig',
                              array(
@@ -109,7 +116,6 @@ class EnseignantController extends Controller
     
     public function attribEcAction()
     {
-      $ens= new Enseignant();
       $ecEnsei=new EnseignantEc();
       $request=$this->get('request');
       if($request->getMethod()=='POST'){
@@ -118,19 +124,21 @@ class EnseignantController extends Controller
                           ->getRepository('EPlanPlanningBundle:Enseignant');
           $ident=$request->get('id');
           $ens= $ensRepository->find($ident);
-          $list=$request->get('ecEns');
-          $type=$request->get('type');
-         foreach ($list as $ec ){
-             $ecRepository=$this->getDoctrine()->getManager()->getRepository('EPlanPlanningBundle:Ec');
-              $ecEnsei->setType($type);
-              $ecEnsei->setEnseignant($ens);
-              $ecEnsei->setEc($ecRepository->find($ec));
-              $this->getDoctrine()->getManager()->persist($ecEnsei);
-              $this->getDoctrine()->getManager()->flush();
-              $ens->addEcsEnseignes($ecEnsei);
-              $this->getDoctrine()->getManager()->flush();
-              
-          }
+          $cm=$request->get('cm');
+          $td=$request->get('td');
+          $tp=$request->get('tp');
+     
+          foreach ($cm as $ec ){
+             $this->typeEcsEns('CM',$ecEnsei,$ens,$ec);
+         } 
+         
+          foreach ($td as $ec ){
+            $this->typeEcsEns('TD',$ecEnsei,$ens,$ec);
+          } 
+          
+          foreach ($tp as $ec ){
+             $this->typeEcsEns('TP',$ecEnsei,$ens,$ec);
+          } 
           return $this->render('EPlanPlanningBundle:Enseignant:ficheEnseignant.html.twig',array('ens'=>$ens));
         }
     }
@@ -184,6 +192,38 @@ class EnseignantController extends Controller
         $ens=$ensRepository->findAll();
         
         return $this->render('EPlanPlanningBundle:Enseignant:consultEnseignant.html.twig',array('listEns'=>$ens));
+     }
+    }
+    
+    
+    public function typeEcsEns($s,$enEc,$ens,$ec)
+    {
+        
+     $ecRepository=$this->getDoctrine()->getManager()->getRepository('EPlanPlanningBundle:Ec');
+              $enEc->setType($s);
+              $enEc->setEnseignant($ens);
+              $e=$ecRepository->find($ec);
+              $enEc->setEc($e);
+              $this->getDoctrine()->getManager()->persist($enEc);
+              $this->getDoctrine()->getManager()->flush();
+              $ens->addEcsEnseignes($enEc);
+              $e->addEnseignantsEc($enEc);
+              $this->getDoctrine()->getManager()->flush();   
+    }
+    
+    
+    public function suppEcEnseignantAction()
+    {
+        $ens= new Enseignant();
+        $request=$this->get('request');
+        if($request->getMethod()=='POST'){
+        $ensRepository= $this->getDoctrine()
+                          ->getManager()
+                          ->getRepository('EPlanPlanningBundle:Enseignant');
+        $ident=$request->get('id');
+        $ens=$ensRepository->find($ident);
+        
+        return $this->render('EPlanPlanningBundle:Enseignant:suppEcEnseignant.html.twig',array('ens'=>$ens));
      }
     }
 }
