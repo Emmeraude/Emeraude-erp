@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Controller/DivisionController.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Resources/views/Grille/editOneGrille.html.twig</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/UEType.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/UEGrille.php</file>
+            <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Form/UEGrilleType.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/Ec.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/GrilleRepository.php</file>
             <file>file:/C:/wamp/www/Emeraude-erp/emeraude-erp/src/EPlan/PlanningBundle/Entity/DepartementRepository.php</file>
